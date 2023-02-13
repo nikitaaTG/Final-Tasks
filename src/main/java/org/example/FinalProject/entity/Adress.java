@@ -4,14 +4,17 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigInteger;
 import java.util.Date;
 
 @Entity
+@Getter @Setter @NoArgsConstructor
 @Table(name = "adress")
 public class Adress {
-    public Adress() {}
 
     @Id
     @Column(name = "id", unique = true)
@@ -46,86 +49,13 @@ public class Adress {
     @NotEmpty(message = "Apartment is empty")
     private int apartment;
 
-    @Column(name = "client_id")
+    @Column(insertable=false, updatable=false,name = "user_id")
     @NotNull
-    private int clientId;
+    private int userId;
 
 
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "client_id", nullable = false)
-    private Client client;
-
-
-    public  Client getClient() {
-        return  client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public int getPostIndex() {
-        return postIndex;
-    }
-
-    public void setPostIndex(int postIndex) {
-        this.postIndex = postIndex;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public int getHome() {
-        return home;
-    }
-
-    public void setHome(int home) {
-        this.home = home;
-    }
-
-    public int getApartment() {
-        return apartment;
-    }
-
-    public void setApartment(int apartment) {
-        this.apartment = apartment;
-    }
-
-    public int getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(int clientId) {
-        this.clientId = clientId;
-    }
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

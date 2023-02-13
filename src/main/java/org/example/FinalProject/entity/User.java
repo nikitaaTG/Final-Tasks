@@ -3,6 +3,10 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.example.FinalProject.enums.RoleOnSite;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigInteger;
@@ -10,9 +14,11 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "client")
-public class Client {
-    public Client() {}
+public class User {
 
     @Id
     @Column(name = "id", unique = true)
@@ -54,7 +60,7 @@ public class Client {
 
 
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private Set<Adress> adresses;
 
     public Set<Adress> getAdresses() {
