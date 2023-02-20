@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Product</title>
+</head>
+<body>
+<form th:method="post" th:action="@{/assortment}" th:object="${product}">
+    <div>
+        <label for="title">Product Title:</label>
+        <input type="text" th:field="*{title}" id="title">
+         <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>
+        <br/>
+
+        <label for="description">Description:</label>
+        <input type="text" th:field="*{description}" id="description">
+        <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description error</div>
+        <br/>
+
+        <label for="price">Price:</label>
+        <input type="number" step="0.01" th:field="*{price}" id="price">
+        <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price error</div>
+        <br/>
+
+        <label for="city">City:</label>
+        <input type="text" th:field="*{city}" id="city">
+        <div style="color:red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City error</div>
+        <br/>
+
+        <label for="author">Author:</label>
+        <input type="text" th:field="*{author}" id="author">
+        <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author error</div>
+        <br/>
+
+        <input type="submit" value="Add New Product">
+    </div>
+</form>
+</body>
+</html>

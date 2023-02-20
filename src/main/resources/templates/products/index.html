@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+
+<!--<p th:text="${products}" />-->
+<div th:each="product : ${products}">
+    <a th:text="${product.getTitle()}" th:href="@{/assortment/{id}(id=${product.getId()})}">product</a>
+</div>
+<p>😃</p>
+<form method="get" action="/assortment/new">
+    <input type="submit" value="Add Product">
+</form>
+</body>
+</html>
+

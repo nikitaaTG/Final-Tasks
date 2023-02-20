@@ -1,4 +1,4 @@
-package org.example.FinalProject.entity;
+package org.example.FinalProject.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -9,12 +9,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigInteger;
-import java.util.Date;
 
 @Entity
-@Getter @Setter @NoArgsConstructor
-@Table(name = "adress")
-public class Adress {
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "address")
+public class Address {
 
     @Id
     @Column(name = "id", unique = true)

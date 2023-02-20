@@ -1,5 +1,6 @@
-package org.example.FinalProject.entity;
+package org.example.FinalProject.models;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -17,7 +18,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "client")
+@Table(name = "user")
 public class User {
 
     @Id
@@ -35,13 +36,14 @@ public class User {
     @Size(min = 2, max = 55, message = "Surname must contain from 2 to 55 characters")
     private String surname;
 
-    @Column(name = "date of birth")
+    @Column(name = "date_of_birth")
     @NotNull(message = "Birthday is empty")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date birthDay;
 
-    @Column(name = "email adress", unique = true)
+    @Column(name = "email_address", unique = true)
+    @Email
     @NotEmpty(message = "E-mail is empty")
     private String email;
 
@@ -61,13 +63,13 @@ public class User {
 
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
-    private Set<Adress> adresses;
+    private Set<Address> adresses;
 
-    public Set<Adress> getAdresses() {
+    public Set<Address> getAdresses() {
         return adresses;
     }
 
-    public void setAdresses(Set<Adress> adresses) {
+    public void setAdresses(Set<Address> adresses) {
         this.adresses = adresses;
     }
 
