@@ -24,7 +24,9 @@ public class AssortmentController {
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") long id, Model model){
-        model.addAttribute("product", productDAO.show(id));
+        Product product = productDAO.show(id);
+        model.addAttribute("product", product);
+        model.addAttribute("prodTitle", product.getTitle());
     return "products/show";
     }
 
@@ -40,12 +42,14 @@ public class AssortmentController {
         if (bindingResult.hasErrors()) {
             return "products/addProduct"; }
         productDAO.save(product);
-        return "redirect:/";
+        return "redirect:/assortment";
     }
 
     @GetMapping("/{id}/editProduct")
     public String editProduct (Model model, @PathVariable("id") long id){
-        model.addAttribute("product", productDAO.show(id));
+        Product product =  productDAO.show(id);
+        model.addAttribute("product", product);
+        model.addAttribute("prodTitle", product.getTitle());
         return "products/editProduct";
     }
 
@@ -56,12 +60,12 @@ public class AssortmentController {
             return "products/editProduct";
         }
         productDAO.update(id, product);
-        return "redirect:/products/{id}";
+        return "redirect:/assortment/{id}";
     }
 
     @DeleteMapping("/{id}")
     public String deleteProduct(@PathVariable("id") long id) {
         productDAO.delete(id);
-        return "redirect:/products";
+        return "redirect:/assortment";
     }
 }

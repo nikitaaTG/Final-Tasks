@@ -12,10 +12,10 @@ public class ProductDAO {
      long id=0;
     {
         products = new ArrayList<>();
-        products.add(new Product(++id, "Test", "TestTestTest", 123.2, "Test", "Test"));
-        products.add(new Product(++id, "Test2", "TestTestTest", 123.2, "Test", "Test"));
-        products.add(new Product(++id, "Test3", "TestTestTest", 123.2, "Test", "Test"));
-        products.add(new Product(++id, "Test4", "TestTestTest", 123.2, "Test", "Test"));
+        products.add(new Product(++id, "Test", 123.2, 2, "Test"));
+        products.add(new Product(++id, "Test2", 123.2, 3, "Test"));
+        products.add(new Product(++id, "Test3", 123.2, 2, "Test"));
+        products.add(new Product(++id, "Test4", 123.2, 2, "Test"));
     }
 
     public List<Product> index() {
@@ -38,8 +38,7 @@ public class ProductDAO {
 
         productToUpdate.setTitle(updatedProduct.getTitle());
         productToUpdate.setPrice(updatedProduct.getPrice());
-        productToUpdate.setDescription(updatedProduct.getDescription());
-        productToUpdate.setCity(updatedProduct.getCity());
+        productToUpdate.setLeftInStock(updatedProduct.getLeftInStock());
         productToUpdate.setAuthor(updatedProduct.getAuthor());
     }
 
