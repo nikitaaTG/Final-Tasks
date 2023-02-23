@@ -1,5 +1,6 @@
 package org.example.FinalProject.controllers;
 
+import org.example.FinalProject.enums.RoleOnSite;
 import org.example.FinalProject.models.User;
 import org.example.FinalProject.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +24,12 @@ public class UserController {
     }
 
 
-
-    @GetMapping("/create")
-    private String createUser(Model model) {
-        model.addAttribute("user", new User());
+    @GetMapping("/registration")
+    public String showRegistrationPage(Model model) {
+        User newUser = new User();
+//        newUser.setUserDeleted(false);
+//        newUser.setRole(RoleOnSite.CLIENT);
+        model.addAttribute("user", newUser);
         return "entrance/registration";
     }
 
@@ -35,6 +38,10 @@ public class UserController {
     private String createUser(User user) {
         userService.createUser(user);
         return "redirect:/homepage";
+    }
+    @GetMapping("/login")
+    public String showLoginPage(){
+        return "entrance/login";
     }
 //    @GetMapping("/user/create")
 //    public String createUserForm(User user){

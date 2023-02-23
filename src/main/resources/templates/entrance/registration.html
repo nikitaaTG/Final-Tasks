@@ -9,14 +9,34 @@
 <div th:insert="~{blocks/header :: header}"></div>
 <h1>Registration</h1>
 <h3>Create a new profile</h3>
-<form action="/user/registration" method="post">
-    Name: <input type="text" name="name"/><br><br>
-    Surname: <input type="text" name="surname"/><br><br>
-    Date of birth: <input type="date" name="birthday"/><br><br>
-    Email: <input type="email" name="email"/><br><br>
-    Password: <input type="password" name="password1"/><br><br>
-    Repeat password: <input type="password" name="password2"/><br><br>
-    <input type="submit" value="Create new profile">
+<form th:method="post" th:action="@{/user/registration}" th:object="${user}">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" th:field="*{name}" id="name">
+        <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+        <br>
+        <label for="surname">Surname:</label>
+        <input type="text" th:field="*{name}" id="surname">
+        <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Surname error</div>
+        <br>
+        <label for="dateOfBirth">Birthday:</label>
+        <input type="date" th:field="*{dateOfBirth}" id="dateOfBirth">
+        <div style="color:red" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">Surname error</div>
+        <br>
+        <label for="email">E-mail:</label>
+        <input type="email" th:field="*{email}" id="email">
+        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail error</div>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" th:field="*{password}" id="password">
+        <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+        <br>
+<!--        <label for="password">Confirm password:</label>-->
+<!--        <input type="password" th:field="*{confirmPassword}" id="confirmPassword">-->
+<!--        <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{confirmPassword}">confirmPassword error</div>-->
+<!--        <br>-->
+        <input type="submit" value="Registration">
+    </div>
 </form>
 <form method="get" action="/login">
     <input type="submit" value="Log In">

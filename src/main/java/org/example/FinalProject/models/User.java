@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.FinalProject.enums.RoleOnSite;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigInteger;
@@ -51,6 +52,9 @@ public class User {
     @NotEmpty(message = "Password is empty")
     private String password;
 
+    @Column(insertable=false, updatable=false, name = "date_of_birth")
+    private Date dateOfBirth;
+
     @Column(name = "role")
     @NotNull
     private RoleOnSite role;
@@ -63,63 +67,14 @@ public class User {
 
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
-    private Set<Address> adresses;
+    private Set<Address> addresses;
 
-    public Set<Address> getAdresses() {
-        return adresses;
+    public Set<Address> getAddresses() {
+        return addresses;
     }
 
-    public void setAdresses(Set<Address> adresses) {
-        this.adresses = adresses;
+    public void setAddresses(Set<Address> adresses) {
+        this.addresses = adresses;
     }
 
-
-
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public Date getBirthDay() {
-        return birthDay;
-    }
-
-    public void setBirthDay(Date birthDay) {
-        this.birthDay = birthDay;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

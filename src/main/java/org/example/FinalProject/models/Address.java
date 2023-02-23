@@ -54,8 +54,6 @@ public class Address {
     @NotNull
     private int userId;
 
-
-
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
