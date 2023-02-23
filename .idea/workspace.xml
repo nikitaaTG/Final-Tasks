@@ -8,31 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="Saving changes before switching to repositories:&#10;Added header &amp; footer">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AuthorizationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/DAO/ProductDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/controllers/AssortmentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/controllers/AuthorizationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/FinalProject/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/models/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/FinalProject/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/entrance/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/entrance/registration.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/homepage/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/homepage/homepage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/products/addProduct.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/products/editProduct.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/products/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/products/show.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-    </list>
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="work progress commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677060339251</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="work progress commit">
+      <created>1677143059761</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677143059762</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,7 +175,8 @@
     <MESSAGE value="second real commit:&#10;Added:&#10;1. Lombok anotations&#10;2. Connection to DB&#10;Fixed:&#10;1. .gitignore file&#10;2. enum of roles on site (renamed and moved)&#10;3. Class &quot;Client&quot; renamed in &quot;User&quot;&#10;Deleted:&#10;1. Plugin trash file" />
     <MESSAGE value="Added:&#10;1. 8 pages of html.&#10;2. page controller&#10;3. Product POJO&#10;Fixed:&#10;1. small pom.xml fixes, &#10;2. small fixes User/Address POJO" />
     <MESSAGE value="Saving changes before switching to repositories:&#10;Added header &amp; footer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Saving changes before switching to repositories:&#10;Added header &amp; footer" />
+    <MESSAGE value="work progress commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="work progress commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
