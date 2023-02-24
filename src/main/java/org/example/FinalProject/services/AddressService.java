@@ -1,6 +1,6 @@
 package org.example.FinalProject.services;
 
-import org.example.FinalProject.models.Address;
+import org.example.FinalProject.models.AddressEntity;
 import org.example.FinalProject.repositories.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,15 +17,15 @@ public class AddressService {
         this.addressRepository = addressRepository;
     }
 
-    public Address findByUserID (BigInteger id) {
+    public AddressEntity findByUserID (Long id) {
         return  addressRepository.getReferenceById(id);
     }
 
-    public Address addAddress(Address address) {
-        return  addressRepository.save(address);
+    public AddressEntity addAddress(AddressEntity addressEntity) {
+        return  addressRepository.save(addressEntity);
     }
 
-    public void deleteAddress(BigInteger id) {
+    public void deleteAddress(Long id) {
         addressRepository.deleteById(id);
     }
 }

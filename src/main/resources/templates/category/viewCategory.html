@@ -7,11 +7,13 @@
 </head>
 <body>
 <div th:insert="~{blocks/header :: header}"></div>
-<h1>All products</h1>
-<div th:each="test : ${tests}">
-    <a th:text="${test.getName()}">test</a>
-    <a th:text="${test.getSurname()}">test</a>
-</div>
+<h1>Category is created</h1>
+<p th:text="${category.getId()}"/>
+<p th:text="${category.getName()}"/>
+
+<form method="get" action="/assortment/allCategories">
+    <input type="submit" value="View all categories">
+</form>
 <p>🤯🤯🤯🤯🤯🤯</p>
 <hr>
 <div th:insert="~{blocks/footer :: footer}"></div></body>

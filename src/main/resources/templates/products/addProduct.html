@@ -7,7 +7,7 @@
 </head>
 <body>
 <div th:insert="~{blocks/header :: header}"></div>
-<h1>Add new product</h1>
+<h1>Add new productEntity</h1>
 <form th:method="post" th:action="@{/assortment}" th:object="${product}">
     <div>
         <label for="title">Product Title:</label>
@@ -25,10 +25,10 @@
         <div style="color:red" th:if="${#fields.hasErrors('leftInStock')}" th:errors="*{leftInStock}">leftInStock error</div>
         <br/>
 
-        <label for="author">Author:</label>
-        <input type="text" th:field="*{author}" id="author">
-        <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author error</div>
-        <br/>
+        <label>Category:</label>
+        <select th:field="*{categoryId}" >
+            <option th:text="${category.getName()}" th:each="category : ${categories}" id="category" th:value="${category.getId()}"></option>
+        </select>
 
         <input type="submit" value="Add New Product">
     </div>

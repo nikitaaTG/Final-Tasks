@@ -8,10 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.FinalProject.enums.RoleOnSite;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.Set;
 
@@ -20,12 +18,12 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Table(name = "user")
-public class User {
+public class UserEntity {
 
     @Id
     @Column(name = "id", unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private long id;
 
     @Column(name = "name")
     @NotEmpty(message = "Name is empty")
@@ -67,14 +65,14 @@ public class User {
 
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
-    private Set<Address> addresses;
+    private Set<AddressEntity> addressEntities;
 
-    public Set<Address> getAddresses() {
-        return addresses;
+    public Set<AddressEntity> getAddressEntities() {
+        return addressEntities;
     }
 
-    public void setAddresses(Set<Address> adresses) {
-        this.addresses = adresses;
+    public void setAddressEntities(Set<AddressEntity> adresses) {
+        this.addressEntities = adresses;
     }
 
 }

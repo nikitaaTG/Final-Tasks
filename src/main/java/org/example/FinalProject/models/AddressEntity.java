@@ -8,19 +8,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @Table(name = "address")
-public class Address {
+public class AddressEntity {
 
     @Id
     @Column(name = "id", unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private long id;
 
     @Column(name = "country")
     @NotEmpty(message = "Country is empty")
@@ -56,5 +54,5 @@ public class Address {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private UserEntity user;
 }

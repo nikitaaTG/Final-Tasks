@@ -8,7 +8,70 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="work progress commit" />
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="added .gitignore">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/CategoryEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/CategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/category/allCategories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/DAO/ProductDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/AddressEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/ProductEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/AddressRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/TestRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/TestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/viewCategory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/DAO/ProductDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/FinalProjectApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/controllers/AssortmentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/controllers/HomepageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/controllers/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/controllers/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/enums/RoleOnSite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/models/Address.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/models/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/models/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/repositories/AddressRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/repositories/ProductRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/repositories/TestRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/services/AddressService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/services/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/services/TestService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/FinalProject/services/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/blocks/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/blocks/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/entrance/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/entrance/registration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/homepage/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/homepage/homepage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/products/addProduct.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/products/editProduct.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/products/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/products/show.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/FinalProject/FinalProjectApplicationTests.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,9 +81,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -53,7 +116,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/tmplts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -65,17 +128,17 @@
       <recent name="com.webshop.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/templates/tmplts" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/tmplts" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/homepage" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/category" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/blocks" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/template 2" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates2" />
-      <recent name="$PROJECT_DIR$/src/main/resources/static" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.FinalProject.models" />
@@ -156,7 +219,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677143059762</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="work progress commit">
+      <created>1677143212088</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677143212088</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added .gitignore">
+      <created>1677143426796</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677143426796</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,7 +253,8 @@
     <MESSAGE value="Added:&#10;1. 8 pages of html.&#10;2. page controller&#10;3. Product POJO&#10;Fixed:&#10;1. small pom.xml fixes, &#10;2. small fixes User/Address POJO" />
     <MESSAGE value="Saving changes before switching to repositories:&#10;Added header &amp; footer" />
     <MESSAGE value="work progress commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="work progress commit" />
+    <MESSAGE value="added .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -185,6 +263,11 @@
           <properties class="org.springframework.data.mapping.PropertyReferenceException" package="org.springframework.data.mapping" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

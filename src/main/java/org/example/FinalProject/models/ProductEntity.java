@@ -10,16 +10,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class ProductEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
 
     @Column(name = "title")
     @NotEmpty(message = "Title should not be empty")
@@ -35,8 +35,7 @@ public class Product {
     private int leftInStock;
 
 
-    @Column(name = "author")
-    @NotNull(message = "Author should not be empty")
-    @Size(min = 2, max = 55, message = "Name of author must contain from 2 to 55 characters")
-    private String author;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id", nullable = false)
+    private CategoryEntity category;
 }

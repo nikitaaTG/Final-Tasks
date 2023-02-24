@@ -1,6 +1,6 @@
 package org.example.FinalProject.services;
 
-import org.example.FinalProject.models.User;
+import org.example.FinalProject.models.UserEntity;
 import org.example.FinalProject.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,20 +19,20 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User findByID (BigInteger id) {
+    public UserEntity findByID (Long id) {
         return userRepository.getReferenceById(id);
 
     }
 
-    public List<User> findAll(){
+    public List<UserEntity> findAll(){
         return userRepository.findAll();
     }
 
-    public User createUser (User user) {
-        return userRepository.save(user);
+    public UserEntity createUser (UserEntity userEntity) {
+        return userRepository.save(userEntity);
     }
 
-    public void deleteByID (BigInteger id) {
+    public void deleteByID (Long id) {
         userRepository.deleteById(id);
     }
 }

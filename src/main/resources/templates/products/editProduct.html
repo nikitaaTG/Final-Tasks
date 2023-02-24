@@ -25,11 +25,6 @@
         <div style="color:red" th:if="${#fields.hasErrors('leftInStock')}" th:errors="*{leftInStock}">City error</div>
         <br/>
 
-        <label for="author">Author:</label>
-        <input type="text" th:field="*{author}" id="author">
-        <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author error</div>
-        <br/>
-
         <input type="submit" value="Save Changes">
     </div>
 </form>
