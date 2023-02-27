@@ -43,8 +43,8 @@ public class ProductService {
     }
 
     public Page<ProductEntity> listProducts(Pageable pageable) {
-
-        return productRepository.findAll(pageable);
+        Page<ProductEntity> pages = productRepository.findAll(pageable);
+        return pages;
     }
 
 

@@ -8,16 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Mechanism for adding categories:&#10;1.1 Category entity, repository, service&#10;1.2 HTML files of category addition pages&#10;1.3 Get/post methods in AssortmentController.&#10;2. Mechanism for displaying products from the DB.&#10;- Fixed (Changed):&#10;1. data type Id -&gt; long;&#10;2. Entities -&gt; ...Entities &#10;3. other minor changes&#10;- Deleted:&#10;1. unnecessary files (used earlier for training)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/ProductDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/pager.html" afterDir="false" />
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="Added:&#10;1. ProductDTO;&#10;2. pager.html (display only, no functionality)&#10;3. Pagination (dividing the resulting product list)&#10;Fixed:&#10;small modifications">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/pager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/pager.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -189,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677246073226</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added:&#10;1. ProductDTO;&#10;2. pager.html (display only, no functionality)&#10;3. Pagination (dividing the resulting product list)&#10;Fixed:&#10;small modifications">
+      <created>1677492718884</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677492718884</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,7 +213,8 @@
     <MESSAGE value="work progress commit" />
     <MESSAGE value="added .gitignore" />
     <MESSAGE value="- Added:&#10;1. Mechanism for adding categories:&#10;1.1 Category entity, repository, service&#10;1.2 HTML files of category addition pages&#10;1.3 Get/post methods in AssortmentController.&#10;2. Mechanism for displaying products from the DB.&#10;- Fixed (Changed):&#10;1. data type Id -&gt; long;&#10;2. Entities -&gt; ...Entities &#10;3. other minor changes&#10;- Deleted:&#10;1. unnecessary files (used earlier for training)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Mechanism for adding categories:&#10;1.1 Category entity, repository, service&#10;1.2 HTML files of category addition pages&#10;1.3 Get/post methods in AssortmentController.&#10;2. Mechanism for displaying products from the DB.&#10;- Fixed (Changed):&#10;1. data type Id -&gt; long;&#10;2. Entities -&gt; ...Entities &#10;3. other minor changes&#10;- Deleted:&#10;1. unnecessary files (used earlier for training)" />
+    <MESSAGE value="Added:&#10;1. ProductDTO;&#10;2. pager.html (display only, no functionality)&#10;3. Pagination (dividing the resulting product list)&#10;Fixed:&#10;small modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added:&#10;1. ProductDTO;&#10;2. pager.html (display only, no functionality)&#10;3. Pagination (dividing the resulting product list)&#10;Fixed:&#10;small modifications" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
