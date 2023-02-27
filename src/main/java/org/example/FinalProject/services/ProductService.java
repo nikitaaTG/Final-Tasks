@@ -7,6 +7,8 @@ import org.example.FinalProject.models.CategoryEntity;
 import org.example.FinalProject.models.ProductEntity;
 import org.example.FinalProject.repositories.CategoryRepository;
 import org.example.FinalProject.repositories.ProductRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,8 +22,8 @@ public class ProductService {
 
     private final CategoryRepository categoryRepository;
 
-    public CategoryEntity addCategory(String title){
-        if (title!=null && !title.isEmpty()){
+    public CategoryEntity addCategory(String title) {
+        if (title != null && !title.isEmpty()) {
             String lowerCaseTitle = title.trim().toLowerCase(Locale.ROOT);
             return categoryRepository.save(new CategoryEntity(lowerCaseTitle));
 
@@ -29,37 +31,47 @@ public class ProductService {
         throw new IllegalArgumentException("Title is empty or null");
     }
 
-    public List<CategoryEntity> getAllCategories(){
+    public List<CategoryEntity> getAllCategories() {
         return categoryRepository.findAll();
     }
 
 
     public List<ProductEntity> listProductsByTitle(String title) {
-        if (title!=null)
-          return productRepository.findByTitle(title);
+        if (title != null)
+            return productRepository.findByTitle(title);
         else throw new IllegalArgumentException("Title is null");
     }
 
-    public List<ProductEntity> listProducts() {
+    public Page<ProductEntity> listProducts(Pageable pageable) {
 
-    return productRepository.findAll();
+        return productRepository.findAll(pageable);
     }
 
 
     public void saveProduct(ProductDTO product) {
         log.info("Saving new {}", product);
         CategoryEntity categoryEntity = categoryRepository.findById(product.getCategoryId()).orElseThrow(RuntimeException::new);
-        ProductEntity productEntity= new ProductEntity();
-        productEntity.setPrice(product.getPrice());
-        productEntity.setTitle(product.getTitle());
-        productEntity.setLeftInStock(product.getLeftInStock());
-        productEntity.setCategory(categoryEntity);
-        productRepository.save(productEntity);
+        ProductEntity newProduct = new ProductEntity();
+        newProduct.setPrice(product.getPrice());
+        newProduct.setTitle(product.getTitle());
+        newProduct.setLeftInStock(product.getLeftInStock());
+        newProduct.setCategory(categoryEntity);
+        productRepository.save(newProduct);
     }
 
-    public void deleteProduct (Long id){
+    public void updateProduct(long id, ProductDTO updatedProduct) {
+        ProductEntity productToUpdate = productRepository.findById(id).orElseThrow(RuntimeException::new);
+        log.info("Changed product {}", productToUpdate);
+        CategoryEntity categoryEntity = categoryRepository.findById(updatedProduct.getCategoryId()).orElseThrow(RuntimeException::new);
+        productToUpdate.setTitle(updatedProduct.getTitle());
+        productToUpdate.setPrice(updatedProduct.getPrice());
+        productToUpdate.setCategory(categoryEntity);
+        productToUpdate.setLeftInStock(updatedProduct.getLeftInStock());
+//        productRepository
+    }
+
+    public void deleteProduct(Long id) {
         productRepository.deleteById(id);
-        ;
     }
 
     public ProductEntity getProductById(Long id) {

@@ -7,7 +7,7 @@
 </head>
 <body>
 <div th:insert="~{blocks/header :: header}"></div>
-<h1>Add new productEntity</h1>
+<h1>Add a new product</h1>
 <form th:method="post" th:action="@{/assortment}" th:object="${product}">
     <div>
         <label for="title">Product Title:</label>

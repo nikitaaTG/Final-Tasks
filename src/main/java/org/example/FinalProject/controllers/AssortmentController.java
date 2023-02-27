@@ -1,12 +1,16 @@
 package org.example.FinalProject.controllers;
 
 import jakarta.validation.Valid;
-import org.example.FinalProject.DAO.ProductDAO;
+//import org.example.FinalProject.DAO.ProductDAO;
 import org.example.FinalProject.dto.ProductDTO;
 import org.example.FinalProject.models.CategoryEntity;
 import org.example.FinalProject.models.ProductEntity;
 import org.example.FinalProject.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,8 +20,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/assortment")
 public class AssortmentController {
 
-    @Autowired
-    private ProductDAO productDAO;
+//    @Autowired
+//    private ProductDAO productDAO;
 
     @Autowired
     private ProductService productService;
@@ -41,16 +45,18 @@ public class AssortmentController {
     }
 
     @GetMapping()
-    public String index(Model model) {
-        model.addAttribute("products", productService.listProducts());
+    public String index(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2) Pageable pageable) {
+        Page<ProductEntity> pages = productService.listProducts(pageable);
+
+        model.addAttribute("products", pages);
     return "products/index";
     }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") long id, Model model){
-        ProductEntity productEntity = productService.getProductById(id);
-        model.addAttribute("product", productEntity);
-        model.addAttribute("prodTitle", productEntity.getTitle());
+        ProductEntity product = productService.getProductById(id);
+        model.addAttribute("product", product);
+        model.addAttribute("prodTitle", product.getTitle());
     return "products/show";
     }
 
@@ -75,22 +81,23 @@ public class AssortmentController {
         ProductEntity productEntity =  productService.getProductById(id);
         model.addAttribute("product", productEntity);
         model.addAttribute("prodTitle", productEntity.getTitle());
+        model.addAttribute("categories", productService.getAllCategories());
         return "products/editProduct";
     }
 
     @PatchMapping("/{id}")
-    public String updateProduct(@ModelAttribute("product") @Valid ProductEntity productEntity, BindingResult bindingResult,
+    public String updateProduct(@ModelAttribute("product") @Valid ProductDTO productDTO, BindingResult bindingResult,
                                 @PathVariable("id") long id) {
         if (bindingResult.hasErrors()){
             return "products/editProduct";
         }
-        productDAO.update(id, productEntity);
+        productService.updateProduct(id, productDTO);
         return "redirect:/assortment/{id}";
     }
 
     @DeleteMapping("/{id}")
     public String deleteProduct(@PathVariable("id") long id) {
-        productDAO.delete(id);
+        productService.deleteProduct(id);
         return "redirect:/assortment";
     }
 }

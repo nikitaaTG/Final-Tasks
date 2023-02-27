@@ -8,17 +8,21 @@
 <body>
 <div th:insert="~{blocks/header :: header}"></div>
 <h1>All products</h1>
+<div th:insert="~{blocks/pager :: pager}"></div>
 <div th:each="product : ${products}">
     <a th:text="${product.getTitle()}" th:href="@{/assortment/{id}(id=${product.getId()})}">product</a>
 </div>
-<p>😃</p>
+<div th:insert="~{blocks/pager :: pager}"></div>
+<br>
+<br>
 <form method="get" action="/assortment/new">
     <input type="submit" value="Add Product">
 </form>
 <form method="get" action="/">
     <input type="submit" value="Back to homepage">
 </form>
+</body>
 <hr>
-<div th:insert="~{blocks/footer :: footer}"></div></body>
+<div th:insert="~{blocks/footer :: footer}"></div>
 </html>
 
