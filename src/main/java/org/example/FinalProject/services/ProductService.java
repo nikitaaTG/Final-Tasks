@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +22,7 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     private final CategoryRepository categoryRepository;
+    private  CategoryEntity category;
 
     public CategoryEntity addCategory(String title) {
         if (title != null && !title.isEmpty()) {
@@ -35,6 +37,10 @@ public class ProductService {
         return categoryRepository.findAll();
     }
 
+    public CategoryEntity getCategoryById(Long id) {
+        return categoryRepository.findById(id).orElseThrow();
+    }
+
 
     public List<ProductEntity> listProductsByTitle(String title) {
         if (title != null)
@@ -47,6 +53,11 @@ public class ProductService {
         return pages;
     }
 
+    public Page<ProductEntity> listProductsByCategory(Long categoryId, Pageable pageable){
+        category = categoryRepository.findById(categoryId).orElseThrow();
+        Page<ProductEntity> pagesInCategory = productRepository.findAllByCategory(category, pageable);
+        return pagesInCategory;
+    }
 
     public void saveProduct(ProductDTO product) {
         log.info("Saving new {}", product);
@@ -67,7 +78,6 @@ public class ProductService {
         productToUpdate.setPrice(updatedProduct.getPrice());
         productToUpdate.setCategory(categoryEntity);
         productToUpdate.setLeftInStock(updatedProduct.getLeftInStock());
-//        productRepository
     }
 
     public void deleteProduct(Long id) {

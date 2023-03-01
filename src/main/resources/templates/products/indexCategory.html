@@ -7,7 +7,7 @@
 </head>
 <body>
 <div th:insert="~{blocks/header :: header}"></div>
-<h1>All products</h1>
+<h1 th:text="'All products in category: ' + ${categoryName}" ></h1>
 <div th:insert="~{blocks/categoryFilter :: categoryFilter}"></div>
 <div th:insert="~{blocks/indexView :: indexView}"></div>
 </body>
