@@ -39,32 +39,31 @@ public class AssortmentController {
         // Settings of pagination:
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
-        long categoryFilterId = categoryId.orElse(null);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         //  Add Model attribute for view list of category in filter
         model.addAttribute("categories", productService.getAllCategories());
+        return categoryId.map(cat -> {
+            // Pagination of all products in category filter
 
-        // Pagination of all products in category filter
-        if (categoryId != null) {
-            Page<ProductEntity> productInCategory = productService.listProductsByCategory(categoryFilterId, allProductsPage);
+            Page<ProductEntity> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
             model.addAttribute("productPage", productInCategory);
-                List<Integer> pageNumbers = getPagesCount(productInCategory);
-                model.addAttribute("pageNumbers", pageNumbers);
-            model.addAttribute("categoryName", productService.getCategoryById(categoryFilterId).getName());
+            List<Integer> pageNumbers = getPagesCount(productInCategory);
+            model.addAttribute("pageNumbers", pageNumbers);
+            model.addAttribute("categoryName", productService.getCategoryById(cat).getName());
             return "products/indexCategory";
-        }
-        // Pagination of all products
-        else {
-        Page<ProductEntity> productPage = productService.listProducts(allProductsPage);
-        model.addAttribute("productPage", productPage);
+        }).orElseGet(() -> {
+            // Pagination of all products
 
-        // Counting the number of page
+            Page<ProductEntity> productPage = productService.listProducts(allProductsPage);
+            model.addAttribute("productPage", productPage);
+
+            // Counting the number of page
             List<Integer> pageNumbers = getPagesCount(productPage);
             model.addAttribute("pageNumbers", pageNumbers);
 
-        return "products/index";
-        }
+            return "products/index";
+        });
     }
 
     @GetMapping("/{id}")

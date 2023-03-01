@@ -5,11 +5,11 @@
 </head>
 <body>
 <div align="left" th:fragment="categoryFilter">
-    <form>
-        <select>
-            <option th:text="${category.getName()}" th:each="category : ${categories}" id="category" th:value="${category.getId()}"></option>
+    <form th:method="get" th:action="@{/assortment}">
+        <select name="categoryId">
+            <option th:text="${category.getName()}" th:each="category : ${categories}"  th:value="${category.getId()}"></option>
         </select>
-        <input type="button" value="Filter by category">
+        <input type="submit" value="OK">
     </form>
 </div>
 </body>
