@@ -3,6 +3,7 @@ package org.example.FinalProject.services;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.FinalProject.dto.ProductDTO;
+import org.example.FinalProject.dto.ProductPageDTO;
 import org.example.FinalProject.models.CategoryEntity;
 import org.example.FinalProject.models.ProductEntity;
 import org.example.FinalProject.repositories.CategoryRepository;

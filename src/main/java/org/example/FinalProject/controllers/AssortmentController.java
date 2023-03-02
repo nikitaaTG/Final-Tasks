@@ -2,6 +2,7 @@ package org.example.FinalProject.controllers;
 
 import jakarta.validation.Valid;
 import org.example.FinalProject.dto.ProductDTO;
+import org.example.FinalProject.dto.ProductPageDTO;
 import org.example.FinalProject.models.ProductEntity;
 import org.example.FinalProject.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

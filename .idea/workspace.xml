@@ -8,9 +8,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="Added:&#10; - Blocks of views:&#10;1.1. categoryFilter.html&#10;1.2. indexView.html&#10;2. Page of products filtered by category (indexCategory.html)&#10;3. new methods by filtration by category in ProductRepository &amp; ProductService&#10;4. Counting the number of page method&#10;&#10; - Fixed:&#10;1. Split controllers Assortment &amp; Category&#10;&#10; - Changed:&#10; 1. method index in AssortmentController.java (for filtering by category. it works if you pass the &quot;categoryId&quot; parameter manually. it doesn't display the whole list - it needs to be finished)">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="Added:&#10;Functional of Category filter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/categoryFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/categoryFilter.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,11 +84,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources/templates/template 2" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.FinalProject.dto" />
       <recent name="org.example.FinalProject.controllers" />
       <recent name="org.example.FinalProject.models" />
       <recent name="org.example.FinalProject.repositories" />
       <recent name="org.example.FinalProject.services" />
-      <recent name="com.webshop.entity" />
     </key>
   </component>
   <component name="RunManager">
@@ -203,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677691339432</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added:&#10;Functional of Category filter">
+      <created>1677702170667</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1677702170667</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,7 +236,8 @@
     <MESSAGE value="Added:&#10;1. ProductDTO;&#10;2. pager.html (display only, no functionality)&#10;3. Pagination (dividing the resulting product list)&#10;Fixed:&#10;small modifications" />
     <MESSAGE value="Added:&#10;1. functionality of pagination" />
     <MESSAGE value="Added:&#10; - Blocks of views:&#10;1.1. categoryFilter.html&#10;1.2. indexView.html&#10;2. Page of products filtered by category (indexCategory.html)&#10;3. new methods by filtration by category in ProductRepository &amp; ProductService&#10;4. Counting the number of page method&#10;&#10; - Fixed:&#10;1. Split controllers Assortment &amp; Category&#10;&#10; - Changed:&#10; 1. method index in AssortmentController.java (for filtering by category. it works if you pass the &quot;categoryId&quot; parameter manually. it doesn't display the whole list - it needs to be finished)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added:&#10; - Blocks of views:&#10;1.1. categoryFilter.html&#10;1.2. indexView.html&#10;2. Page of products filtered by category (indexCategory.html)&#10;3. new methods by filtration by category in ProductRepository &amp; ProductService&#10;4. Counting the number of page method&#10;&#10; - Fixed:&#10;1. Split controllers Assortment &amp; Category&#10;&#10; - Changed:&#10; 1. method index in AssortmentController.java (for filtering by category. it works if you pass the &quot;categoryId&quot; parameter manually. it doesn't display the whole list - it needs to be finished)" />
+    <MESSAGE value="Added:&#10;Functional of Category filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added:&#10;Functional of Category filter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -237,11 +246,6 @@
           <properties class="org.springframework.data.mapping.PropertyReferenceException" package="org.springframework.data.mapping" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
