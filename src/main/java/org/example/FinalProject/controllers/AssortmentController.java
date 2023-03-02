@@ -84,7 +84,8 @@ public class AssortmentController {
 
     @PostMapping()
     public String create(@ModelAttribute("product") @Valid ProductDTO product,
-                         BindingResult bindingResult) {
+                         BindingResult bindingResult, Model model) {
+        model.addAttribute("categories", productService.getAllCategories());
         if (bindingResult.hasErrors()) {
             return "products/addProduct";
         }
@@ -103,7 +104,8 @@ public class AssortmentController {
 
     @PatchMapping("/{id}")
     public String updateProduct(@ModelAttribute("product") @Valid ProductDTO productDTO, BindingResult bindingResult,
-                                @PathVariable("id") long id) {
+                                @PathVariable("id") long id, Model model) {
+        model.addAttribute("categories", productService.getAllCategories());
         if (bindingResult.hasErrors()) {
             return "products/editProduct";
         }

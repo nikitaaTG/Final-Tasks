@@ -3,7 +3,6 @@ package org.example.FinalProject.services;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.FinalProject.dto.ProductDTO;
-import org.example.FinalProject.dto.ProductPageDTO;
 import org.example.FinalProject.models.CategoryEntity;
 import org.example.FinalProject.models.ProductEntity;
 import org.example.FinalProject.repositories.CategoryRepository;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -72,13 +70,12 @@ public class ProductService {
     }
 
     public void updateProduct(long id, ProductDTO updatedProduct) {
-        ProductEntity productToUpdate = productRepository.findById(id).orElseThrow(RuntimeException::new);
-        log.info("Changed product {}", productToUpdate);
-        CategoryEntity categoryEntity = categoryRepository.findById(updatedProduct.getCategoryId()).orElseThrow(RuntimeException::new);
-        productToUpdate.setTitle(updatedProduct.getTitle());
-        productToUpdate.setPrice(updatedProduct.getPrice());
-        productToUpdate.setCategory(categoryEntity);
-        productToUpdate.setLeftInStock(updatedProduct.getLeftInStock());
+        CategoryEntity category = categoryRepository.findById(updatedProduct.getCategoryId()).orElseThrow(RuntimeException::new);
+        String title = updatedProduct.getTitle();
+        double price = updatedProduct.getPrice();
+        int leftInStock = updatedProduct.getLeftInStock();
+        long categoryId=category.getId();
+        productRepository.updateProduct(title, price, leftInStock, categoryId, id);
     }
 
     public void deleteProduct(Long id) {
