@@ -28,5 +28,5 @@ public class ProductDTO {
     @NotNull(message = "Please, specify the count")
     private int leftInStock;
 
-    private Long categoryId;
+    private CategoryEntity category;
 }

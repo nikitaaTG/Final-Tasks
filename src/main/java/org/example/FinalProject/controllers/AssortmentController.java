@@ -1,8 +1,10 @@
 package org.example.FinalProject.controllers;
 
 import jakarta.validation.Valid;
+import org.example.FinalProject.dto.CategoryDTO;
 import org.example.FinalProject.dto.ProductDTO;
-import org.example.FinalProject.dto.ProductPageDTO;
+import org.example.FinalProject.mappers.CategoryMapper;
+import org.example.FinalProject.mappers.ProductMapper;
 import org.example.FinalProject.models.ProductEntity;
 import org.example.FinalProject.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,6 @@ import java.util.stream.IntStream;
 @RequestMapping("/assortment")
 public class AssortmentController {
 
-
     @Autowired
     private ProductService productService;
 
@@ -43,7 +44,7 @@ public class AssortmentController {
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         //  Add Model attribute for view list of category in filter
-        model.addAttribute("categories", productService.getAllCategories());
+        model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
         return categoryId.map(cat -> {
             // Pagination of all products in category filter
 
@@ -51,7 +52,7 @@ public class AssortmentController {
             model.addAttribute("productPage", productInCategory);
             List<Integer> pageNumbers = getPagesCount(productInCategory);
             model.addAttribute("pageNumbers", pageNumbers);
-            model.addAttribute("categoryName", productService.getCategoryById(cat).getName());
+            model.addAttribute("categoryName", CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
             return "products/indexCategory";
         }).orElseGet(() -> {
             // Pagination of all products
@@ -69,7 +70,7 @@ public class AssortmentController {
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") long id, Model model) {
-        ProductEntity product = productService.getProductById(id);
+        ProductDTO product = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
         model.addAttribute("product", product);
         model.addAttribute("prodTitle", product.getTitle());
         return "products/show";
@@ -78,14 +79,14 @@ public class AssortmentController {
     @GetMapping("/new")
     public String newProduct(Model model) {
         model.addAttribute("product", new ProductDTO());
-        model.addAttribute("categories", productService.getAllCategories());
+        model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
         return "products/addProduct";
     }
 
     @PostMapping()
     public String create(@ModelAttribute("product") @Valid ProductDTO product,
                          BindingResult bindingResult, Model model) {
-        model.addAttribute("categories", productService.getAllCategories());
+        model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
         if (bindingResult.hasErrors()) {
             return "products/addProduct";
         }
@@ -95,17 +96,17 @@ public class AssortmentController {
 
     @GetMapping("/{id}/editProduct")
     public String editProduct(Model model, @PathVariable("id") long id) {
-        ProductEntity productEntity = productService.getProductById(id);
-        model.addAttribute("product", productEntity);
-        model.addAttribute("prodTitle", productEntity.getTitle());
-        model.addAttribute("categories", productService.getAllCategories());
+        ProductDTO product = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
+        model.addAttribute("product", product);
+        model.addAttribute("prodTitle", product.getTitle());
+        model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
         return "products/editProduct";
     }
 
     @PatchMapping("/{id}")
     public String updateProduct(@ModelAttribute("product") @Valid ProductDTO productDTO, BindingResult bindingResult,
                                 @PathVariable("id") long id, Model model) {
-        model.addAttribute("categories", productService.getAllCategories());
+        model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
         if (bindingResult.hasErrors()) {
             return "products/editProduct";
         }

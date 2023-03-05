@@ -3,6 +3,7 @@ package org.example.FinalProject.services;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.FinalProject.dto.ProductDTO;
+import org.example.FinalProject.mappers.ProductMapper;
 import org.example.FinalProject.models.CategoryEntity;
 import org.example.FinalProject.models.ProductEntity;
 import org.example.FinalProject.repositories.CategoryRepository;
@@ -21,13 +22,11 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     private final CategoryRepository categoryRepository;
-    private  CategoryEntity category;
 
     public CategoryEntity addCategory(String title) {
         if (title != null && !title.isEmpty()) {
             String lowerCaseTitle = title.trim().toLowerCase(Locale.ROOT);
             return categoryRepository.save(new CategoryEntity(lowerCaseTitle));
-
         }
         throw new IllegalArgumentException("Title is empty or null");
     }
@@ -37,7 +36,7 @@ public class ProductService {
     }
 
     public CategoryEntity getCategoryById(Long id) {
-        return categoryRepository.findById(id).orElseThrow();
+        return categoryRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
 
@@ -53,28 +52,22 @@ public class ProductService {
     }
 
     public Page<ProductEntity> listProductsByCategory(Long categoryId, Pageable pageable){
-        category = categoryRepository.findById(categoryId).orElseThrow();
+        CategoryEntity category = categoryRepository.findById(categoryId).orElseThrow(RuntimeException::new);
         Page<ProductEntity> pagesInCategory = productRepository.findAllByCategory(category, pageable);
         return pagesInCategory;
     }
 
     public void saveProduct(ProductDTO product) {
         log.info("Saving new {}", product);
-        CategoryEntity categoryEntity = categoryRepository.findById(product.getCategoryId()).orElseThrow(RuntimeException::new);
-        ProductEntity newProduct = new ProductEntity();
-        newProduct.setPrice(product.getPrice());
-        newProduct.setTitle(product.getTitle());
-        newProduct.setLeftInStock(product.getLeftInStock());
-        newProduct.setCategory(categoryEntity);
+        ProductEntity newProduct = ProductMapper.INSTANCE.productDTOToEntity(product);
         productRepository.save(newProduct);
     }
 
     public void updateProduct(long id, ProductDTO updatedProduct) {
-        CategoryEntity category = categoryRepository.findById(updatedProduct.getCategoryId()).orElseThrow(RuntimeException::new);
         String title = updatedProduct.getTitle();
         double price = updatedProduct.getPrice();
         int leftInStock = updatedProduct.getLeftInStock();
-        long categoryId=category.getId();
+        long categoryId=updatedProduct.getCategory().getId();
         productRepository.updateProduct(title, price, leftInStock, categoryId, id);
     }
 

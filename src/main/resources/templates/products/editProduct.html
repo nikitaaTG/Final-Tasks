@@ -26,7 +26,7 @@
     <br/>
 
     <label>Category:</label>
-    <select name="categoryId" id="categoryId">
+    <select name="category" id="category">
         <option th:text="${category.getName()}" th:each="category : ${categories}" th:value="${category.getId()}"></option>
     </select>
 

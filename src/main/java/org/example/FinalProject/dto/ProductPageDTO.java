@@ -17,7 +17,7 @@ public class ProductPageDTO {
                 .collect(Collectors.toList());
         totalPages = page.getTotalPages();
         products = page.get()
-                .map(pe-> new ProductDTO(pe.getId(), pe.getTitle(), pe.getPrice(), pe.getLeftInStock(), pe.getCategory().getId()))
+                .map(pe-> new ProductDTO(pe.getId(), pe.getTitle(), pe.getPrice(), pe.getLeftInStock(), pe.getCategory()))
                 .collect(Collectors.toList());
     }
 }
