@@ -8,20 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment=" - Added:&#10;1. pom.xml dependencies for using MapStruct&#10;2. CategoryMapper &amp; ProductMapper for using MapStruct&#10; &#10; - Changed:&#10; 1. ProductDTO: Class field Long categoryId -&gt; CategoryEntity category.&#10; 2. ProductService: Corrections with using MapStruct.&#10; 3. CategoryController: Corrections with using MapStruct.&#10; 4. AssortmentController: Corrections with using MapStruct.&#10; &#10; - Small fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added :&#10;1. UserDTO, CategoryDTO&#10;2. UserMapper&#10;3. All user page all.html&#10;4. User show page showUser.html&#10;5. Links to registration &amp; log-in pages in header.html&#10;6. Link to all user page in homepage.html&#10;7. Logic of registration&#10;8. Logic of updating users information (not full)&#10;&#10;- Small Fixes -">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/ProductDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/mappers/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/mappers/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/mappers/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/mappers/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/UserEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678024698742</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="- Added :&#10;1. UserDTO, CategoryDTO&#10;2. UserMapper&#10;3. All user page all.html&#10;4. User show page showUser.html&#10;5. Links to registration &amp; log-in pages in header.html&#10;6. Link to all user page in homepage.html&#10;7. Logic of registration&#10;8. Logic of updating users information (not full)&#10;&#10;- Small Fixes -">
+      <created>1678097564754</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678097564754</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -278,7 +277,8 @@
     <MESSAGE value="Added ProductPageDTO.java for to analyze the approach" />
     <MESSAGE value=" - Added:&#10; 1. Functional of product changing:&#10; 1.1. update method in ProductRepository&#10; 1.2. new logic of update method in ProductService&#10; - Fixed:&#10; 1. Bugs in products adding &amp; changing" />
     <MESSAGE value=" - Added:&#10;1. pom.xml dependencies for using MapStruct&#10;2. CategoryMapper &amp; ProductMapper for using MapStruct&#10; &#10; - Changed:&#10; 1. ProductDTO: Class field Long categoryId -&gt; CategoryEntity category.&#10; 2. ProductService: Corrections with using MapStruct.&#10; 3. CategoryController: Corrections with using MapStruct.&#10; 4. AssortmentController: Corrections with using MapStruct.&#10; &#10; - Small fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value=" - Added:&#10;1. pom.xml dependencies for using MapStruct&#10;2. CategoryMapper &amp; ProductMapper for using MapStruct&#10; &#10; - Changed:&#10; 1. ProductDTO: Class field Long categoryId -&gt; CategoryEntity category.&#10; 2. ProductService: Corrections with using MapStruct.&#10; 3. CategoryController: Corrections with using MapStruct.&#10; 4. AssortmentController: Corrections with using MapStruct.&#10; &#10; - Small fixes" />
+    <MESSAGE value="- Added :&#10;1. UserDTO, CategoryDTO&#10;2. UserMapper&#10;3. All user page all.html&#10;4. User show page showUser.html&#10;5. Links to registration &amp; log-in pages in header.html&#10;6. Link to all user page in homepage.html&#10;7. Logic of registration&#10;8. Logic of updating users information (not full)&#10;&#10;- Small Fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added :&#10;1. UserDTO, CategoryDTO&#10;2. UserMapper&#10;3. All user page all.html&#10;4. User show page showUser.html&#10;5. Links to registration &amp; log-in pages in header.html&#10;6. Link to all user page in homepage.html&#10;7. Logic of registration&#10;8. Logic of updating users information (not full)&#10;&#10;- Small Fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

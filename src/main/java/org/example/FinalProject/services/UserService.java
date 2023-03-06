@@ -39,6 +39,7 @@ public class UserService {
         userDTO.setRole(RoleOnSite.CLIENT);
         userDTO.setUserDeleted(false);
         UserEntity userEntity = UserMapper.INSTANCE.userDTOToEntity(userDTO);
+//
         return userRepository.save(userEntity);
     }
 

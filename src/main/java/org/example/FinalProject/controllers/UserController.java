@@ -48,6 +48,7 @@ public class UserController {
         }
         userService.createUser(userDTO);
         return "entrance/login";}
+
     @GetMapping("/login")
     public String showLoginPage(){
         return "entrance/login";
@@ -64,6 +65,13 @@ public class UserController {
         UserDTO user = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
         model.addAttribute("user", user);
         return "users/showUser";
+    }
+
+    @GetMapping("/{id}/editUser")
+    public String editProduct(Model model, @PathVariable("id") long id) {
+        UserDTO user = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
+        model.addAttribute("user", user);
+        return "users/editUser";
     }
 
     @PatchMapping("/{id}")

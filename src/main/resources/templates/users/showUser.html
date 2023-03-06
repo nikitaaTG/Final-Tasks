@@ -21,12 +21,10 @@
 <p th:text="${user.getRole()}">VALUE </p>
 
 
-<!--<form th:method="get" th:action="@{/assortment/{id}/editProduct(id=${product.getId()})}" th:object="${product}">-->
-<!--<input type="submit" value="Edit Profile">-->
-<!--</form>-->
-<!--<form th:method="delete" th:action="@{/assortment/{id}(id=${product.getId()})}">-->
-<!--    <input type="submit" value="Delete profile">-->
-<!--</form>-->
+<form th:method="get" th:action="@{/user/{id}/editUser(id=${user.getId()})}" th:object="${user}">
+<input type="submit" value="Edit Profile">
+</form>
+
 <form method="get" action="/user/all">
     <input type="submit" value="Back">
 </form>
