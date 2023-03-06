@@ -47,9 +47,7 @@ public class AssortmentController {
         return categoryId.map(cat -> {
             // Pagination of all products in category filter
 
-            Page<ProductEntity> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
-//            Page<ProductDTO> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
-//            Page<ProductDTO> productInCategory = ProductMapper.INSTANCE.pageEntityToDTO(productService.listProductsByCategory(cat, allProductsPage));
+            Page<ProductDTO> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
             model.addAttribute("productPage", productInCategory);
             List<Integer> pageNumbers = getPagesCount(productInCategory);
             model.addAttribute("pageNumbers", pageNumbers);
@@ -57,9 +55,7 @@ public class AssortmentController {
             return "products/indexCategory";
         }).orElseGet(() -> {
             // Pagination of all products
-            Page<ProductEntity> productPage = productService.listProducts(allProductsPage);
-//            Page<ProductDTO> productPage = ProductMapper.INSTANCE.pageEntityToDTO(productService.listProducts(allProductsPage));
-//            Page<ProductDTO> productPage = productService.listProducts(allProductsPage);
+            Page<ProductDTO> productPage = productService.listProducts(allProductsPage);
             model.addAttribute("productPage", productPage);
 
             // Counting the number of page
@@ -124,7 +120,7 @@ public class AssortmentController {
 
 
     // Counting the number of page method
-    public List<Integer> getPagesCount(Page<ProductEntity> productPages) {
+    public List<Integer> getPagesCount(Page<ProductDTO> productPages) {
 //    public List<Integer> getPagesCount(Page<ProductDTO> productPages) {
         int totalPages = productPages.getTotalPages();
         List<Integer> result = IntStream.rangeClosed(1, totalPages)

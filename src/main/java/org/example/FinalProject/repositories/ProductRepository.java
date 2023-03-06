@@ -15,7 +15,7 @@ import java.util.List;
 @Repository
 @Transactional
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
-    List<ProductEntity> findByTitle(String title);
+    Page<ProductEntity> findByTitle(String title, Pageable pageable);
 
     Page<ProductEntity> findAll(Pageable pageable);
 

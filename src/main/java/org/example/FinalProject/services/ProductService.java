@@ -40,20 +40,22 @@ public class ProductService {
     }
 
 
-    public List<ProductEntity> listProductsByTitle(String title) {
-        if (title != null)
-            return productRepository.findByTitle(title);
+    public Page<ProductDTO> listProductsByTitle(String title, Pageable pageable) {
+        if (title != null) {
+            Page<ProductDTO> pageDto = productRepository.findByTitle(title, pageable).map(ProductMapper.INSTANCE::productEntityToDTO);
+            return pageDto;
+        }
         else throw new IllegalArgumentException("Title is null");
     }
 
-    public Page<ProductEntity> listProducts(Pageable pageable) {
-        Page<ProductEntity> pages = productRepository.findAll(pageable);
+    public Page<ProductDTO> listProducts(Pageable pageable) {
+        Page<ProductDTO> pages = productRepository.findAll(pageable).map(ProductMapper.INSTANCE::productEntityToDTO);
         return pages;
     }
 
-    public Page<ProductEntity> listProductsByCategory(Long categoryId, Pageable pageable){
+    public Page<ProductDTO> listProductsByCategory(Long categoryId, Pageable pageable){
         CategoryEntity category = categoryRepository.findById(categoryId).orElseThrow(RuntimeException::new);
-        Page<ProductEntity> pagesInCategory = productRepository.findAllByCategory(category, pageable);
+        Page<ProductDTO> pagesInCategory = productRepository.findAllByCategory(category, pageable).map(ProductMapper.INSTANCE::productEntityToDTO);
         return pagesInCategory;
     }
 
