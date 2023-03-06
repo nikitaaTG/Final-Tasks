@@ -16,12 +16,12 @@
         <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
         <br>
         <label for="surname">Surname:</label>
-        <input type="text" th:field="*{name}" id="surname">
+        <input type="text" th:field="*{surname}" id="surname">
         <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Surname error</div>
         <br>
-        <label for="dateOfBirth">Birthday:</label>
-        <input type="date" th:field="*{dateOfBirth}" id="dateOfBirth">
-        <div style="color:red" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">Surname error</div>
+        <label for="birthDay">Birthday:</label>
+        <input type="date" th:field="*{birthDay}" id="birthDay">
+        <div style="color:red" th:if="${#fields.hasErrors('birthDay')}" th:errors="*{birthDay}">BirthDay error</div>
         <br>
         <label for="email">E-mail:</label>
         <input type="email" th:field="*{email}" id="email">

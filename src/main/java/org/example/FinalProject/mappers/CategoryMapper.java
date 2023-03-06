@@ -11,9 +11,9 @@ import java.util.List;
 public interface CategoryMapper {
     public static final CategoryMapper INSTANCE = Mappers.getMapper(CategoryMapper.class);
 
-    public abstract CategoryEntity categoryDTOToEntity (CategoryDTO dto);
-    public abstract CategoryDTO categoryEntityToDTO (CategoryEntity entity);
+    public CategoryEntity categoryDTOToEntity (CategoryDTO dto);
+    public CategoryDTO categoryEntityToDTO (CategoryEntity entity);
 
-    public abstract List<CategoryDTO> listDTO (List<CategoryEntity> list);
+    public List<CategoryDTO> listDTO (List<CategoryEntity> list);
 
 }

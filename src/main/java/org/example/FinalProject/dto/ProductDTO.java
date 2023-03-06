@@ -17,6 +17,7 @@ public class ProductDTO {
     private Long id;
 
     @NotEmpty(message = "Title should not be empty")
+    @NotBlank(message = "Title should not be empty")
     @Size(min = 2, max = 55, message = "Title must contain from 2 to 55 characters")
     private String title;
 

@@ -1,14 +1,20 @@
 package org.example.FinalProject.controllers;
 
+import jakarta.validation.Valid;
+import org.example.FinalProject.dto.ProductDTO;
+import org.example.FinalProject.dto.UserDTO;
 import org.example.FinalProject.enums.RoleOnSite;
+import org.example.FinalProject.mappers.CategoryMapper;
+import org.example.FinalProject.mappers.ProductMapper;
+import org.example.FinalProject.mappers.UserMapper;
 import org.example.FinalProject.models.UserEntity;
 import org.example.FinalProject.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/user")
@@ -33,17 +39,41 @@ public class UserController {
 
 
     @PostMapping("/registration")
-    private String createUser(UserEntity user) {
-        userService.createUser(user);
-        return "redirect:/homepage";
-    }
+    private String createUser(@ModelAttribute("user") @Valid UserDTO userDTO,
+                              BindingResult bindingResult) {
+        userDTO.setUserDeleted(false);
+        userDTO.setRole(RoleOnSite.CLIENT);
+        if (bindingResult.hasErrors()) {
+            return "entrance/registration";
+        }
+        userService.createUser(userDTO);
+        return "entrance/login";}
     @GetMapping("/login")
     public String showLoginPage(){
         return "entrance/login";
     }
-//    @GetMapping("/user/create")
-//    public String createUserForm(UserEntity user){
-//        return "user-create";
-//    }
+
+    @GetMapping("/all")
+    private String showAll(Model model, UserDTO userDTO, Pageable pageable) {
+        model.addAttribute("users", userService.findAll(pageable));
+        return "users/all";
+    }
+
+    @GetMapping("/{id}")
+    public String show(@PathVariable("id") long id, Model model) {
+        UserDTO user = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
+        model.addAttribute("user", user);
+        return "users/showUser";
+    }
+
+    @PatchMapping("/{id}")
+    public String updateProduct(@ModelAttribute("user") @Valid UserDTO userDTO, BindingResult bindingResult,
+                                @PathVariable("id") long id, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "users/editUser";
+        }
+        userService.updateUser(id, userDTO);
+        return "redirect:/user/{id}";
+    }
 
 }
