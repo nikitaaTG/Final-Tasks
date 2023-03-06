@@ -8,10 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added :&#10;1. View for logic of updating users information">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Fixed:&#10;1. Pagination methods in ProductService now process ProductDTO objects.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/pager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/pager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/all.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/blocks" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -69,8 +72,8 @@
       <recent name="com.webshop.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/templates/users" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/blocks" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/users" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/products" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/tmplts" />
@@ -259,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678102959631</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="- Fixed:&#10;1. Pagination methods in ProductService now process ProductDTO objects.">
+      <created>1678108961261</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1678108961261</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,7 +302,8 @@
     <MESSAGE value="- Added :&#10;1. UserDTO, CategoryDTO&#10;2. UserMapper&#10;3. All user page all.html&#10;4. User show page showUser.html&#10;5. Links to registration &amp; log-in pages in header.html&#10;6. Link to all user page in homepage.html&#10;7. Logic of registration&#10;8. Logic of updating users information (not full)&#10;&#10;- Small Fixes -" />
     <MESSAGE value="- Added :&#10;1. Logic of updating users information (full)&#10;&#10;- Small Fixes -" />
     <MESSAGE value="- Added :&#10;1. View for logic of updating users information" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added :&#10;1. View for logic of updating users information" />
+    <MESSAGE value="- Fixed:&#10;1. Pagination methods in ProductService now process ProductDTO objects." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed:&#10;1. Pagination methods in ProductService now process ProductDTO objects." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

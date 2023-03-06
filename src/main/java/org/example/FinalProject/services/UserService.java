@@ -1,6 +1,5 @@
 package org.example.FinalProject.services;
 
-import org.example.FinalProject.dto.ProductDTO;
 import org.example.FinalProject.dto.UserDTO;
 import org.example.FinalProject.enums.RoleOnSite;
 import org.example.FinalProject.mappers.UserMapper;
@@ -11,9 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class UserService {
@@ -31,8 +28,8 @@ public class UserService {
 
     }
 
-    public Page<UserEntity> findAll(Pageable pageable){
-        return userRepository.findAll(pageable);
+    public Page<UserDTO> findAll(Pageable pageable){
+        return userRepository.findAll(pageable).map(UserMapper.INSTANCE::userEntityToDTO);
     }
 
     public UserEntity createUser (UserDTO userDTO) {

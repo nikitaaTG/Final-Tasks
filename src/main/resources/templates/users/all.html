@@ -14,11 +14,9 @@
              th:text="${user.getName()} + ' ' + ${user.getSurname()} + ' ' + ${user.getEmail()}" > </a>
     </div>
     <br>
-<!--    <div th:insert="~{blocks/pager :: pager}"></div>-->
+    <div th:insert="~{blocks/pager :: pagerUser}"></div>
     <br>
-<!--    <form method="get" action="/assortment/new">-->
-<!--        <input type="submit" value="Add Product">-->
-<!--    </form>-->
+
     <form method="get" action="/">
         <input type="submit" value="Back to homepage">
     </form>

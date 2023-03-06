@@ -4,7 +4,6 @@ import jakarta.validation.Valid;
 import org.example.FinalProject.dto.ProductDTO;
 import org.example.FinalProject.mappers.CategoryMapper;
 import org.example.FinalProject.mappers.ProductMapper;
-import org.example.FinalProject.models.ProductEntity;
 import org.example.FinalProject.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -39,7 +38,7 @@ public class AssortmentController {
             @RequestParam("categoryId") Optional<Long> categoryId) {
         // Settings of pagination:
         int currentPage = page.orElse(1);
-        int pageSize = size.orElse(5);
+        int pageSize = size.orElse(10);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         //  Add Model attribute for view list of category in filter
@@ -121,7 +120,6 @@ public class AssortmentController {
 
     // Counting the number of page method
     public List<Integer> getPagesCount(Page<ProductDTO> productPages) {
-//    public List<Integer> getPagesCount(Page<ProductDTO> productPages) {
         int totalPages = productPages.getTotalPages();
         List<Integer> result = IntStream.rangeClosed(1, totalPages)
                 .boxed()

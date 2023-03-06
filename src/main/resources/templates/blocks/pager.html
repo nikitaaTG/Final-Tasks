@@ -26,4 +26,23 @@
     </nav>
 </div>
 
+<div align="center" th:fragment="pagerUser">
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item disabled">
+                <span class="page-link">Page</span>
+            </li>
+            <div th:if="${users.totalPages > 0}" class="pagination"
+                 th:each="pageNumber : ${pageNumbers}">
+                <span class="page-link">
+                    <a th:href="@{/user/all(size=${users.size}, page=${pageNumber})}"
+                       th:text=${pageNumber}
+                       th:class="${pageNumber==users.number + 1} ? active"></a>
+                    <span class="sr-only"></span>
+                </span>
+            </div>
+        </ul>
+    </nav>
+</div>
+
 </html>
