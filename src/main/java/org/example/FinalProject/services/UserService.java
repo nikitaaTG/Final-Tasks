@@ -32,6 +32,10 @@ public class UserService {
         return userRepository.findAll(pageable).map(UserMapper.INSTANCE::userEntityToDTO);
     }
 
+    public UserDTO getUserByEmail (String email) {
+        return UserMapper.INSTANCE.userEntityToDTO(userRepository.findByEmail(email));
+    }
+
     public UserEntity createUser (UserDTO userDTO) {
         userDTO.setRole(RoleOnSite.CLIENT);
         userDTO.setUserDeleted(false);

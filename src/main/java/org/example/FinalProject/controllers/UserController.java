@@ -7,6 +7,7 @@ import org.example.FinalProject.enums.RoleOnSite;
 import org.example.FinalProject.mappers.UserMapper;
 import org.example.FinalProject.models.UserEntity;
 import org.example.FinalProject.services.UserService;
+import org.example.FinalProject.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,6 +35,8 @@ public class UserController {
         this.userService = userService;
     }
 
+    @Autowired
+    UserValidator validator;
 
     @GetMapping("/registration")
     public String showRegistrationPage(Model model) {
@@ -50,6 +53,7 @@ public class UserController {
                               BindingResult bindingResult) {
         userDTO.setUserDeleted(false);
         userDTO.setRole(RoleOnSite.CLIENT);
+        validator.validate(userDTO, bindingResult);
         if (bindingResult.hasErrors()) {
             return "entrance/registration";
         }
