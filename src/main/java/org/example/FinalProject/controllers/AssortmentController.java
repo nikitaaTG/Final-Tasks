@@ -65,6 +65,45 @@ public class AssortmentController {
         });
     }
 
+    @RequestMapping(value = "/find", method = RequestMethod.GET)
+    public String findByTitle(
+            @PageableDefault (sort = "id", direction = Sort.Direction.ASC, value = 2)
+                    Pageable pageable,
+            Model model,
+            @RequestParam ("page") Optional<Integer> page,
+            @RequestParam ("size") Optional<Integer> size,
+            @RequestParam ("title") String title,
+            @RequestParam ("categoryId") Optional<Long> categoryId) {
+        // Settings of pagination:
+        int currentPage = page.orElse(1);
+        int pageSize = size.orElse(10);
+        Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
+
+        //  Add Model attribute for view list of category in filter
+        model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
+        model.addAttribute("title", title);
+        return categoryId.map(cat -> {
+//            // Pagination of all products in category filter
+//
+            Page<ProductDTO> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
+            model.addAttribute("productPage", productInCategory);
+            List<Integer> pageNumbers = getPagesCount(productInCategory);
+            model.addAttribute("pageNumbers", pageNumbers);
+            model.addAttribute("categoryName", CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
+            return "products/indexCategory";
+        }).orElseGet(() -> {
+            // Pagination of all products
+            Page<ProductDTO> productPage = productService.listProductsByTitle(title,allProductsPage);
+            model.addAttribute("productPage", productPage);
+
+            // Counting the number of page
+            List<Integer> pageNumbers = getPagesCount(productPage);
+            model.addAttribute("pageNumbers", pageNumbers);
+
+            return "products/indexByTitle";
+        });
+    }
+
     @GetMapping("/{id}")
     public String show(@PathVariable("id") long id, Model model) {
         ProductDTO product = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
