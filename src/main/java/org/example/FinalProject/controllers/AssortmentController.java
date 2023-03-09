@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -112,6 +113,7 @@ public class AssortmentController {
         return "products/show";
     }
 
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @GetMapping("/new")
     public String newProduct(Model model) {
         model.addAttribute("product", new ProductDTO());
@@ -119,6 +121,7 @@ public class AssortmentController {
         return "products/addProduct";
     }
 
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @PostMapping()
     public String create(@ModelAttribute("product") @Valid ProductDTO product,
                          BindingResult bindingResult, Model model) {
@@ -130,6 +133,7 @@ public class AssortmentController {
         return "redirect:/assortment";
     }
 
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @GetMapping("/{id}/editProduct")
     public String editProduct(Model model, @PathVariable("id") long id) {
         ProductDTO product = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
@@ -139,6 +143,7 @@ public class AssortmentController {
         return "products/editProduct";
     }
 
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @PatchMapping("/{id}")
     public String updateProduct(@ModelAttribute("product") @Valid ProductDTO productDTO, BindingResult bindingResult,
                                 @PathVariable("id") long id, Model model) {
@@ -150,6 +155,9 @@ public class AssortmentController {
         return "redirect:/assortment/{id}";
     }
 
+    // HOW TO LIMIT ACCESS???
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
+    //??????????????????????? - CORRECT
     @DeleteMapping("/{id}")
     public String deleteProduct(@PathVariable("id") long id) {
         productService.deleteProduct(id);

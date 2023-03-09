@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -60,7 +61,7 @@ public class UserController {
         return "entrance/login";
     }
 
-
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String showAll(
             @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)

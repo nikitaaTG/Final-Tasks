@@ -12,7 +12,7 @@
     <div>
         <label for="title">Product Title:</label>
         <input type="text" th:field="*{title}" id="title">
-         <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>
+        <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>
         <br/>
 
         <label for="price">Price:</label>
@@ -22,17 +22,22 @@
 
         <label for="leftInStock">Left in stock:</label>
         <input type="number" th:field="*{leftInStock}" id="leftInStock">
-        <div style="color:red" th:if="${#fields.hasErrors('leftInStock')}" th:errors="*{leftInStock}">leftInStock error</div>
+        <div style="color:red" th:if="${#fields.hasErrors('leftInStock')}" th:errors="*{leftInStock}">leftInStock
+            error
+        </div>
         <br/>
 
         <label>Category:</label>
-        <select th:field="*{category}" >
-            <option th:text="${category.getName()}" th:each="category : ${categories}" id="category" th:value="${category.getId()}"></option>
+        <select th:field="*{category}">
+            <option th:text="${category.getName()}" th:each="category : ${categories}" id="category"
+                    th:value="${category.getId()}"></option>
         </select>
-
+        <br>
+        <br>
         <input type="submit" value="Add New Product">
     </div>
 </form>
+<br>
 <form method="get" action="/assortment">
     <input type="submit" value="Back">
 </form>

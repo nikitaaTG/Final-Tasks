@@ -8,16 +8,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Functional of product searching  (not correct, but work) - will be corrected&#10;&#10;- Small fixes -">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/security/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/MyUserDetailsService.java" afterDir="false" />
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. WebSecurityConfig &amp; MyUserDetailsService for authorization&#10;&#10;- Changed:&#10;1. pom.xml dependencies&#10;2. logins endpoints moved to LoginController.java&#10;3. view of header.html (Anonymous user or not)&#10;4. annotations of access control restrictions in CategoryController&#10;&#10;- Small fixes -">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CatgoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/indexView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/indexView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,7 +302,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678284101108</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="- Added:&#10;1. WebSecurityConfig &amp; MyUserDetailsService for authorization&#10;&#10;- Changed:&#10;1. pom.xml dependencies&#10;2. logins endpoints moved to LoginController.java&#10;3. view of header.html (Anonymous user or not)&#10;4. annotations of access control restrictions in CategoryController&#10;&#10;- Small fixes -">
+      <created>1678365094636</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1678365094636</updated>
+    </task>
+    <task id="LOCAL-00026" summary="- Added:&#10;1. WebSecurityConfig &amp; MyUserDetailsService for authorization&#10;&#10;- Changed:&#10;1. pom.xml dependencies&#10;2. logins endpoints moved to LoginController.java&#10;3. view of header.html (Anonymous user or not)&#10;4. annotations of access control restrictions in CategoryController&#10;&#10;- Small fixes -">
+      <created>1678365151372</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1678365151372</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,7 +353,8 @@
     <MESSAGE value="- Added:&#10;1. Pagination in All users view&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10;1. E-mail validation on registration page&#10;2. User search by email&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10;1. Functional of product searching  (not correct, but work) - will be corrected&#10;&#10;- Small fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Functional of product searching  (not correct, but work) - will be corrected&#10;&#10;- Small fixes -" />
+    <MESSAGE value="- Added:&#10;1. WebSecurityConfig &amp; MyUserDetailsService for authorization&#10;&#10;- Changed:&#10;1. pom.xml dependencies&#10;2. logins endpoints moved to LoginController.java&#10;3. view of header.html (Anonymous user or not)&#10;4. annotations of access control restrictions in CategoryController&#10;&#10;- Small fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. WebSecurityConfig &amp; MyUserDetailsService for authorization&#10;&#10;- Changed:&#10;1. pom.xml dependencies&#10;2. logins endpoints moved to LoginController.java&#10;3. view of header.html (Anonymous user or not)&#10;4. annotations of access control restrictions in CategoryController&#10;&#10;- Small fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

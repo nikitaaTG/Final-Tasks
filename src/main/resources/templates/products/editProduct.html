@@ -27,11 +27,18 @@
 
     <label>Category:</label>
     <select name="category" id="category">
-        <option th:text="${category.getName()}" th:each="category : ${categories}" th:value="${category.getId()}"></option>
+        <option th:text="${category.getName()}" th:each="category : ${categories}"
+                th:value="${category.getId()}"></option>
     </select>
-
+    <br>
+    <br>
     <input type="submit" value="Save Changes">
 </form>
+<br>
+<form th:method="delete" th:action="@{/assortment/{id}(id=${product.getId()})}">
+    <input type="submit" value="Delete this product">
+</form>
+<br>
 
 <form th:method="get" th:action="@{/assortment/{id}(id=${product.getId()})}" th:object="${product}">
     <input type="submit" value="Cancel the changes and exit">
