@@ -8,11 +8,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. E-mail validation on registration page&#10;2. User search by email&#10;&#10;- Small fixes -">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Functional of product searching  (not correct, but work) - will be corrected&#10;&#10;- Small fixes -">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/security/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/MyUserDetailsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CatgoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +30,14 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myFormatOnlyChangedLines" value="true" />
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,6 +52,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectId" id="2L6NyEoajL5E8U8CANAbADzL1FS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -63,7 +75,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.ChangelistConflict" />
+    <property name="settings.editor.selected.configurable" value="actions.on.save" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -283,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678212758110</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="- Added:&#10;1. Functional of product searching  (not correct, but work) - will be corrected&#10;&#10;- Small fixes -">
+      <created>1678284101108</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1678284101108</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -319,7 +338,8 @@
     <MESSAGE value="- Fixed:&#10;1. Pagination methods in ProductService now process ProductDTO objects." />
     <MESSAGE value="- Added:&#10;1. Pagination in All users view&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10;1. E-mail validation on registration page&#10;2. User search by email&#10;&#10;- Small fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. E-mail validation on registration page&#10;2. User search by email&#10;&#10;- Small fixes -" />
+    <MESSAGE value="- Added:&#10;1. Functional of product searching  (not correct, but work) - will be corrected&#10;&#10;- Small fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Functional of product searching  (not correct, but work) - will be corrected&#10;&#10;- Small fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -337,9 +357,19 @@
           <option name="timeStamp" value="20" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="21" />
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/6.0.1/spring-security-web-6.0.1.jar!/org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.class</url>
+          <line>35</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/6.0.1/spring-security-web-6.0.1-sources.jar!/org/springframework/security/web/authentication/logout/LogoutFilter.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.0.1/spring-security-core-6.0.1-sources.jar!/org/springframework/security/core/userdetails/User.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
