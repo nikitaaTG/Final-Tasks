@@ -8,9 +8,9 @@
 <body>
 <div th:insert="~{blocks/header :: header}"></div>
 <h1>Login</h1>
-<form action="/user/create" method="post">
-    Your e-mail: <input type="text" name="email"/><br><br>
-    Password: <input type="password" name="description"/><br><br>
+<form action="/login" method="post">
+    Your e-mail: <input type="text" name="username"/><br><br>
+    Password: <input type="password" name="password"/><br><br>
 
     <input type="submit" value="Log In">
 </form>

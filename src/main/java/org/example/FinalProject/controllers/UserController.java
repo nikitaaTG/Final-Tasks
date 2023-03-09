@@ -1,7 +1,6 @@
 package org.example.FinalProject.controllers;
 
 import jakarta.validation.Valid;
-import org.example.FinalProject.dto.ProductDTO;
 import org.example.FinalProject.dto.UserDTO;
 import org.example.FinalProject.enums.RoleOnSite;
 import org.example.FinalProject.mappers.UserMapper;
@@ -61,10 +60,6 @@ public class UserController {
         return "entrance/login";
     }
 
-    @GetMapping("/login")
-    public String showLoginPage() {
-        return "entrance/login";
-    }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String showAll(
