@@ -27,16 +27,16 @@
                     <a href="#">
                         <button type="button" class="btn btn-outline-light me-3">Profile info</button>
                     </a>
-                    <a href="#">
+                    <a href="/confirmLogout">
                         <button type="button" class="btn btn-outline-light me-3">Log out</button>
                     </a>
                 </div>
                 <div class="text-end" sec:authorize="isAnonymous()">
-                    <a href="/login">
-                        <button type="button" class="btn btn-outline-light me-3">Login</button>
-                    </a>
                     <a href="/user/registration">
                         <button type="button" class="btn btn-outline-light me-3">Registration</button>
+                    </a>
+                    <a href="/login">
+                        <button type="button" class="btn btn-outline-light me-3">Login</button>
                     </a>
                 </div>
             </div>

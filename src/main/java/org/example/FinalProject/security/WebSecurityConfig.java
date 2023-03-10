@@ -14,29 +14,26 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 public class WebSecurityConfig {
 
-
-    //Remove unnecessary code after debugging!!!!!!!!!!!!!
+//Settings of login & logout logic (logout redirect to homepage, not to login page)
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http.csrf().disable()
-//                .authorizeHttpRequests((requests) -> requests
-//                        .requestMatchers("/assortment/*", "/", "/about", "/products", "/user/registration", "/assortment"
-//                        ).permitAll()
-//                        .requestMatchers("/user/all").hasRole("CLIENT")
-//                        .requestMatchers("/manager/*").hasRole("MANAGER")
-//                        .anyRequest().authenticated()
-//                )
         http.csrf().disable()
-//                .authorizeHttpRequests()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-                .formLogin((form) -> form
-                        .loginPage("/login"));
-//                        .permitAll()
-//                )
-//                .logout((logout) -> logout.permitAll());
-
+                .formLogin((form) -> {
+                            try {
+                                form
+                                        .loginPage("/login")
+                                        .and()
+                                        .logout((logout) ->
+                                                logout
+                                                        .deleteCookies("remove")
+                                                        .invalidateHttpSession(false)
+                                                        .logoutUrl("/logout")
+                                                        .logoutSuccessUrl("/"));
+                            } catch (Exception e) {
+                                System.out.println("Logout Error. Debug it.");
+                            }
+                        }
+                );
         return http.build();
     }
 
