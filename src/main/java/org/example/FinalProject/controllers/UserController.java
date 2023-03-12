@@ -2,11 +2,8 @@ package org.example.FinalProject.controllers;
 
 import jakarta.validation.Valid;
 import org.example.FinalProject.dto.UserDTO;
-import org.example.FinalProject.enums.RoleOnSite;
 import org.example.FinalProject.mappers.UserMapper;
-import org.example.FinalProject.models.UserEntity;
 import org.example.FinalProject.services.UserService;
-import org.example.FinalProject.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -35,31 +32,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @Autowired
-    UserValidator validator;
-
-    @GetMapping("/registration")
-    public String showRegistrationPage(Model model) {
-        UserEntity newUser = new UserEntity();
-        newUser.setUserDeleted(false);
-        newUser.setRole(RoleOnSite.CLIENT);
-        model.addAttribute("user", newUser);
-        return "entrance/registration";
-    }
 
 
-    @PostMapping("/registration")
-    private String createUser(@ModelAttribute("user") @Valid UserDTO userDTO,
-                              BindingResult bindingResult) {
-        userDTO.setUserDeleted(false);
-        userDTO.setRole(RoleOnSite.CLIENT);
-        validator.validate(userDTO, bindingResult);
-        if (bindingResult.hasErrors()) {
-            return "entrance/registration";
-        }
-        userService.createUser(userDTO);
-        return "entrance/login";
-    }
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @RequestMapping(value = "/all", method = RequestMethod.GET)

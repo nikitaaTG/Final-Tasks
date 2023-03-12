@@ -8,25 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10; 1. Logout logic:&#10; 1.1. Settitns in WebSecurityConfig.&#10; 1.2. GET method &quot;/logout&quot; in LoginController.&#10; 1.3. confirmLogout.html &#10; 1.4. link to confirmation of logout in header.html&#10; &#10;- Small fixes -">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Fixed:&#10;1. display sizes of all html">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/allCategories.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/allCategories.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/viewCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/viewCategory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/confirmLogout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/confirmLogout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/indexByTitle.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/indexByTitle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/indexCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/indexCategory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/all.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +25,8 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -339,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678450137904</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="- Fixed:&#10;1. display sizes of all html">
+      <created>1678459924501</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1678459924501</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -354,7 +347,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="firt real commit:&#10;Added:&#10;1. Project structure&#10;2. Dependencies&#10;3. POJO-classes for tables 'user' &amp; 'address'" />
     <MESSAGE value="second real commit:&#10;Added:&#10;1. Lombok anotations&#10;2. Connection to DB&#10;Fixed:&#10;1. .gitignore file&#10;2. enum of roles on site (renamed and moved)&#10;3. Class &quot;Client&quot; renamed in &quot;User&quot;&#10;Deleted:&#10;1. Plugin trash file" />
     <MESSAGE value="Added:&#10;1. 8 pages of html.&#10;2. page controller&#10;3. Product POJO&#10;Fixed:&#10;1. small pom.xml fixes, &#10;2. small fixes User/Address POJO" />
     <MESSAGE value="Saving changes before switching to repositories:&#10;Added header &amp; footer" />
@@ -379,7 +371,8 @@
     <MESSAGE value="- Added:&#10;1. WebSecurityConfig &amp; MyUserDetailsService for authorization&#10;&#10;- Changed:&#10;1. pom.xml dependencies&#10;2. logins endpoints moved to LoginController.java&#10;3. view of header.html (Anonymous user or not)&#10;4. annotations of access control restrictions in CategoryController&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10; 1. annotations of access control limits in AssortmentController.java &amp; &#10; UserController.java&#10; 2. access control fixes in homepage.html ,&#10;  indexView.html, &#10;  show.html&#10; - Changed:&#10; 1. Correcting the view in the files: &#10; show.html, &#10; editProduct.html, &#10; addProduct.html, &#10; homepage.html,&#10; indexView.html,&#10; show.html&#10; &#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10; 1. Logout logic:&#10; 1.1. Settitns in WebSecurityConfig.&#10; 1.2. GET method &quot;/logout&quot; in LoginController.&#10; 1.3. confirmLogout.html &#10; 1.4. link to confirmation of logout in header.html&#10; &#10;- Small fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10; 1. Logout logic:&#10; 1.1. Settitns in WebSecurityConfig.&#10; 1.2. GET method &quot;/logout&quot; in LoginController.&#10; 1.3. confirmLogout.html &#10; 1.4. link to confirmation of logout in header.html&#10; &#10;- Small fixes -" />
+    <MESSAGE value="- Fixed:&#10;1. display sizes of all html" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed:&#10;1. display sizes of all html" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -397,19 +390,24 @@
           <option name="timeStamp" value="20" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/6.0.1/spring-security-web-6.0.1.jar!/org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.class</url>
-          <line>35</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/6.0.1/spring-security-web-6.0.1-sources.jar!/org/springframework/security/web/authentication/logout/LogoutFilter.java</url>
           <line>78</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.0.1/spring-security-core-6.0.1-sources.jar!/org/springframework/security/core/userdetails/User.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="42" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/validator/UserValidator.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/validator/UserValidator.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
