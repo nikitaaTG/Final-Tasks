@@ -68,19 +68,44 @@ public class UserController {
     }
 
     @GetMapping("/{id}/editUser")
-    public String editProduct(Model model, @PathVariable("id") long id) {
+    public String editUser(Model model, @PathVariable("id") long id) {
         UserDTO user = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
         model.addAttribute("user", user);
         return "users/editUser";
     }
 
     @PatchMapping("/{id}")
-    public String updateProduct(@ModelAttribute("user") @Valid UserDTO userDTO, BindingResult bindingResult,
-                                @PathVariable("id") long id, Model model) {
+    public String updateUser(@ModelAttribute("user") @Valid UserDTO userDTO, BindingResult bindingResult,
+                             @PathVariable("id") long id, Model model) {
         if (bindingResult.hasErrors()) {
             return "users/editUser";
         }
         userService.updateUser(id, userDTO);
+        return "redirect:/user/{id}";
+    }
+
+    @GetMapping("/{id}/changePassword")
+    public String editPassword(Model model, @PathVariable("id") long id) {
+        UserDTO user = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
+        model.addAttribute("user", user);
+        return "users/changePassword";
+    }
+
+    @PatchMapping("/{id}/changePassword")
+    public String updatePassword(@ModelAttribute("oldPassword") @Valid String oldPassword,
+                                 @ModelAttribute("password") @Valid String password,
+                                 BindingResult bindingResult,
+                                 @PathVariable("id") long id, Model model) {
+//        if (bindingResult.hasErrors()) {
+//            return "users/editUser";
+//        }
+        //TODO: ADD VALIDATION:
+        
+        if (!userService.getUserById(id).getPassword().equals(oldPassword)) {
+            model.addAttribute("user", userService.getUserById(id));
+            return "users/changePassword";
+        }
+        userService.updatePassword(id, password);
         return "redirect:/user/{id}";
     }
 

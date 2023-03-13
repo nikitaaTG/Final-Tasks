@@ -44,7 +44,7 @@ public class UserService {
         return userRepository.save(userEntity);
     }
 
-    public UserEntity getUserById (Long id) {
+    public UserEntity getUserById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
@@ -53,10 +53,14 @@ public class UserService {
         String surname = updatedUser.getSurname();
         Date birthDay = updatedUser.getBirthDay();
         String email = updatedUser.getEmail();
-        String password = updatedUser.getPassword();
-        userRepository.updateUser(name, surname, birthDay, email, password, id);
+        userRepository.updateUser(name, surname, birthDay, email, id);
     }
-    public void deleteByID (Long id) {
+
+    public void updatePassword(long id, String password) {
+        userRepository.updatePassword(password, id);
+    }
+
+    public void deleteByID(Long id) {
         userRepository.deleteById(id);
     }
 }

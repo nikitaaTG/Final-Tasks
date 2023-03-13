@@ -28,7 +28,7 @@
     <p th:text="${product.getLeftInStock()}">VALUE </p>
     <br>
     <form method="get" action="#">
-        <input type="submit" value="Add To The Bucket">
+        <input type="submit" value="Add to Cart">
     </form>
     <br>
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">

@@ -18,13 +18,9 @@
 <div th:insert="~{blocks/header :: header}"></div>
 <div class="main">
     <h1>Login</h1>
-    <form th:action="@{/login}" method="post" th:object="${user}">
-        Your e-mail: <input type="text" name="username" th:field="*{email}"/><br><br>
-        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail error</div>
-        Password: <input type="password" name="password" th:field="*{password}"/><br><br>
-        <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
-
-
+    <form action="/login" method="post">
+        Your e-mail: <input type="text" name="username"/><br><br>
+        Password: <input type="password" name="password"/><br><br>
         <input type="submit" value="Log In">
     </form>
     <form method="get" action="/registration">

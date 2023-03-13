@@ -9,21 +9,25 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigInteger;
 import java.util.Date;
 
 @Repository
 @Transactional
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
-    Page<UserEntity> findAll (Pageable pageable);
+    Page<UserEntity> findAll(Pageable pageable);
 
     @Query(value = "SELECT * FROM webMarket2.user WHERE email_address = ?;",
             nativeQuery = true)
-    UserEntity findByEmail (String email);
+    UserEntity findByEmail(String email);
 
     @Modifying
-    @Query(value = "UPDATE webMarket2.user SET name = ?, surname = ?, date_of_birth = ?, email_address = ?, password = ? WHERE id = ?;",
+    @Query(value = "UPDATE webMarket2.user SET name = ?, surname = ?, date_of_birth = ?, email_address = ? WHERE id = ?;",
             nativeQuery = true)
-    int updateUser(String name, String surname, Date birthDay, String email, String password, Long id);
+    int updateUser(String name, String surname, Date birthDay, String email, Long id);
+
+    @Modifying
+    @Query(value = "UPDATE webMarket2.user SET password = ? WHERE id = ?;",
+            nativeQuery = true)
+    int updatePassword(String password, long id);
 }
 

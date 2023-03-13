@@ -30,7 +30,7 @@ public class AddressEntity {
     @Size(min = 2, max = 55, message = "Name of city must contain from 2 to 55 characters")
     private String city;
 
-    @Column(name = "post index")
+    @Column(name = "post_index")
     @NotEmpty(message = "Post index is empty")
     @Size(min = 5, max = 5, message = "Post index must contain 5 digits")
     private int postIndex;
