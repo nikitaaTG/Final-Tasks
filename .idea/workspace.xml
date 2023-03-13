@@ -8,11 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Fixed:&#10;1. display sizes of all html">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="saving progress (why the message is not displayed when you log in - figure it out)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/validator/LoginValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/validation.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/validation.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,11 +94,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.FinalProject.validator" />
       <recent name="org.example.FinalProject.mappers" />
       <recent name="org.example.FinalProject.dto" />
       <recent name="org.example.FinalProject.controllers" />
       <recent name="org.example.FinalProject.models" />
-      <recent name="org.example.FinalProject.repositories" />
     </key>
   </component>
   <component name="RunManager">
@@ -332,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678459924501</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="- Fixed:&#10;1. Separating controllers by destination&#10;2. Email validation bug">
+      <created>1678628511740</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1678628511740</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -347,8 +355,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="second real commit:&#10;Added:&#10;1. Lombok anotations&#10;2. Connection to DB&#10;Fixed:&#10;1. .gitignore file&#10;2. enum of roles on site (renamed and moved)&#10;3. Class &quot;Client&quot; renamed in &quot;User&quot;&#10;Deleted:&#10;1. Plugin trash file" />
-    <MESSAGE value="Added:&#10;1. 8 pages of html.&#10;2. page controller&#10;3. Product POJO&#10;Fixed:&#10;1. small pom.xml fixes, &#10;2. small fixes User/Address POJO" />
     <MESSAGE value="Saving changes before switching to repositories:&#10;Added header &amp; footer" />
     <MESSAGE value="work progress commit" />
     <MESSAGE value="added .gitignore" />
@@ -372,7 +378,9 @@
     <MESSAGE value="- Added:&#10; 1. annotations of access control limits in AssortmentController.java &amp; &#10; UserController.java&#10; 2. access control fixes in homepage.html ,&#10;  indexView.html, &#10;  show.html&#10; - Changed:&#10; 1. Correcting the view in the files: &#10; show.html, &#10; editProduct.html, &#10; addProduct.html, &#10; homepage.html,&#10; indexView.html,&#10; show.html&#10; &#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10; 1. Logout logic:&#10; 1.1. Settitns in WebSecurityConfig.&#10; 1.2. GET method &quot;/logout&quot; in LoginController.&#10; 1.3. confirmLogout.html &#10; 1.4. link to confirmation of logout in header.html&#10; &#10;- Small fixes -" />
     <MESSAGE value="- Fixed:&#10;1. display sizes of all html" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed:&#10;1. display sizes of all html" />
+    <MESSAGE value="- Fixed:&#10;1. Separating controllers by destination&#10;2. Email validation bug" />
+    <MESSAGE value="saving progress (why the message is not displayed when you log in - figure it out)" />
+    <option name="LAST_COMMIT_MESSAGE" value="saving progress (why the message is not displayed when you log in - figure it out)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -395,19 +403,14 @@
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java</url>
-          <line>154</line>
-          <option name="timeStamp" value="58" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/LoginController.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/validator/UserValidator.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/LoginController.java</url>
           <line>26</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/validator/UserValidator.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="62" />
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
