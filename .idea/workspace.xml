@@ -8,16 +8,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="trying to set up a login&#10;saving progress (why the message is not displayed when you log in - figure it out)">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Functional of password changing&#10;&#10;- Changed:&#10;1. the button and the field for changing the password are on a separate page changePassword.html&#10;2. controllers were created for the page changePassword.html&#10;&#10;- Small view fixes -">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/AddressDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/mappers/AddressMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/address/addAddress.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/address/editAddress.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/mappers/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/mappers/ProductMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/AddressEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/AddressEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/AddressRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/allCategories.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/allCategories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/viewCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/viewCategory.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +77,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/address" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -85,11 +90,11 @@
       <recent name="com.webshop.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/address" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/users" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/products" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/blocks" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/org/example/FinalProject/validator" />
@@ -99,10 +104,10 @@
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.example.FinalProject.validator" />
       <recent name="org.example.FinalProject.mappers" />
-      <recent name="org.example.FinalProject.dto" />
       <recent name="org.example.FinalProject.controllers" />
+      <recent name="org.example.FinalProject.validator" />
+      <recent name="org.example.FinalProject.dto" />
       <recent name="org.example.FinalProject.models" />
     </key>
   </component>
@@ -352,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678707272298</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="- Added:&#10;1. Functional of password changing&#10;&#10;- Changed:&#10;1. the button and the field for changing the password are on a separate page changePassword.html&#10;2. controllers were created for the page changePassword.html&#10;&#10;- Small view fixes -">
+      <created>1678721838192</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1678721838192</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -367,7 +379,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="work progress commit" />
     <MESSAGE value="added .gitignore" />
     <MESSAGE value="- Added:&#10;1. Mechanism for adding categories:&#10;1.1 Category entity, repository, service&#10;1.2 HTML files of category addition pages&#10;1.3 Get/post methods in AssortmentController.&#10;2. Mechanism for displaying products from the DB.&#10;- Fixed (Changed):&#10;1. data type Id -&gt; long;&#10;2. Entities -&gt; ...Entities &#10;3. other minor changes&#10;- Deleted:&#10;1. unnecessary files (used earlier for training)" />
     <MESSAGE value="Added:&#10;1. ProductDTO;&#10;2. pager.html (display only, no functionality)&#10;3. Pagination (dividing the resulting product list)&#10;Fixed:&#10;small modifications" />
@@ -392,7 +403,8 @@
     <MESSAGE value="- Fixed:&#10;1. Separating controllers by destination&#10;2. Email validation bug" />
     <MESSAGE value="saving progress (why the message is not displayed when you log in - figure it out)" />
     <MESSAGE value="trying to set up a login&#10;saving progress (why the message is not displayed when you log in - figure it out)" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to set up a login&#10;saving progress (why the message is not displayed when you log in - figure it out)" />
+    <MESSAGE value="- Added:&#10;1. Functional of password changing&#10;&#10;- Changed:&#10;1. the button and the field for changing the password are on a separate page changePassword.html&#10;2. controllers were created for the page changePassword.html&#10;&#10;- Small view fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Functional of password changing&#10;&#10;- Changed:&#10;1. the button and the field for changing the password are on a separate page changePassword.html&#10;2. controllers were created for the page changePassword.html&#10;&#10;- Small view fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -415,9 +427,19 @@
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/AddressEntity.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="81" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/AddressService.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="88" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

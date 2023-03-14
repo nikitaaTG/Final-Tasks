@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <title>Add New Product</title>
+    <style>
+        div.main{
+            width: 100%;
+            height: 680px;
+            border: 1px solid #ccc;
+            background-color: #eee;
+        }
+
+    </style>
+</head>
+<body>
+<div th:insert="~{blocks/header :: header}"></div>
+<div class="main">
+    <h1>Add a new address</h1>
+    <form th:method="post" th:action="@{/user/{userId}/addAddress(userId=${userId})}" th:object="${address}">
+        <div>
+            <label for="country">Country: </label>
+            <input type="text" th:field="*{country}" id="country">
+            <!--            <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>-->
+            <br>
+            <label for="city">City: </label>
+            <input type="text" th:field="*{city}" id="city">
+            <!--            <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>-->
+            <br>
+            <label for="postIndex">Post index:</label>
+            <input type="number" th:field="*{postIndex}" id="postIndex">
+            <br>
+            <label for="street">Street: </label>
+            <input type="text" th:field="*{street}" id="street">
+            <br>
+            <label for="home">Home number:</label>
+            <input type="number" th:field="*{home}" id="home">
+            <br>
+            <label for="apartment">Apartment:</label>
+            <input type="number" th:field="*{apartment}" id="apartment">
+            <br>
+            <input type="submit" value="Add a new Address">
+        </div>
+    </form>
+    <br>
+    <form th:method="get" th:action="@{/user/{userId}/changeAddress(userId=${userId})}">
+        <input type="submit" value="Cancel and return">
+    </form>
+</div>
+</body>
+<footer>
+    <div th:insert="~{blocks/footer :: footer}"></div>
+</footer>
+</html>

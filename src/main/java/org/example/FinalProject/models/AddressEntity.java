@@ -31,8 +31,8 @@ public class AddressEntity {
     private String city;
 
     @Column(name = "post_index")
-    @NotEmpty(message = "Post index is empty")
-    @Size(min = 5, max = 5, message = "Post index must contain 5 digits")
+    @NotNull(message = "Post index is empty")
+//    @Size(min = 5, max = 5, message = "Post index must contain 5 digits")
     private int postIndex;
 
     @Column(name = "street")
@@ -41,16 +41,16 @@ public class AddressEntity {
     private String street;
 
     @Column(name = "home")
-    @NotEmpty(message = "Home is empty")
+    @NotNull(message = "Home is empty")
     private int home;
 
     @Column(name = "apartment")
-    @NotEmpty(message = "Apartment is empty")
+    @NotNull(message = "Apartment is empty")
     private int apartment;
 
-    @Column(insertable=false, updatable=false,name = "user_id")
+    @Column(insertable = false, updatable = false, name = "user_id")
     @NotNull
-    private int userId;
+    private Long userId;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "user_id", nullable = false)

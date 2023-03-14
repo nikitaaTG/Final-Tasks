@@ -39,7 +39,7 @@ public class CategoryController {
     @GetMapping("/allCategories")
     public String viewAllCategories(Model model) {
         List<CategoryDTO> categories = CategoryMapper.INSTANCE.listDTO(productService.getAllCategories());
-        model.addAttribute("categories", productService.getAllCategories());
+        model.addAttribute("categories", categories);
         return "/category/allCategories";
     }
 }
