@@ -34,8 +34,8 @@ public class RegistrationController {
 
 
     @PostMapping
-    private String createUser(@ModelAttribute("user") @Valid UserDTO userDTO,
-                              BindingResult bindingResult) {
+    private String createNewUser(@ModelAttribute("user") @Valid UserDTO userDTO,
+                                 BindingResult bindingResult) {
         userDTO.setUserDeleted(false);
         userDTO.setRole(RoleOnSite.CLIENT);
         validator.validate(userDTO, bindingResult);

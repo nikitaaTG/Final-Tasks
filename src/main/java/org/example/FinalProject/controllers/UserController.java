@@ -37,7 +37,7 @@ public class UserController {
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public String showAll(
+    public String showAllUsers(
             @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
                     Pageable pageable,
             Model model,
@@ -61,7 +61,7 @@ public class UserController {
 }
 
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") long id, Model model) {
+    public String showUser(@PathVariable("id") long id, Model model) {
         UserDTO user = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
         model.addAttribute("user", user);
         return "users/showUser";
@@ -100,7 +100,7 @@ public class UserController {
 //            return "users/editUser";
 //        }
         //TODO: ADD VALIDATION:
-        
+
         if (!userService.getUserById(id).getPassword().equals(oldPassword)) {
             model.addAttribute("user", userService.getUserById(id));
             return "users/changePassword";

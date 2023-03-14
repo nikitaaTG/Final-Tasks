@@ -30,12 +30,12 @@ public class AssortmentController {
     private ProductService productService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String index(
-            @PageableDefault (sort = "id", direction = Sort.Direction.ASC, value = 2)
-            Pageable pageable,
+    public String showAllProducts(
+            @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
+                    Pageable pageable,
             Model model,
-            @RequestParam ("page") Optional<Integer> page,
-            @RequestParam ("size") Optional<Integer> size,
+            @RequestParam("page") Optional<Integer> page,
+            @RequestParam("size") Optional<Integer> size,
             @RequestParam("categoryId") Optional<Long> categoryId) {
         // Settings of pagination:
         int currentPage = page.orElse(1);
@@ -67,14 +67,14 @@ public class AssortmentController {
     }
 
     @RequestMapping(value = "/find", method = RequestMethod.GET)
-    public String findByTitle(
-            @PageableDefault (sort = "id", direction = Sort.Direction.ASC, value = 2)
+    public String findProductByTitle(
+            @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
                     Pageable pageable,
             Model model,
-            @RequestParam ("page") Optional<Integer> page,
-            @RequestParam ("size") Optional<Integer> size,
-            @RequestParam ("title") String title,
-            @RequestParam ("categoryId") Optional<Long> categoryId) {
+            @RequestParam("page") Optional<Integer> page,
+            @RequestParam("size") Optional<Integer> size,
+            @RequestParam("title") String title,
+            @RequestParam("categoryId") Optional<Long> categoryId) {
         // Settings of pagination:
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(10);
@@ -106,7 +106,7 @@ public class AssortmentController {
     }
 
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") long id, Model model) {
+    public String showProduct(@PathVariable("id") long id, Model model) {
         ProductDTO product = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
         model.addAttribute("product", product);
         model.addAttribute("prodTitle", product.getTitle());
@@ -123,8 +123,8 @@ public class AssortmentController {
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @PostMapping()
-    public String create(@ModelAttribute("product") @Valid ProductDTO product,
-                         BindingResult bindingResult, Model model) {
+    public String createProduct(@ModelAttribute("product") @Valid ProductDTO product,
+                                BindingResult bindingResult, Model model) {
         model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
         if (bindingResult.hasErrors()) {
             return "products/addProduct";

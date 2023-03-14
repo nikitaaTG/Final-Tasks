@@ -8,14 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. adding and changing address functionality:&#10;1.1. editAddress.html&#10;1.2. addAddress.html&#10;1.3. AddressDTO.java&#10;1.4. AddressMapper.java&#10;1.5. AddressRepository.java&#10;1.6. new method in AddressService.java&#10;1.7. new button in editUser.html&#10;&#10;- Small view fixes -">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. correcting address functionality:&#10;1.1. CorrectAddress.html&#10;1.2. new method in AddressRepository.java&#10;1.3. new method in AddressService.java&#10;1.4. new button in editUser.html&#10;1.5. new endpoints in AddressController.java&#10;&#10;- Small fixes -">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/AddressDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/AddressDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/AddressRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/AddressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/address/editAddress.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/address/editAddress.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -400,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678785389991</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="- Added:&#10;1. correcting address functionality:&#10;1.1. CorrectAddress.html&#10;1.2. new method in AddressRepository.java&#10;1.3. new method in AddressService.java&#10;1.4. new button in editUser.html&#10;1.5. new endpoints in AddressController.java&#10;&#10;- Small fixes -">
+      <created>1678817311335</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1678817311336</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -415,7 +419,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added:&#10;1. Mechanism for adding categories:&#10;1.1 Category entity, repository, service&#10;1.2 HTML files of category addition pages&#10;1.3 Get/post methods in AssortmentController.&#10;2. Mechanism for displaying products from the DB.&#10;- Fixed (Changed):&#10;1. data type Id -&gt; long;&#10;2. Entities -&gt; ...Entities &#10;3. other minor changes&#10;- Deleted:&#10;1. unnecessary files (used earlier for training)" />
     <MESSAGE value="Added:&#10;1. ProductDTO;&#10;2. pager.html (display only, no functionality)&#10;3. Pagination (dividing the resulting product list)&#10;Fixed:&#10;small modifications" />
     <MESSAGE value="Added:&#10;1. functionality of pagination" />
     <MESSAGE value="Added:&#10; - Blocks of views:&#10;1.1. categoryFilter.html&#10;1.2. indexView.html&#10;2. Page of products filtered by category (indexCategory.html)&#10;3. new methods by filtration by category in ProductRepository &amp; ProductService&#10;4. Counting the number of page method&#10;&#10; - Fixed:&#10;1. Split controllers Assortment &amp; Category&#10;&#10; - Changed:&#10; 1. method index in AssortmentController.java (for filtering by category. it works if you pass the &quot;categoryId&quot; parameter manually. it doesn't display the whole list - it needs to be finished)" />
@@ -440,7 +443,8 @@
     <MESSAGE value="trying to set up a login&#10;saving progress (why the message is not displayed when you log in - figure it out)" />
     <MESSAGE value="- Added:&#10;1. Functional of password changing&#10;&#10;- Changed:&#10;1. the button and the field for changing the password are on a separate page changePassword.html&#10;2. controllers were created for the page changePassword.html&#10;&#10;- Small view fixes -" />
     <MESSAGE value="- Added:&#10;1. adding and changing address functionality:&#10;1.1. editAddress.html&#10;1.2. addAddress.html&#10;1.3. AddressDTO.java&#10;1.4. AddressMapper.java&#10;1.5. AddressRepository.java&#10;1.6. new method in AddressService.java&#10;1.7. new button in editUser.html&#10;&#10;- Small view fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. adding and changing address functionality:&#10;1.1. editAddress.html&#10;1.2. addAddress.html&#10;1.3. AddressDTO.java&#10;1.4. AddressMapper.java&#10;1.5. AddressRepository.java&#10;1.6. new method in AddressService.java&#10;1.7. new button in editUser.html&#10;&#10;- Small view fixes -" />
+    <MESSAGE value="- Added:&#10;1. correcting address functionality:&#10;1.1. CorrectAddress.html&#10;1.2. new method in AddressRepository.java&#10;1.3. new method in AddressService.java&#10;1.4. new button in editUser.html&#10;1.5. new endpoints in AddressController.java&#10;&#10;- Small fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. correcting address functionality:&#10;1.1. CorrectAddress.html&#10;1.2. new method in AddressRepository.java&#10;1.3. new method in AddressService.java&#10;1.4. new button in editUser.html&#10;1.5. new endpoints in AddressController.java&#10;&#10;- Small fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

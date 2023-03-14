@@ -28,7 +28,7 @@ public class AddressController {
     }
 
     @RequestMapping(value = "/{userId}/addAddress", method = RequestMethod.GET)
-    public String newProduct(Model model, @PathVariable("userId") long userId) {
+    public String newAddress(Model model, @PathVariable("userId") long userId) {
         model.addAttribute("userId", userId);
         model.addAttribute("address", new AddressDTO());
         return "address/addAddress";
@@ -49,7 +49,7 @@ public class AddressController {
     }
 
     @GetMapping("/{userId}/changeAddress/{id}")
-    public String editProduct(Model model, @PathVariable("userId") long userId,
+    public String editAddress(Model model, @PathVariable("userId") long userId,
                               @PathVariable("id") long id) {
         AddressDTO address = AddressMapper.INSTANCE.addressEntityToDTO(addressService.getAddressById(id));
         model.addAttribute("address", address);
@@ -59,7 +59,7 @@ public class AddressController {
     }
 
     @PatchMapping("/{userId}/changeAddress/{id}")
-    public String updateProduct(@ModelAttribute("product") @Valid AddressDTO addressDTO, BindingResult bindingResult,
+    public String updateAddress(@ModelAttribute("product") @Valid AddressDTO addressDTO, BindingResult bindingResult,
                                 @PathVariable("userId") long userId,
                                 @PathVariable("id") long id, Model model) {
 //        if (bindingResult.hasErrors()) {
