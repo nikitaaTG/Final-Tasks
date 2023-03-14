@@ -12,7 +12,7 @@ import lombok.Setter;
 public class AddressDTO {
 
 
-    private long id;
+    private Long id;
 
 
     @NotNull(message = "Country is empty")

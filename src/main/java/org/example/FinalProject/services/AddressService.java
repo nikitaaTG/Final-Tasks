@@ -39,4 +39,19 @@ public class AddressService {
         addressEntity.setUser(userService.getUserById(userId));
         return addressRepository.save(addressEntity);
     }
+
+    public AddressEntity getAddressById(long id) {
+        return addressRepository.getReferenceById(id);
+    }
+
+    public void updateAddress(long id, AddressDTO updatedAddress) {
+        String country = updatedAddress.getCountry();
+        String city = updatedAddress.getCity();
+        int postIndex = updatedAddress.getPostIndex();
+        String street = updatedAddress.getStreet();
+        int home = updatedAddress.getHome();
+        int apartment = updatedAddress.getApartment();
+//        long userId = updatedAddress.getUserId();
+        addressRepository.updateAddress(country, city, postIndex, street, home, apartment, id);
+    }
 }

@@ -8,22 +8,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Functional of password changing&#10;&#10;- Changed:&#10;1. the button and the field for changing the password are on a separate page changePassword.html&#10;2. controllers were created for the page changePassword.html&#10;&#10;- Small view fixes -">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/AddressDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/mappers/AddressMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/address/addAddress.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/address/editAddress.html" afterDir="false" />
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. adding and changing address functionality:&#10;1.1. editAddress.html&#10;1.2. addAddress.html&#10;1.3. AddressDTO.java&#10;1.4. AddressMapper.java&#10;1.5. AddressRepository.java&#10;1.6. new method in AddressService.java&#10;1.7. new button in editUser.html&#10;&#10;- Small view fixes -">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/mappers/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/mappers/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/AddressEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/AddressEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/AddressDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/AddressDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/AddressRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/address/editAddress.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/address/editAddress.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/allCategories.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/allCategories.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/viewCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/viewCategory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +103,7 @@
       <recent name="org.example.FinalProject.models" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.FinalProjectApplication">
     <configuration name="FinalProjectApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.FinalProject.FinalProjectApplication" />
       <module name="FinalProject" />
@@ -125,6 +117,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FinalProject [clean,verify,sonar:sonar,\...]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="verify" />
+                <option value="sonar:sonar" />
+                <option value="\" />
+                <option value="-Dsonar.projectKey=FinlTask" />
+                <option value="\" />
+                <option value="-Dsonar.host.url=http://localhost:9000" />
+                <option value="\" />
+                <option value="-Dsonar.login=sqp_eca362d56d0e750a4d280482cc179ceb95e98b22" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.FinalProjectApplication" />
+      <item itemvalue="Maven.FinalProject [clean,verify,sonar:sonar,\...]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.FinalProjectApplication" />
@@ -364,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678721838192</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="- Added:&#10;1. adding and changing address functionality:&#10;1.1. editAddress.html&#10;1.2. addAddress.html&#10;1.3. AddressDTO.java&#10;1.4. AddressMapper.java&#10;1.5. AddressRepository.java&#10;1.6. new method in AddressService.java&#10;1.7. new button in editUser.html&#10;&#10;- Small view fixes -">
+      <created>1678785389991</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1678785389991</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -379,7 +415,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added .gitignore" />
     <MESSAGE value="- Added:&#10;1. Mechanism for adding categories:&#10;1.1 Category entity, repository, service&#10;1.2 HTML files of category addition pages&#10;1.3 Get/post methods in AssortmentController.&#10;2. Mechanism for displaying products from the DB.&#10;- Fixed (Changed):&#10;1. data type Id -&gt; long;&#10;2. Entities -&gt; ...Entities &#10;3. other minor changes&#10;- Deleted:&#10;1. unnecessary files (used earlier for training)" />
     <MESSAGE value="Added:&#10;1. ProductDTO;&#10;2. pager.html (display only, no functionality)&#10;3. Pagination (dividing the resulting product list)&#10;Fixed:&#10;small modifications" />
     <MESSAGE value="Added:&#10;1. functionality of pagination" />
@@ -404,7 +439,8 @@
     <MESSAGE value="saving progress (why the message is not displayed when you log in - figure it out)" />
     <MESSAGE value="trying to set up a login&#10;saving progress (why the message is not displayed when you log in - figure it out)" />
     <MESSAGE value="- Added:&#10;1. Functional of password changing&#10;&#10;- Changed:&#10;1. the button and the field for changing the password are on a separate page changePassword.html&#10;2. controllers were created for the page changePassword.html&#10;&#10;- Small view fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Functional of password changing&#10;&#10;- Changed:&#10;1. the button and the field for changing the password are on a separate page changePassword.html&#10;2. controllers were created for the page changePassword.html&#10;&#10;- Small view fixes -" />
+    <MESSAGE value="- Added:&#10;1. adding and changing address functionality:&#10;1.1. editAddress.html&#10;1.2. addAddress.html&#10;1.3. AddressDTO.java&#10;1.4. AddressMapper.java&#10;1.5. AddressRepository.java&#10;1.6. new method in AddressService.java&#10;1.7. new button in editUser.html&#10;&#10;- Small view fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. adding and changing address functionality:&#10;1.1. editAddress.html&#10;1.2. addAddress.html&#10;1.3. AddressDTO.java&#10;1.4. AddressMapper.java&#10;1.5. AddressRepository.java&#10;1.6. new method in AddressService.java&#10;1.7. new button in editUser.html&#10;&#10;- Small view fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -427,19 +463,24 @@
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="86" />
+          <url>file://$PROJECT_DIR$/target/classes/org/example/FinalProject/dto/AddressDTO.class</url>
+          <line>88</line>
+          <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/AddressService.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="88" />
+          <line>54</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="101" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

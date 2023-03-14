@@ -22,7 +22,10 @@
     <div th:each="address : ${addresses}">
         <a th:text="${address.getCountry()} + ', ' + ${address.getCity()} +
         ', ' + ${address.getStreet()}+ ', ' + ${address.getHome()} +
-        ', '+ ${address.getApartment()}"/>
+        ', '+ ${address.getApartment()}"/> <a
+            th:href="@{/user/{userId}/changeAddress/{Id}(Id=${address.getId()},userId=${userId})}"
+            th:object="${address}">Correct the
+        address</a>
     </div>
 
     <form th:method="get" th:action="@{/user/{userId}/addAddress(userId=${userId})}">
