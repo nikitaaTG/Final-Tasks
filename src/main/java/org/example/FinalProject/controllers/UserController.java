@@ -36,7 +36,7 @@ public class UserController {
 
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @GetMapping("/all")
     public String showAllUsers(
             @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
                     Pageable pageable,
@@ -45,7 +45,7 @@ public class UserController {
             @RequestParam("size") Optional<Integer> size) {
         // Settings of pagination:
         int currentPage = page.orElse(1);
-        int pageSize = size.orElse(10);
+        int pageSize = size.orElse(8);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         // Pagination of all products
@@ -99,7 +99,7 @@ public class UserController {
 //        if (bindingResult.hasErrors()) {
 //            return "users/editUser";
 //        }
-        //TODO: ADD VALIDATION:
+        //TODO: ADD VALIDATION BY PASSWORD PARAMS
 
         if (!userService.getUserById(id).getPassword().equals(oldPassword)) {
             model.addAttribute("user", userService.getUserById(id));

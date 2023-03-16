@@ -27,14 +27,14 @@ public class AddressController {
         return "address/editAddress";
     }
 
-    @RequestMapping(value = "/{userId}/addAddress", method = RequestMethod.GET)
-    public String newAddress(Model model, @PathVariable("userId") long userId) {
-        model.addAttribute("userId", userId);
-        model.addAttribute("address", new AddressDTO());
-        return "address/addAddress";
-    }
+@GetMapping("/{userId}/addAddress")
+public String newAddress(Model model, @PathVariable("userId") long userId) {
+    model.addAttribute("userId", userId);
+    model.addAttribute("address", new AddressDTO());
+    return "address/addAddress";
+}
 
-    @RequestMapping(value = "/{userId}/addAddress", method = RequestMethod.POST)
+    @PostMapping("/{userId}/addAddress")
     public String addNewAddress(@ModelAttribute("address") @Valid AddressDTO address,
                                 BindingResult bindingResult,
                                 @PathVariable("userId") long userId,

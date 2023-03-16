@@ -21,12 +21,12 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     UserEntity findByEmail(String email);
 
     @Modifying
-    @Query(value = "UPDATE webMarket2.user SET name = ?, surname = ?, date_of_birth = ?, email_address = ? WHERE id = ?;",
+    @Query(value = "UPDATE webMarket2.user SET name = :name, surname = :surname, date_of_birth = :birthDay, email_address = :email WHERE id = :id ;",
             nativeQuery = true)
     int updateUser(String name, String surname, Date birthDay, String email, Long id);
 
     @Modifying
-    @Query(value = "UPDATE webMarket2.user SET password = ? WHERE id = ?;",
+    @Query(value = "UPDATE webMarket2.user SET password = :password WHERE id = :id ;",
             nativeQuery = true)
     int updatePassword(String password, long id);
 }

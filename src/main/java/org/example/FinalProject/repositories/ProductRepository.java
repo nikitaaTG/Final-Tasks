@@ -15,14 +15,14 @@ import java.util.List;
 @Repository
 @Transactional
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
-    Page<ProductEntity> findByTitle(String title, Pageable pageable);
+    List<ProductEntity> findByTitleContainingIgnoreCase(String title);
 
     Page<ProductEntity> findAll(Pageable pageable);
 
     Page<ProductEntity> findAllByCategory(CategoryEntity category, Pageable pageable);
 
     @Modifying
-    @Query(value = "UPDATE webMarket2.product SET title = ?, price = ?, left_in_stock = ?, category_id = ? WHERE id = ?;",
-    nativeQuery = true)
+    @Query(value = "UPDATE webMarket2.product SET title = :title, price = :price, left_in_stock = :leftInStock, category_id = :category_id WHERE id = :id ;",
+            nativeQuery = true)
     int updateProduct(String title, double price, int leftInStock, long category_id, Long id);
 }

@@ -1,5 +1,7 @@
 package org.example.FinalProject.dto;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.FinalProject.enums.RoleOnSite;
 import org.example.FinalProject.models.AddressEntity;
-import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -43,7 +44,7 @@ public class UserDTO {
 //    @UniqueElements(message = "E-mail is not unique on this web-site")
     private String email;
 
-    @NotNull(message = "Password is empty")
+//    @NotNull(message = "Password is empty")
     @Size(min = 8, max = 100, message = "Password should be more than 8 characters")
     private String password;
 

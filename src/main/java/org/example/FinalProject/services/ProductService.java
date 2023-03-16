@@ -9,6 +9,7 @@ import org.example.FinalProject.models.ProductEntity;
 import org.example.FinalProject.repositories.CategoryRepository;
 import org.example.FinalProject.repositories.ProductRepository;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +43,7 @@ public class ProductService {
 
     public Page<ProductDTO> listProductsByTitle(String title, Pageable pageable) {
         if (title != null) {
-            Page<ProductDTO> pageDto = productRepository.findByTitle(title, pageable).map(ProductMapper.INSTANCE::productEntityToDTO);
+            Page<ProductDTO> pageDto = (transformListToPage(productRepository.findByTitleContainingIgnoreCase(title), pageable).map(ProductMapper.INSTANCE::productEntityToDTO));
             return pageDto;
         }
         else throw new IllegalArgumentException("Title is null");
@@ -79,5 +80,12 @@ public class ProductService {
 
     public ProductEntity getProductById(Long id) {
         return productRepository.findById(id).orElse(null);
+    }
+
+    public Page<ProductEntity> transformListToPage(List<ProductEntity> list, Pageable pageable) {
+        final int start = (int) pageable.getOffset();
+        final int end = Math.min((start + pageable.getPageSize()), list.size());
+        final Page<ProductEntity> page = new PageImpl<>(list.subList(start, end), pageable, list.size());
+        return page;
     }
 }

@@ -29,44 +29,44 @@ public class AssortmentController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public String showAllProducts(
-            @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
-                    Pageable pageable,
-            Model model,
-            @RequestParam("page") Optional<Integer> page,
-            @RequestParam("size") Optional<Integer> size,
-            @RequestParam("categoryId") Optional<Long> categoryId) {
-        // Settings of pagination:
-        int currentPage = page.orElse(1);
-        int pageSize = size.orElse(10);
-        Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
+@GetMapping("")
+public String showAllProducts(
+        @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
+                Pageable pageable,
+        Model model,
+        @RequestParam("page") Optional<Integer> page,
+        @RequestParam("size") Optional<Integer> size,
+        @RequestParam("categoryId") Optional<Long> categoryId) {
+    // Settings of pagination:
+    int currentPage = page.orElse(1);
+    int pageSize = size.orElse(8);
+    Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
-        //  Add Model attribute for view list of category in filter
-        model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
-        return categoryId.map(cat -> {
-            // Pagination of all products in category filter
+    //  Add Model attribute for view list of category in filter
+    model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
+    return categoryId.map(cat -> {
+        // Pagination of all products in category filter
 
-            Page<ProductDTO> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
-            model.addAttribute("productPage", productInCategory);
-            List<Integer> pageNumbers = getPagesCount(productInCategory);
-            model.addAttribute("pageNumbers", pageNumbers);
-            model.addAttribute("categoryName", CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
-            return "products/indexCategory";
-        }).orElseGet(() -> {
-            // Pagination of all products
-            Page<ProductDTO> productPage = productService.listProducts(allProductsPage);
-            model.addAttribute("productPage", productPage);
+        Page<ProductDTO> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
+        model.addAttribute("productPage", productInCategory);
+        List<Integer> pageNumbers = getPagesCount(productInCategory);
+        model.addAttribute("pageNumbers", pageNumbers);
+        model.addAttribute("categoryName", CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
+        return "products/indexCategory";
+    }).orElseGet(() -> {
+        // Pagination of all products
+        Page<ProductDTO> productPage = productService.listProducts(allProductsPage);
+        model.addAttribute("productPage", productPage);
 
-            // Counting the number of page
-            List<Integer> pageNumbers = getPagesCount(productPage);
-            model.addAttribute("pageNumbers", pageNumbers);
+        // Counting the number of page
+        List<Integer> pageNumbers = getPagesCount(productPage);
+        model.addAttribute("pageNumbers", pageNumbers);
 
-            return "products/index";
-        });
-    }
+        return "products/index";
+    });
+}
 
-    @RequestMapping(value = "/find", method = RequestMethod.GET)
+    @GetMapping("/find")
     public String findProductByTitle(
             @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
                     Pageable pageable,
@@ -77,7 +77,7 @@ public class AssortmentController {
             @RequestParam("categoryId") Optional<Long> categoryId) {
         // Settings of pagination:
         int currentPage = page.orElse(1);
-        int pageSize = size.orElse(10);
+        int pageSize = size.orElse(8);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         //  Add Model attribute for view list of category in filter

@@ -7,20 +7,32 @@
 <body>
 <div align="left" th:fragment="indexView">
     <div th:each="product : ${productPage}">
-        <a th:text="${product.getTitle()}" th:href="@{/assortment/{id}(id=${product.getId()})}">product</a>
+        <i th:text="${product.getTitle()} + ' ' + ${product.getPrice()} + '€'"/>
+        <br>
+        <a th:href="@{/assortment/{id}(id=${product.getId()})}">
+            <button>
+                More Information
+            </button>
+        </a>
+
+        <a th:href="@{/assortment/addToCart/{id}(id=${product.getId()})}">
+            <button>
+                Add to Cart
+            </button>
+        </a>
     </div>
     <br>
     <div th:insert="~{blocks/pager :: pager}"></div>
+    <br>
+    <form method="get" action="/">
+        <input type="submit" value="Back to homepage">
+    </form>
     <br>
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
         <form align="left" method="get" action="/assortment/new">
             <input type="submit" value="Add Product">
         </form>
     </div>
-    <br>
-    <form method="get" action="/">
-        <input type="submit" value="Back to homepage">
-    </form>
 </div>
 </body>
 

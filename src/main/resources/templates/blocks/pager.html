@@ -15,12 +15,12 @@
             </li>
             <div th:if="${productPage.totalPages > 0}" class="pagination"
                  th:each="pageNumber : ${pageNumbers}">
+                <a th:href="@{/assortment(size=${productPage.size}, page=${pageNumber})}">
                 <span class="page-link">
-                    <a th:href="@{/assortment(size=${productPage.size}, page=${pageNumber})}"
-                       th:text=${pageNumber}
-                       th:class="${pageNumber==productPage.number + 1} ? active"></a>
-                    <span class="sr-only"></span>
+                    <span class="sr-only" th:text=${pageNumber}
+                          th:class="${pageNumber==productPage.number + 1} ? active"></span>
                 </span>
+                </a>
             </div>
         </ul>
     </nav>
@@ -34,12 +34,12 @@
             </li>
             <div th:if="${users.totalPages > 0}" class="pagination"
                  th:each="pageNumber : ${pageNumbers}">
+                <a th:href="@{/user/all(size=${users.size}, page=${pageNumber})}">
                 <span class="page-link">
-                    <a th:href="@{/user/all(size=${users.size}, page=${pageNumber})}"
-                       th:text=${pageNumber}
-                       th:class="${pageNumber==users.number + 1} ? active"></a>
-                    <span class="sr-only"></span>
+                    <span class="sr-only" th:text=${pageNumber}
+                          th:class="${pageNumber==users.number + 1} ? active"></span>
                 </span>
+                </a>
             </div>
         </ul>
     </nav>

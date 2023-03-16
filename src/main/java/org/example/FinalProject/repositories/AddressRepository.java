@@ -16,9 +16,9 @@ public interface AddressRepository extends JpaRepository<AddressEntity, Long> {
     List<AddressEntity> findAllByUserId(Long id);
 
     @Modifying
-    @Query(value = "UPDATE webMarket2.address SET country = ?, city = ?, " +
-            "post_index = ?, street = ?, home = ?, apartment = ? " +
-            "WHERE id = ?;",
+    @Query(value = "UPDATE webMarket2.address SET country = :country, city = :city, " +
+            "post_index = :postIndex, street = :street, home = :home, apartment = :apartment " +
+            "WHERE id = :id ;",
             nativeQuery = true)
     int updateAddress(String country, String city, int postIndex, String street, int home, int apartment, long id);
 }
