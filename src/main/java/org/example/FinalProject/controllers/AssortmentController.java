@@ -53,7 +53,7 @@ public String showAllProducts(
         model.addAttribute("pageNumbers", pageNumbers);
         model.addAttribute("categoryName", CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
         model.addAttribute("categoryId", cat);
-        return "products/indexCategory";
+        return "products/index";
     }).orElseGet(() -> {
         // Pagination of all products
         Page<ProductDTO> productPage = productService.listProducts(allProductsPage);
@@ -92,7 +92,7 @@ public String showAllProducts(
             List<Integer> pageNumbers = getPagesCount(productInCategory);
             model.addAttribute("pageNumbers", pageNumbers);
             model.addAttribute("categoryName", CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
-            return "products/indexCategory";
+            return "products/index";
         }).orElseGet(() -> {
             // Pagination of all products
             Page<ProductDTO> productPage = productService.listProductsByTitle(title,allProductsPage);
@@ -102,7 +102,7 @@ public String showAllProducts(
             List<Integer> pageNumbers = getPagesCount(productPage);
             model.addAttribute("pageNumbers", pageNumbers);
 
-            return "products/indexByTitle";
+            return "products/index";
         });
     }
 

@@ -8,11 +8,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. New buttons on all products page (More information + buy now).&#10;&#10;- Changed:&#10;1. Updated mechanism of product searching.&#10;2. Annotations RequestMapping GET/POST -&gt; GetMapping/ PostMapping everywhere.&#10;3. Fixed buttons of pagination.&#10;4. Fixed all Query methods in all Repositories (parameters changed from &quot;?&quot; to &quot;:param&quot;.&#10;&#10;- Small fixes -">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Changed:&#10;1. Fixed pager bugs&#10;&#10;- Small fixes -">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/indexView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/indexView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/pager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/pager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/indexView.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/indexByTitle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/indexCategory.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -415,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678973733142</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="- Changed:&#10;1. Fixed pager bugs&#10;&#10;- Small fixes -">
+      <created>1679065760663</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1679065760663</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -430,7 +440,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added:&#10; - Blocks of views:&#10;1.1. categoryFilter.html&#10;1.2. indexView.html&#10;2. Page of products filtered by category (indexCategory.html)&#10;3. new methods by filtration by category in ProductRepository &amp; ProductService&#10;4. Counting the number of page method&#10;&#10; - Fixed:&#10;1. Split controllers Assortment &amp; Category&#10;&#10; - Changed:&#10; 1. method index in AssortmentController.java (for filtering by category. it works if you pass the &quot;categoryId&quot; parameter manually. it doesn't display the whole list - it needs to be finished)" />
     <MESSAGE value="Added:&#10;Functional of Category filter" />
     <MESSAGE value="Small view fixes" />
     <MESSAGE value="Added ProductPageDTO.java for to analyze the approach" />
@@ -455,7 +464,8 @@
     <MESSAGE value="- Added:&#10;1. correcting address functionality:&#10;1.1. CorrectAddress.html&#10;1.2. new method in AddressRepository.java&#10;1.3. new method in AddressService.java&#10;1.4. new button in editUser.html&#10;1.5. new endpoints in AddressController.java&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Changed:&#10;Endpoints names in AddressController.java,&#10;AssortmentController.java,&#10;RegistrationController.java&#10;UserController.java&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10;1. New buttons on all products page (More information + buy now).&#10;&#10;- Changed:&#10;1. Updated mechanism of product searching.&#10;2. Annotations RequestMapping GET/POST -&gt; GetMapping/ PostMapping everywhere.&#10;3. Fixed buttons of pagination.&#10;4. Fixed all Query methods in all Repositories (parameters changed from &quot;?&quot; to &quot;:param&quot;.&#10;&#10;- Small fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. New buttons on all products page (More information + buy now).&#10;&#10;- Changed:&#10;1. Updated mechanism of product searching.&#10;2. Annotations RequestMapping GET/POST -&gt; GetMapping/ PostMapping everywhere.&#10;3. Fixed buttons of pagination.&#10;4. Fixed all Query methods in all Repositories (parameters changed from &quot;?&quot; to &quot;:param&quot;.&#10;&#10;- Small fixes -" />
+    <MESSAGE value="- Changed:&#10;1. Fixed pager bugs&#10;&#10;- Small fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Changed:&#10;1. Fixed pager bugs&#10;&#10;- Small fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
