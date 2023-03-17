@@ -22,7 +22,14 @@
         </a>
     </div>
     <br>
-    <div th:insert="~{blocks/pager :: pager}"></div>
+    <div>
+        <div th:if="${categoryId}!=null" th:insert="~{blocks/pager :: pagerCategoryFilteredProduct}"></div>
+        <!--        <div th:if="${categoryId}==null" th:insert="~{blocks/pager :: pager}"></div>-->
+
+        <div th:if="${title}!=null" th:insert="~{blocks/pager :: pagerTitleFilteredProduct}"></div>
+        <div th:if="${title}==null and ${categoryId}==null" th:insert="~{blocks/pager :: pager}"></div>
+    </div>
+
     <br>
     <form method="get" action="/">
         <input type="submit" value="Back to homepage">

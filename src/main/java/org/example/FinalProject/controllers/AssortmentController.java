@@ -52,6 +52,7 @@ public String showAllProducts(
         List<Integer> pageNumbers = getPagesCount(productInCategory);
         model.addAttribute("pageNumbers", pageNumbers);
         model.addAttribute("categoryName", CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
+        model.addAttribute("categoryId", cat);
         return "products/indexCategory";
     }).orElseGet(() -> {
         // Pagination of all products
