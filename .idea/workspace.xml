@@ -8,13 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Changed:&#10;1. Fixed pager bugs&#10;&#10;- Small fixes -">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Changed:&#10;1. deleted useless files indexView.html, indexByTitle.html, indexCategory.html&#10;2. functionality from the deleted pages has been moved to index.html&#10;&#10;- Small fixes -">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/cart/cart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/indexView.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/indexByTitle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/indexCategory.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +28,8 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="AnnotationType" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -69,7 +69,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/address" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/cart" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -82,11 +82,11 @@
       <recent name="com.webshop.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/cart" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/address" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/users" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/products" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates/blocks" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/org/example/FinalProject/validator" />
@@ -425,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679065760663</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="- Changed:&#10;1. deleted useless files indexView.html, indexByTitle.html, indexCategory.html&#10;2. functionality from the deleted pages has been moved to index.html&#10;&#10;- Small fixes -">
+      <created>1679069151226</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1679069151226</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -440,7 +447,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added:&#10;Functional of Category filter" />
     <MESSAGE value="Small view fixes" />
     <MESSAGE value="Added ProductPageDTO.java for to analyze the approach" />
     <MESSAGE value=" - Added:&#10; 1. Functional of product changing:&#10; 1.1. update method in ProductRepository&#10; 1.2. new logic of update method in ProductService&#10; - Fixed:&#10; 1. Bugs in products adding &amp; changing" />
@@ -465,7 +471,8 @@
     <MESSAGE value="- Changed:&#10;Endpoints names in AddressController.java,&#10;AssortmentController.java,&#10;RegistrationController.java&#10;UserController.java&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10;1. New buttons on all products page (More information + buy now).&#10;&#10;- Changed:&#10;1. Updated mechanism of product searching.&#10;2. Annotations RequestMapping GET/POST -&gt; GetMapping/ PostMapping everywhere.&#10;3. Fixed buttons of pagination.&#10;4. Fixed all Query methods in all Repositories (parameters changed from &quot;?&quot; to &quot;:param&quot;.&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Changed:&#10;1. Fixed pager bugs&#10;&#10;- Small fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Changed:&#10;1. Fixed pager bugs&#10;&#10;- Small fixes -" />
+    <MESSAGE value="- Changed:&#10;1. deleted useless files indexView.html, indexByTitle.html, indexCategory.html&#10;2. functionality from the deleted pages has been moved to index.html&#10;&#10;- Small fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Changed:&#10;1. deleted useless files indexView.html, indexByTitle.html, indexCategory.html&#10;2. functionality from the deleted pages has been moved to index.html&#10;&#10;- Small fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -483,14 +490,19 @@
           <option name="timeStamp" value="20" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="107" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="113" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="125" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

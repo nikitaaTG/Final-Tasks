@@ -27,7 +27,7 @@
     <h4>Left in stock:</h4>
     <p th:text="${product.getLeftInStock()}">VALUE </p>
     <br>
-    <form method="get" action="#">
+    <form th:action="@{/assortment/{id}/addToCart(id=${product.getId()})}" th:method="post">
         <input type="submit" value="Add to Cart">
     </form>
     <br>
