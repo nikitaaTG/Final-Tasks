@@ -23,11 +23,6 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserEntity findByID (Long id) {
-        return userRepository.getReferenceById(id);
-
-    }
-
     public Page<UserDTO> findAll(Pageable pageable){
         return userRepository.findAll(pageable).map(UserMapper.INSTANCE::userEntityToDTO);
     }
@@ -40,7 +35,6 @@ public class UserService {
         userDTO.setRole(RoleOnSite.CLIENT);
         userDTO.setUserDeleted(false);
         UserEntity userEntity = UserMapper.INSTANCE.userDTOToEntity(userDTO);
-//
         return userRepository.save(userEntity);
     }
 

@@ -48,7 +48,7 @@ public class UserController {
         int pageSize = size.orElse(8);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
-        // Pagination of all products
+        // Pagination of all users
 
         Page<UserDTO> users = userService.findAll(allProductsPage);
         model.addAttribute("users", users);

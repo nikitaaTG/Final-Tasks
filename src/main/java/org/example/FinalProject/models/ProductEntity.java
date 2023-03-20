@@ -38,4 +38,8 @@ public class ProductEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity category;
+
+//    @ManyToMany(fetch = FetchType.EAGER,
+//            mappedBy = "productsInOrder")
+//    ArrayList<OrderEntity> ordersWithProduct;
 }
