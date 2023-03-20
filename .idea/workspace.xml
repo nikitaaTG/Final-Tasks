@@ -8,24 +8,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Session cart functionality&#10;1.1. Cart.java class for session storage of cart&#10;1.2. CartController.java&#10;1.3. cart.html&#10;1.4. Button &quot;Add to Cart&quot; in show.html&#10;&#10;- Changed:&#10;1. Link to cart in header.html&#10;2. Deleted Button &quot;Add to Cart&quot; from index.html&#10;&#10;- Small fixes -">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/OrderDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/enums/DeliveryMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/enums/OrderStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/enums/PaymentMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/enums/PaymentStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/mappers/OrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/OrderEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/OrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/OrderService.java" afterDir="false" />
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1.The development of the ordering process has begun:&#10;Added:&#10;1.1. OrderController.java&#10;1.2. OrderRepository.java&#10;1.3. OrderEntity.java&#10;1.4. OrderDTO.java&#10;1.5. OrderMapper.java&#10;1.6. Enums:&#10;DeliveryMethod.java,&#10;OrderStatus.java,&#10;PaymentMethod.java&#10;PaymentStatus.java&#10;1.7. Ordering page (newOrderPage.html) it is now empty. &#10;&#10;- Changed:&#10;1. Cart view: added request to log in before ordering.&#10;&#10;- Small fixes -">
       <change afterPath="$PROJECT_DIR$/src/main/resources/templates/orders/newOrderPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/OrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/OrderDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/OrderEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/ProductEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cart/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cart/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -449,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679234143275</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="- Added:&#10;1.The development of the ordering process has begun:&#10;Added:&#10;1.1. OrderController.java&#10;1.2. OrderRepository.java&#10;1.3. OrderEntity.java&#10;1.4. OrderDTO.java&#10;1.5. OrderMapper.java&#10;1.6. Enums:&#10;DeliveryMethod.java,&#10;OrderStatus.java,&#10;PaymentMethod.java&#10;PaymentStatus.java&#10;1.7. Ordering page (newOrderPage.html) it is now empty. &#10;&#10;- Changed:&#10;1. Cart view: added request to log in before ordering.&#10;&#10;- Small fixes -">
+      <created>1679306278263</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1679306278263</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -464,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added ProductPageDTO.java for to analyze the approach" />
     <MESSAGE value=" - Added:&#10; 1. Functional of product changing:&#10; 1.1. update method in ProductRepository&#10; 1.2. new logic of update method in ProductService&#10; - Fixed:&#10; 1. Bugs in products adding &amp; changing" />
     <MESSAGE value=" - Added:&#10;1. pom.xml dependencies for using MapStruct&#10;2. CategoryMapper &amp; ProductMapper for using MapStruct&#10; &#10; - Changed:&#10; 1. ProductDTO: Class field Long categoryId -&gt; CategoryEntity category.&#10; 2. ProductService: Corrections with using MapStruct.&#10; 3. CategoryController: Corrections with using MapStruct.&#10; 4. AssortmentController: Corrections with using MapStruct.&#10; &#10; - Small fixes" />
     <MESSAGE value="- Added :&#10;1. UserDTO, CategoryDTO&#10;2. UserMapper&#10;3. All user page all.html&#10;4. User show page showUser.html&#10;5. Links to registration &amp; log-in pages in header.html&#10;6. Link to all user page in homepage.html&#10;7. Logic of registration&#10;8. Logic of updating users information (not full)&#10;&#10;- Small Fixes -" />
@@ -489,7 +485,8 @@
     <MESSAGE value="- Changed:&#10;1. Fixed pager bugs&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Changed:&#10;1. deleted useless files indexView.html, indexByTitle.html, indexCategory.html&#10;2. functionality from the deleted pages has been moved to index.html&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10;1. Session cart functionality&#10;1.1. Cart.java class for session storage of cart&#10;1.2. CartController.java&#10;1.3. cart.html&#10;1.4. Button &quot;Add to Cart&quot; in show.html&#10;&#10;- Changed:&#10;1. Link to cart in header.html&#10;2. Deleted Button &quot;Add to Cart&quot; from index.html&#10;&#10;- Small fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Session cart functionality&#10;1.1. Cart.java class for session storage of cart&#10;1.2. CartController.java&#10;1.3. cart.html&#10;1.4. Button &quot;Add to Cart&quot; in show.html&#10;&#10;- Changed:&#10;1. Link to cart in header.html&#10;2. Deleted Button &quot;Add to Cart&quot; from index.html&#10;&#10;- Small fixes -" />
+    <MESSAGE value="- Added:&#10;1.The development of the ordering process has begun:&#10;Added:&#10;1.1. OrderController.java&#10;1.2. OrderRepository.java&#10;1.3. OrderEntity.java&#10;1.4. OrderDTO.java&#10;1.5. OrderMapper.java&#10;1.6. Enums:&#10;DeliveryMethod.java,&#10;OrderStatus.java,&#10;PaymentMethod.java&#10;PaymentStatus.java&#10;1.7. Ordering page (newOrderPage.html) it is now empty. &#10;&#10;- Changed:&#10;1. Cart view: added request to log in before ordering.&#10;&#10;- Small fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1.The development of the ordering process has begun:&#10;Added:&#10;1.1. OrderController.java&#10;1.2. OrderRepository.java&#10;1.3. OrderEntity.java&#10;1.4. OrderDTO.java&#10;1.5. OrderMapper.java&#10;1.6. Enums:&#10;DeliveryMethod.java,&#10;OrderStatus.java,&#10;PaymentMethod.java&#10;PaymentStatus.java&#10;1.7. Ordering page (newOrderPage.html) it is now empty. &#10;&#10;- Changed:&#10;1. Cart view: added request to log in before ordering.&#10;&#10;- Small fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -506,16 +503,6 @@
           <properties class="org.springframework.context.NoSuchMessageException" package="org.springframework.context" />
           <option name="timeStamp" value="20" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="122" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="127" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

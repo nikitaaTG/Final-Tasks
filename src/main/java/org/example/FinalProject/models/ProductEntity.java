@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "product")
 @Getter
@@ -39,7 +41,7 @@ public class ProductEntity {
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity category;
 
-//    @ManyToMany(fetch = FetchType.EAGER,
-//            mappedBy = "productsInOrder")
-//    ArrayList<OrderEntity> ordersWithProduct;
+    @ManyToMany(
+            mappedBy = "productsInOrder")
+    private List<OrderEntity> ordersWithProduct;
 }

@@ -40,7 +40,7 @@ public class CartController {
     @GetMapping("/cart/deleteFromCart/{index}")
     public String deleteFromCart(
             @ModelAttribute("cart") Cart cart,
-            @PathVariable("index") long index,
+            @PathVariable("index") int index,
             RedirectAttributes attributes) {
         cart.remove(index);
         attributes.addFlashAttribute("cart", cart);

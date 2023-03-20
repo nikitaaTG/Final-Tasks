@@ -12,7 +12,7 @@ import org.example.FinalProject.models.AddressEntity;
 import org.example.FinalProject.models.ProductEntity;
 import org.example.FinalProject.models.UserEntity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -34,5 +34,5 @@ public class OrderDTO {
 
     private UserEntity user;
 
-    private ArrayList<ProductEntity> productsInOrder;
+    private List<ProductEntity> productsInOrder;
 }
