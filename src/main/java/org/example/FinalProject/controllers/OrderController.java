@@ -1,10 +1,16 @@
 package org.example.FinalProject.controllers;
 
 import jakarta.validation.Valid;
+import org.example.FinalProject.dto.AddressDTO;
 import org.example.FinalProject.dto.Cart;
 import org.example.FinalProject.dto.OrderDTO;
+import org.example.FinalProject.dto.UserDTO;
+import org.example.FinalProject.enums.DeliveryMethod;
+import org.example.FinalProject.enums.PaymentMethod;
+import org.example.FinalProject.mappers.AddressMapper;
 import org.example.FinalProject.mappers.OrderMapper;
 import org.example.FinalProject.services.OrderService;
+import org.example.FinalProject.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,23 +18,28 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/order")
+@SessionAttributes("cart")
 public class OrderController {
 
     @Autowired
-   private OrderService orderService;
-
-
+    private OrderService orderService;
+    @Autowired
+    private UserService userService;
 
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
@@ -70,9 +81,20 @@ public class OrderController {
         return "orders/editOrder";
     }
 
-    @GetMapping("/new")
-    public String showNewOrderPage(){
-        return "orders/newOrderPage";
+    @GetMapping("/newOrder")
+    public String showOrderConfirmPage(Model model,
+                                       RedirectAttributes attributes,
+                                       @ModelAttribute("cart") Cart cart,
+                                       @AuthenticationPrincipal User user) {
+        UserDTO activeUser = userService.getUserByEmail(user.getUsername());
+        model.addAttribute("activeUser", activeUser);
+        model.addAttribute("deliveryMethod", DeliveryMethod.values());
+        model.addAttribute("paymentMethod", PaymentMethod.values());
+        Set<AddressDTO> addressDTOSet = AddressMapper.INSTANCE.setDTO(activeUser.getAddressEntities());
+        model.addAttribute("addresses", addressDTOSet);
+        attributes.addFlashAttribute("cart", cart);
+        model.addAttribute("totalPrice", CartController.totalPrice);
+        return "orders/confirmNewOrderPage";
     }
 
     @PostMapping

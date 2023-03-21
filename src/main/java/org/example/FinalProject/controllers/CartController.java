@@ -18,11 +18,13 @@ public class CartController {
     @Autowired
     ProductService productService;
 
+    static double totalPrice = 0;
+
     @GetMapping("/cart")
     public String showCart(
             Model model,
             @ModelAttribute("cart") Cart cart) {
-
+        model.addAttribute("totalPrice", totalPrice);
         return "cart/cart";
     }
 
@@ -30,9 +32,12 @@ public class CartController {
     public String addToCart(
             @ModelAttribute("cart") Cart cart,
             @PathVariable("id") long id,
-            RedirectAttributes attributes) {
+            RedirectAttributes attributes,
+            Model model) {
         ProductDTO neededProduct = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
         cart.add(neededProduct);
+        totalPrice += neededProduct.getPrice();
+        model.addAttribute("totalPrice", totalPrice);
         attributes.addFlashAttribute("cart", cart);
         return "cart/cart";
     }
@@ -41,9 +46,12 @@ public class CartController {
     public String deleteFromCart(
             @ModelAttribute("cart") Cart cart,
             @PathVariable("index") int index,
-            RedirectAttributes attributes) {
+            RedirectAttributes attributes,
+            Model model) {
+        totalPrice -= cart.get(index).getPrice();
         cart.remove(index);
         attributes.addFlashAttribute("cart", cart);
+        model.addAttribute("totalPrice", totalPrice);
         return "redirect:/assortment/cart";
     }
 
