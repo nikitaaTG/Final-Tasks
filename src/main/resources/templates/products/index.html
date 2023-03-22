@@ -40,17 +40,15 @@
         <div th:if="${title}!=null" th:insert="~{blocks/pager :: pagerTitleFilteredProduct}"></div>
         <div th:if="${title}==null and ${categoryId}==null" th:insert="~{blocks/pager :: pager}"></div>
     </div>
-
-    <br>
-    <form method="get" action="/">
-        <input type="submit" value="Back to homepage">
-    </form>
-    <br>
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
         <form align="left" method="get" action="/assortment/new">
             <input type="submit" value="Add Product">
         </form>
     </div>
+    <br>
+    <form method="get" action="/">
+        <input type="submit" value="Back to homepage">
+    </form>
 </div>
 </body>
 <footer>

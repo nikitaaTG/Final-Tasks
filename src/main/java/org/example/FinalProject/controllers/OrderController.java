@@ -6,17 +6,15 @@ import org.example.FinalProject.dto.Cart;
 import org.example.FinalProject.dto.OrderDTO;
 import org.example.FinalProject.dto.UserDTO;
 import org.example.FinalProject.enums.DeliveryMethod;
+import org.example.FinalProject.enums.OrderStatus;
 import org.example.FinalProject.enums.PaymentMethod;
+import org.example.FinalProject.enums.PaymentStatus;
 import org.example.FinalProject.mappers.AddressMapper;
-import org.example.FinalProject.mappers.OrderMapper;
+import org.example.FinalProject.mappers.UserMapper;
 import org.example.FinalProject.services.OrderService;
 import org.example.FinalProject.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -26,7 +24,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -42,65 +39,71 @@ public class OrderController {
     private UserService userService;
 
 
-    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
-    @GetMapping("/all")
-    public String showAllOrders(
-            @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
-                    Pageable pageable,
-            Model model,
-            @RequestParam("page") Optional<Integer> page,
-            @RequestParam("size") Optional<Integer> size) {
-        // Settings of pagination:
-        int currentPage = page.orElse(1);
-        int pageSize = size.orElse(5);
-        Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
+//    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
+//    @GetMapping("/all")
+//    public String showAllOrders(
+//            @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
+//                    Pageable pageable,
+//            Model model,
+//            @RequestParam("page") Optional<Integer> page,
+//            @RequestParam("size") Optional<Integer> size) {
+//        // Settings of pagination:
+//        int currentPage = page.orElse(1);
+//        int pageSize = size.orElse(5);
+//        Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
+//
+//        // Pagination of all products
+//
+//        Page<OrderDTO> orders = orderService.findAll(allProductsPage);
+//        model.addAttribute("orders", orders);
+//
+//        // Counting the number of page
+//        List<Integer> pageNumbers = getPagesCount(orders);
+//        model.addAttribute("pageNumbers", pageNumbers);
+//
+//        return "/all";
+//}
+//
+//    @GetMapping("/{id}")
+//    public String showOrder(@PathVariable("id") long id, Model model) {
+//        OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
+//        model.addAttribute("order", order);
+//        return "orders/showOrder";
+//    }
+//
+//    @GetMapping("/{id}/editOrder")
+//    public String editOrder(Model model, @PathVariable("id") long id) {
+//        OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
+//        model.addAttribute("order", order);
+//        return "orders/editOrder";
+//    }
 
-        // Pagination of all products
-
-        Page<OrderDTO> orders = orderService.findAll(allProductsPage);
-        model.addAttribute("orders", orders);
-
-        // Counting the number of page
-        List<Integer> pageNumbers = getPagesCount(orders);
-        model.addAttribute("pageNumbers", pageNumbers);
-
-        return "/all";
-}
-
-    @GetMapping("/{id}")
-    public String showOrder(@PathVariable("id") long id, Model model) {
-        OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
-        model.addAttribute("order", order);
-        return "orders/showOrder";
-    }
-
-    @GetMapping("/{id}/editOrder")
-    public String editOrder(Model model, @PathVariable("id") long id) {
-        OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
-        model.addAttribute("order", order);
-        return "orders/editOrder";
-    }
-
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/newOrder")
     public String showOrderConfirmPage(Model model,
                                        RedirectAttributes attributes,
                                        @ModelAttribute("cart") Cart cart,
                                        @AuthenticationPrincipal User user) {
         UserDTO activeUser = userService.getUserByEmail(user.getUsername());
-        if (user != null)
-            model.addAttribute("activeUser", userService.getUserByEmail(user.getUsername()));
+        model.addAttribute("activeUser", activeUser);
         model.addAttribute("deliveryMethod", DeliveryMethod.values());
         model.addAttribute("paymentMethod", PaymentMethod.values());
         Set<AddressDTO> addressDTOSet = AddressMapper.INSTANCE.setDTO(activeUser.getAddressEntities());
         model.addAttribute("addresses", addressDTOSet);
         attributes.addFlashAttribute("cart", cart);
         model.addAttribute("totalPrice", CartController.totalPrice);
+        model.addAttribute("newOrder", new OrderDTO());
         return "orders/confirmNewOrderPage";
     }
 
-    @PostMapping
-    private String createNewOrder(@ModelAttribute("order") @Valid OrderDTO orderDTO,
-                                  @ModelAttribute("cart") Cart cart) {
+    @PreAuthorize("isAuthenticated()")
+    @PostMapping("/newOrder")
+    public String createNewOrder(@ModelAttribute("order") @Valid OrderDTO orderDTO,
+                                 @ModelAttribute("cart") Cart cart,
+                                 @AuthenticationPrincipal User user) {
+        orderDTO.setPaymentStatus(PaymentStatus.PENDING);
+        orderDTO.setOrderStatus(OrderStatus.PENDING_PAYMENT);
+        orderDTO.setUser(UserMapper.INSTANCE.userDTOToEntity(userService.getUserByEmail(user.getUsername())));
         orderService.createNewOrder(orderDTO, cart);
         return "/homepage/homepage";
     }

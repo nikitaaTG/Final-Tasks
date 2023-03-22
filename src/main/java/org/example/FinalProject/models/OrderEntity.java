@@ -13,7 +13,7 @@ import org.example.FinalProject.enums.PaymentStatus;
 import java.util.List;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,15 +24,19 @@ public class OrderEntity {
     @Column(name = "id")
     private long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "payment_method")
     private PaymentMethod paymentMethod;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "delivery_method")
     private DeliveryMethod deliveryMethod;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "payment_status")
     private PaymentStatus paymentStatus;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "order_status")
     private OrderStatus orderStatus;
 
@@ -41,7 +45,7 @@ public class OrderEntity {
     private AddressEntity address;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id")
     private UserEntity user;
 
     @ManyToMany(fetch = FetchType.EAGER)

@@ -31,35 +31,36 @@
         <input type="submit" value="Change order">
     </form>
     <br>
-    <label for="deliveryMethod">Choose delivery method:</label>
-    <select name="deliveryMethod" id="deliveryMethod">
-        <option th:text="${method}" th:each="method : ${deliveryMethod}"
-                th:value="${method}"></option>
-    </select>
-    <br>
-    <br>
-    <label for="deliveryMethod">Choose payment method:</label>
-    <select name="paymentMethod" id="paymentMethod">
-        <option th:text="${method}" th:each="method : ${paymentMethod}"
-                th:value="${method}"></option>
-    </select>
-    <br>
-    <br>
-    <label for="address">Choose your address:</label>
-    <select name="address" id="address">
-        <option th:text="${address.getPostIndex()}+ ', ' + ${address.getCountry()} + ', ' + ${address.getCity()} + ', ' + ${address.getStreet()} + ', ' + ${address.getHome()} + ', ' + ${address.getApartment()}"
-                th:each="address : ${addresses}"
-                th:value="${address}"></option>
-    </select>
-    <br>
-    <i><h6>To add and change an address
-        <a th:href="@{/user/self/changeAddress}">
-            click here</a></h6></i>
+    <form th:method="post" th:action="@{/order/newOrder}" th:object="${order}">
+        <h4 th:text="'Recipient: ' + ${activeUser.getName()} + ' ' + ${activeUser.getSurname()}"
+            th:value="${activeUser.getId()}"></h4>
+        <label for="deliveryMethod">Choose delivery method:</label>
+        <select name="deliveryMethod" id="deliveryMethod">
+            <option th:text="${method}" th:each="method : ${deliveryMethod}"
+                    th:value="${method}"></option>
+        </select>
+        <br>
+        <br>
+        <label for="deliveryMethod">Choose payment method:</label>
+        <select name="paymentMethod" id="paymentMethod">
+            <option th:text="${method}" th:each="method : ${paymentMethod}"
+                    th:value="${method}"></option>
+        </select>
+        <br>
+        <br>
+        <label for="address">Choose your address:</label>
+        <select name="address" id="address">
+            <option th:text="${address.getPostIndex()}+ ', ' + ${address.getCountry()} + ', ' + ${address.getCity()} + ', ' + ${address.getStreet()} + ', ' + ${address.getHome()} + ', ' + ${address.getApartment()}"
+                    th:each="address : ${addresses}"
+                    th:value="${address.getId()}"></option>
+        </select>
+        <br>
+        <i><h6>To add and change an address
+            <a th:href="@{/user/self/changeAddress}">
+                click here</a></h6></i>
 
-    <br>
-    
-    <form method="get"
-          action="#">
+        <br>
+
         <input type="submit" value="All right, create an order">
     </form>
 </div>

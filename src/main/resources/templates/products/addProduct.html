@@ -19,7 +19,6 @@
 <div class="main">
     <h1>Add a new product</h1>
     <form th:method="post" th:action="@{/assortment}" th:object="${product}">
-        <div>
             <label for="title">Product Title:</label>
             <input type="text" th:field="*{title}" id="title">
             <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>
@@ -45,7 +44,6 @@
             <br>
             <br>
             <input type="submit" value="Add New Product">
-        </div>
     </form>
     <br>
     <form method="get" action="/assortment">
