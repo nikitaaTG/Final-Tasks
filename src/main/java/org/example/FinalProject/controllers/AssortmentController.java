@@ -29,42 +29,42 @@ public class AssortmentController {
     @Autowired
     private ProductService productService;
 
-@GetMapping("")
-public String showAllProducts(
-        @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
-                Pageable pageable,
-        Model model,
-        @RequestParam("page") Optional<Integer> page,
-        @RequestParam("size") Optional<Integer> size,
-        @RequestParam("categoryId") Optional<Long> categoryId) {
-    // Settings of pagination:
-    int currentPage = page.orElse(1);
-    int pageSize = size.orElse(8);
-    Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
+    @GetMapping("")
+    public String showAllProducts(
+            @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
+                    Pageable pageable,
+            Model model,
+            @RequestParam("page") Optional<Integer> page,
+            @RequestParam("size") Optional<Integer> size,
+            @RequestParam("categoryId") Optional<Long> categoryId) {
+        // Settings of pagination:
+        int currentPage = page.orElse(1);
+        int pageSize = size.orElse(8);
+        Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
-    //  Add Model attribute for view list of category in filter
-    model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
-    return categoryId.map(cat -> {
-        // Pagination of all products in category filter
+        //  Add Model attribute for view list of category in filter
+        model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
+        return categoryId.map(cat -> {
+            // Pagination of all products in category filter
 
-        Page<ProductDTO> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
-        model.addAttribute("productPage", productInCategory);
-        List<Integer> pageNumbers = getPagesCount(productInCategory);
-        model.addAttribute("pageNumbers", pageNumbers);
-        model.addAttribute("categoryName", CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
-        model.addAttribute("categoryId", cat);
-        return "products/index";
-    }).orElseGet(() -> {
-        // Pagination of all products
-        Page<ProductDTO> productPage = productService.listProducts(allProductsPage);
-        model.addAttribute("productPage", productPage);
+            Page<ProductDTO> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
+            model.addAttribute("productPage", productInCategory);
+            List<Integer> pageNumbers = getPagesCount(productInCategory);
+            model.addAttribute("pageNumbers", pageNumbers);
+            model.addAttribute("categoryName", CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
+            model.addAttribute("categoryId", cat);
+            return "products/index";
+        }).orElseGet(() -> {
+            // Pagination of all products
+            Page<ProductDTO> productPage = productService.listProducts(allProductsPage);
+            model.addAttribute("productPage", productPage);
 
-        // Counting the number of page
-        List<Integer> pageNumbers = getPagesCount(productPage);
-        model.addAttribute("pageNumbers", pageNumbers);
+            // Counting the number of page
+            List<Integer> pageNumbers = getPagesCount(productPage);
+            model.addAttribute("pageNumbers", pageNumbers);
 
-        return "products/index";
-    });
+            return "products/index";
+        });
 }
 
     @GetMapping("/find")
@@ -95,7 +95,7 @@ public String showAllProducts(
             return "products/index";
         }).orElseGet(() -> {
             // Pagination of all products
-            Page<ProductDTO> productPage = productService.listProductsByTitle(title,allProductsPage);
+            Page<ProductDTO> productPage = productService.listProductsByTitle(title, allProductsPage);
             model.addAttribute("productPage", productPage);
 
             // Counting the number of page
@@ -107,7 +107,8 @@ public String showAllProducts(
     }
 
     @GetMapping("/{id}")
-    public String showProduct(@PathVariable("id") long id, Model model) {
+    public String showProduct(@PathVariable("id") long id,
+                              Model model) {
         ProductDTO product = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
         model.addAttribute("product", product);
         model.addAttribute("prodTitle", product.getTitle());
@@ -136,7 +137,8 @@ public String showAllProducts(
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @GetMapping("/{id}/editProduct")
-    public String editProduct(Model model, @PathVariable("id") long id) {
+    public String editProduct(Model model,
+                              @PathVariable("id") long id) {
         ProductDTO product = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
         model.addAttribute("product", product);
         model.addAttribute("prodTitle", product.getTitle());

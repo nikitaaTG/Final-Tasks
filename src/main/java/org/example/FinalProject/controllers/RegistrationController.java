@@ -6,6 +6,7 @@ import org.example.FinalProject.enums.RoleOnSite;
 import org.example.FinalProject.services.UserService;
 import org.example.FinalProject.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,7 @@ public class RegistrationController {
     private UserValidator validator;
 
     @GetMapping
+    @PreAuthorize("!isAuthenticated()")
     public String showRegistrationPage(Model model) {
         UserDTO newUser = new UserDTO();
         newUser.setUserDeleted(false);

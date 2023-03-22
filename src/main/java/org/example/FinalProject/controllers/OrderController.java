@@ -87,7 +87,8 @@ public class OrderController {
                                        @ModelAttribute("cart") Cart cart,
                                        @AuthenticationPrincipal User user) {
         UserDTO activeUser = userService.getUserByEmail(user.getUsername());
-        model.addAttribute("activeUser", activeUser);
+        if (user != null)
+            model.addAttribute("activeUser", userService.getUserByEmail(user.getUsername()));
         model.addAttribute("deliveryMethod", DeliveryMethod.values());
         model.addAttribute("paymentMethod", PaymentMethod.values());
         Set<AddressDTO> addressDTOSet = AddressMapper.INSTANCE.setDTO(activeUser.getAddressEntities());

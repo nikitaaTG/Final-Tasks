@@ -24,7 +24,7 @@
         <br>
     </div>
     <br>
-    <h4 th:text="'Total price:' + ${totalPrice} + '€'"></h4>
+    <h5 th:text="'Total price:' + ${totalPrice} + '€'"></h5>
     <br>
     <form method="get"
           action="/assortment/cart">
@@ -37,11 +37,13 @@
                 th:value="${method}"></option>
     </select>
     <br>
+    <br>
     <label for="deliveryMethod">Choose payment method:</label>
     <select name="paymentMethod" id="paymentMethod">
         <option th:text="${method}" th:each="method : ${paymentMethod}"
                 th:value="${method}"></option>
     </select>
+    <br>
     <br>
     <label for="address">Choose your address:</label>
     <select name="address" id="address">
@@ -50,11 +52,16 @@
                 th:value="${address}"></option>
     </select>
     <br>
-    <i><h6>To add and change an address</h6>
-        <a th:href="@{/user/{userId}/changeAddress(userId=${activeUser.getId()})}"/>
-        click here</i>
+    <i><h6>To add and change an address
+        <a th:href="@{/user/self/changeAddress}">
+            click here</a></h6></i>
 
-
+    <br>
+    
+    <form method="get"
+          action="#">
+        <input type="submit" value="All right, create an order">
+    </form>
 </div>
 </body>
 <footer>
