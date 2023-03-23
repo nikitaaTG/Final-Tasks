@@ -28,7 +28,6 @@
                 <i th:text="${product.getTitle()} + ' ' + ${product.getPrice()} + '€'"/>
             </a>
             <br>
-            <!--            <form th:method="get" th:action="@{/assortment/cart/deleteFromCart/{product}(product=${product})}">-->
             <form th:method="get"
                   th:action="@{/assortment/cart/deleteFromCart/{index}(index=${cart.indexOf(product)})}">
                 <input type="submit" value="Delete from Cart">

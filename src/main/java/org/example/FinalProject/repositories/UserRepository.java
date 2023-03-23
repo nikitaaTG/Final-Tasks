@@ -22,7 +22,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     UserEntity findByEmail(String email);
 
     @Modifying
-
     @Query(value = "UPDATE webMarket2.user SET name = :name, surname = :surname, date_of_birth = :birthDay, email_address = :email WHERE id = :id ;",
             nativeQuery = true)
     int updateUser(@Param("name") String name, @Param("surname") String surname, @Param("birthDay") Date birthDay, @Param("email") String email, @Param("id") Long id);

@@ -8,16 +8,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Separate access to user profile settings:&#10;1.1. endpoint separation in all controllers&#10;1.2. logic separation in all views&#10;&#10;- Small fixes -">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Order functionality by client&#10;2. Icons in header&#10;&#10;- Small fixes -">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/orders/allOrders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/orders/editOrder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/orders/showOrder.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/OrderEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/entrance/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/orders/confirmNewOrderPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/orders/confirmNewOrderPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/pager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/pager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cart/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cart/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -469,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679480478747</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="- Added:&#10;1. Order functionality by client&#10;2. Icons in header&#10;&#10;- Small fixes -">
+      <created>1679512349014</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1679512349014</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -484,7 +494,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added :&#10;1. Logic of updating users information (full)&#10;&#10;- Small Fixes -" />
     <MESSAGE value="- Added :&#10;1. View for logic of updating users information" />
     <MESSAGE value="- Fixed:&#10;1. Pagination methods in ProductService now process ProductDTO objects." />
     <MESSAGE value="- Added:&#10;1. Pagination in All users view&#10;&#10;- Small fixes -" />
@@ -509,7 +518,8 @@
     <MESSAGE value="- Bug fixes:&#10;1. fixed functional of products deleting from the cart (changed type of index in CartController.java)&#10;2.fixed the relationship between OrderEntity.java &amp; ProductEntity.java&#10;&#10;- Changed:&#10;1. Color of header.html&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10;1. Method setDTO in AddressMapper.java&#10;2. Total price field in cart.html&#10;3. Evaluating of total price in CartController.java&#10;4. confirmNewOrderPage.html fields&#10;&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10;1. Separate access to user profile settings:&#10;1.1. endpoint separation in all controllers&#10;1.2. logic separation in all views&#10;&#10;- Small fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Separate access to user profile settings:&#10;1.1. endpoint separation in all controllers&#10;1.2. logic separation in all views&#10;&#10;- Small fixes -" />
+    <MESSAGE value="- Added:&#10;1. Order functionality by client&#10;2. Icons in header&#10;&#10;- Small fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Order functionality by client&#10;2. Icons in header&#10;&#10;- Small fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -526,6 +536,11 @@
           <properties class="org.springframework.context.NoSuchMessageException" package="org.springframework.context" />
           <option name="timeStamp" value="20" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

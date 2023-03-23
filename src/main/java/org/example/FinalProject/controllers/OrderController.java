@@ -10,11 +10,16 @@ import org.example.FinalProject.enums.OrderStatus;
 import org.example.FinalProject.enums.PaymentMethod;
 import org.example.FinalProject.enums.PaymentStatus;
 import org.example.FinalProject.mappers.AddressMapper;
+import org.example.FinalProject.mappers.OrderMapper;
 import org.example.FinalProject.mappers.UserMapper;
 import org.example.FinalProject.services.OrderService;
 import org.example.FinalProject.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -24,6 +29,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -39,47 +45,45 @@ public class OrderController {
     private UserService userService;
 
 
-//    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
-//    @GetMapping("/all")
-//    public String showAllOrders(
-//            @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
-//                    Pageable pageable,
-//            Model model,
-//            @RequestParam("page") Optional<Integer> page,
-//            @RequestParam("size") Optional<Integer> size) {
-//        // Settings of pagination:
-//        int currentPage = page.orElse(1);
-//        int pageSize = size.orElse(5);
-//        Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
-//
-//        // Pagination of all products
-//
-//        Page<OrderDTO> orders = orderService.findAll(allProductsPage);
-//        model.addAttribute("orders", orders);
-//
-//        // Counting the number of page
-//        List<Integer> pageNumbers = getPagesCount(orders);
-//        model.addAttribute("pageNumbers", pageNumbers);
-//
-//        return "/all";
-//}
-//
-//    @GetMapping("/{id}")
-//    public String showOrder(@PathVariable("id") long id, Model model) {
-//        OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
-//        model.addAttribute("order", order);
-//        return "orders/showOrder";
-//    }
-//
-//    @GetMapping("/{id}/editOrder")
-//    public String editOrder(Model model, @PathVariable("id") long id) {
-//        OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
-//        model.addAttribute("order", order);
-//        return "orders/editOrder";
-//    }
+    @GetMapping("/all")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
+    public String showAllOrders(
+            @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
+                    Model model,
+            @RequestParam("page") Optional<Integer> page,
+            @RequestParam("size") Optional<Integer> size) {
+        // Settings of pagination:
+        int currentPage = page.orElse(1);
+        int pageSize = size.orElse(5);
+        Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
-    @PreAuthorize("isAuthenticated()")
+        // Pagination of all products
+
+        Page<OrderDTO> orders = orderService.findAll(allProductsPage);
+        model.addAttribute("orders", orders);
+
+        // Counting the number of page
+        List<Integer> pageNumbers = getPagesCount(orders);
+        model.addAttribute("pageNumbers", pageNumbers);
+
+        return "orders/allOrders";
+    }
+
+    @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
+    public String showOrder(@PathVariable("id") long id, Model model) {
+        OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
+        AddressDTO address = AddressMapper.INSTANCE.addressEntityToDTO(order.getAddress());
+        UserDTO user = UserMapper.INSTANCE.userEntityToDTO(order.getUser());
+        model.addAttribute("order", order);
+        model.addAttribute("address", address);
+        model.addAttribute("user", user);
+        model.addAttribute("products", order.getProductsInOrder());
+        return "orders/showOrder";
+    }
+
     @GetMapping("/newOrder")
+    @PreAuthorize("isAuthenticated()")
     public String showOrderConfirmPage(Model model,
                                        RedirectAttributes attributes,
                                        @ModelAttribute("cart") Cart cart,
@@ -96,8 +100,8 @@ public class OrderController {
         return "orders/confirmNewOrderPage";
     }
 
-    @PreAuthorize("isAuthenticated()")
     @PostMapping("/newOrder")
+    @PreAuthorize("isAuthenticated()")
     public String createNewOrder(@ModelAttribute("order") @Valid OrderDTO orderDTO,
                                  @ModelAttribute("cart") Cart cart,
                                  @AuthenticationPrincipal User user) {
@@ -105,43 +109,30 @@ public class OrderController {
         orderDTO.setOrderStatus(OrderStatus.PENDING_PAYMENT);
         orderDTO.setUser(UserMapper.INSTANCE.userDTOToEntity(userService.getUserByEmail(user.getUsername())));
         orderService.createNewOrder(orderDTO, cart);
+        cart.removeAll(cart);
         return "/homepage/homepage";
     }
 
-//    @PatchMapping("/{id}")
-//    public String updateOrder(@ModelAttribute("user") @Valid UserDTO userDTO, BindingResult bindingResult,
-//                             @PathVariable("id") long id, Model model) {
-//        if (bindingResult.hasErrors()) {
-//            return "users/editUser";
-//        }
-//        userService.updateUser(id, userDTO);
-//        return "redirect:/order/{id}";
-//    }
 
-//    @GetMapping("/{id}/changePassword")
-//    public String editPassword(Model model, @PathVariable("id") long id) {
-//        UserDTO user = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
-//        model.addAttribute("user", user);
-//        return "users/changePassword";
-//    }
-//
-//    @PatchMapping("/{id}/changePassword")
-//    public String updatePassword(@ModelAttribute("oldPassword") @Valid String oldPassword,
-//                                 @ModelAttribute("password") @Valid String password,
-//                                 BindingResult bindingResult,
-//                                 @PathVariable("id") long id, Model model) {
-////        if (bindingResult.hasErrors()) {
-////            return "users/editUser";
-////        }
-//        //TODO: ADD VALIDATION BY PASSWORD PARAMS
-//
-//        if (!userService.getUserById(id).getPassword().equals(oldPassword)) {
-//            model.addAttribute("user", userService.getUserById(id));
-//            return "users/changePassword";
-//        }
-//        userService.updatePassword(id, password);
-//        return "redirect:/user/{id}";
-//    }
+    @GetMapping("/{id}/editOrder")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
+    public String editOrder(Model model, @PathVariable("id") long id) {
+        OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
+        model.addAttribute("order", order);
+        model.addAttribute("paymentStatus", PaymentStatus.values());
+        model.addAttribute("orderStatus", OrderStatus.values());
+        return "orders/editOrder";
+    }
+
+    @PatchMapping("/{id}")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
+    public String updateOrder(@ModelAttribute("user") @Valid OrderDTO changedOrder,
+                              @PathVariable("id") long id, Model model) {
+
+        orderService.updateOrder(id, changedOrder);
+        return "redirect:/order/{id}";
+    }
+
 
     public List<Integer> getPagesCount(Page<OrderDTO> orderPages) {
         int totalPages = orderPages.getTotalPages();

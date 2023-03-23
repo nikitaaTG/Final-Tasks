@@ -31,18 +31,25 @@ public class OrderService {
     }
 
     public OrderEntity getOrderById(long id) {
-        return orderRepository.getReferenceById(id);
+        return orderRepository.findById(id).orElse(null);
     }
 
     public OrderEntity createNewOrder(OrderDTO orderDTO, Cart cart) {
         OrderEntity orderEntity = OrderMapper.INSTANCE.orderDTOToEntity(orderDTO);
 
         ArrayList<ProductEntity> productEntities = new ArrayList<>();
-        for (ProductDTO prodDto:cart) {
+        for (ProductDTO prodDto : cart) {
             productEntities.add(ProductMapper.INSTANCE.productDTOToEntity(prodDto));
         }
 
         orderEntity.setProductsInOrder(productEntities);
         return orderRepository.save(orderEntity);
+    }
+
+    public void updateOrder(long id, OrderDTO changedOrder) {
+        String paymentStatus = String.valueOf(changedOrder.getPaymentStatus());
+        String orderStatus = String.valueOf(changedOrder.getOrderStatus());
+
+        orderRepository.updateOrder(paymentStatus, orderStatus, id);
     }
 }
