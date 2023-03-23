@@ -16,6 +16,8 @@ public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 
     Page<OrderEntity> findAll(Pageable pageable);
 
+    Page<OrderEntity> findByUserId(double userId, Pageable pageable);
+
     @Modifying
     @Query(value = "UPDATE webMarket2.orders SET payment_status = :paymentStatus, order_status = :orderStatus WHERE id = :id ;",
             nativeQuery = true)

@@ -41,7 +41,7 @@ public class AddressService {
     }
 
     public AddressEntity getAddressById(long id) {
-        return addressRepository.getReferenceById(id);
+        return addressRepository.findById(id).orElse(null);
     }
 
     public void updateAddress(long id, AddressDTO updatedAddress) {

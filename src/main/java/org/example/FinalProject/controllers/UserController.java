@@ -49,7 +49,7 @@ public class UserController {
             @RequestParam("size") Optional<Integer> size) {
         // Settings of pagination:
         int currentPage = page.orElse(1);
-        int pageSize = size.orElse(8);
+        int pageSize = size.orElse(20);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         // Pagination of all users

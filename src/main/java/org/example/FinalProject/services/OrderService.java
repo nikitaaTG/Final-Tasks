@@ -8,9 +8,7 @@ import org.example.FinalProject.mappers.OrderMapper;
 import org.example.FinalProject.mappers.ProductMapper;
 import org.example.FinalProject.models.OrderEntity;
 import org.example.FinalProject.models.ProductEntity;
-import org.example.FinalProject.repositories.CategoryRepository;
 import org.example.FinalProject.repositories.OrderRepository;
-import org.example.FinalProject.repositories.ProductRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -20,14 +18,15 @@ import java.util.ArrayList;
 @Service
 @RequiredArgsConstructor
 public class OrderService {
-    private final ProductRepository productRepository;
-
-    private final CategoryRepository categoryRepository;
 
     private final OrderRepository orderRepository;
 
     public Page<OrderDTO> findAll(Pageable pageable) {
         return orderRepository.findAll(pageable).map(OrderMapper.INSTANCE::orderEntityToDTO);
+    }
+
+    public Page<OrderDTO> findByUserId(long userId, Pageable pageable) {
+        return orderRepository.findByUserId(userId, pageable).map(OrderMapper.INSTANCE::orderEntityToDTO);
     }
 
     public OrderEntity getOrderById(long id) {

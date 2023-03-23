@@ -51,6 +51,12 @@
             <input type="submit" value="Back to all orders">
         </form>
     </div>
+    <div class="text-end" sec:authorize="hasAnyRole('CLIENT')">
+        <br>
+        <form align="left" method="get" action="/">
+            <input type="submit" value="Back to homepage">
+        </form>
+    </div>
 </div>
 </body>
 <footer>

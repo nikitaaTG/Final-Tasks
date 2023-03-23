@@ -18,9 +18,11 @@
 <body>
 <div th:insert="~{blocks/header :: header}"></div>
 <div class="main">
-    <h3>The Best WebMarket In Spain</h3>
-    <br>
+    <h1 align="center">The Best WebMarket In Spain</h1>
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
+        <h3 align="center">ADMINISTRATOR/MANAGER PAGE</h3>
+        <br>
+        <br>
         <form align="left" method="get" action="/order/all">
             <input type="submit" value="View All Orders">
         </form>
