@@ -28,20 +28,20 @@
     <p th:text="${product.getLeftInStock()}">VALUE </p>
     <br>
     <form th:action="@{/assortment/{id}/addToCart(id=${product.getId()})}" th:method="post">
-        <input type="submit" value="Add to Cart">
+        <input class="btn btn-primary btn-sm" type="submit" value="Add to Cart">
     </form>
     <br>
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
         <form align="left" th:method="get" th:action="@{/assortment/{id}/editProduct(id=${product.getId()})}"
               th:object="${product}">
-            <input type="submit" value="Edit This Product">
+            <input class="btn btn-primary btn-sm" type="submit" value="Edit This Product">
         </form>
     </div>
 
     <br>
 
     <form method="get" action="/assortment">
-        <input type="submit" value="Back">
+        <input class="btn btn-primary btn-sm" type="submit" value="Back">
     </form>
 </div>
 </body>

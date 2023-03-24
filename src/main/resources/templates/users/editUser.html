@@ -45,19 +45,19 @@
             <input type="email" th:field="*{email}" id="email">
             <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail error</div>
             <br>
-            <input type="submit" value="Save Changes">
+            <input class="btn btn-primary btn-sm" type="submit" value="Save Changes">
         </form>
         <br>
         <form align="left" th:method="get" th:action="@{/user/self/changePassword}" th:object="${user}">
-            <input type="submit" value="Change Password">
+            <input class="btn btn-primary btn-sm" type="submit" value="Change Password">
         </form>
         <br>
         <form align="left" th:method="get" th:action="@{/user/self/changeAddress}" th:object="${user}">
-            <input type="submit" value="Change or add Address">
+            <input class="btn btn-primary btn-sm" type="submit" value="Change or add Address">
         </form>
         <br>
         <form align="left" th:method="get" th:action="@{/user/self}" th:object="${user}">
-            <input type="submit" value="Cancel the changes and exit">
+            <input class="btn btn-primary btn-sm" type="submit" value="Cancel the changes and exit">
         </form>
     </div>
 
@@ -82,21 +82,21 @@
             <input type="email" th:field="*{email}" id="email1">
             <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail error</div>
             <br>
-            <input type="submit" value="Save this user">
+            <input class="btn btn-primary btn-sm" type="submit" value="Save this user">
         </form>
         <br>
         <form align="left" th:method="get" th:action="@{/user/{id}/changePassword(id=${user.getId()})}"
               th:object="${user}">
-            <input type="submit" value="Change Password">
+            <input class="btn btn-primary btn-sm" type="submit" value="Change Password">
         </form>
         <br>
         <form align="left" th:method="get" th:action="@{/user/{id}/changeAddress(id=${user.getId()})}"
               th:object="${user}">
-            <input type="submit" value="Change or add Address">
+            <input class="btn btn-primary btn-sm" type="submit" value="Change or add Address">
         </form>
         <br>
         <form align="left" th:method="get" th:action="@{/user/{id}(id=${user.getId()})}" th:object="${user}">
-            <input type="submit" value="Cancel the changes and exit">
+            <input class="btn btn-primary btn-sm" type="submit" value="Cancel the changes and exit">
         </form>
     </div>
 

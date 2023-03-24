@@ -45,12 +45,12 @@
             <input type="number" th:field="*{apartment}" id="apartment">
             <br>
             <br>
-            <input type="submit" value="Save Changes">
+            <input class="btn btn-primary btn-sm" type="submit" value="Save Changes">
         </form>
         <br>
 
         <form align="left" th:method="get" th:action="@{/user/{userId}/changeAddress(userId=${userId})}">
-            <input type="submit" value="Cancel and return to address list">
+            <input class="btn btn-primary btn-sm" type="submit" value="Cancel and return to address list">
         </form>
     </div>
 
@@ -80,12 +80,12 @@
             <input type="number" th:field="*{apartment}" id="apartment1">
             <br>
             <br>
-            <input type="submit" value="Save Changes">
+            <input class="btn btn-primary btn-sm" type="submit" value="Save Changes">
         </form>
         <br>
 
         <form align="left" th:method="get" th:action="@{/user/self/changeAddress}">
-            <input type="submit" value="Cancel and return to address list">
+            <input class="btn btn-primary btn-sm" type="submit" value="Cancel and return to address list">
         </form>
     </div>
 </div>

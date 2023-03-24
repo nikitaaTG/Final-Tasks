@@ -25,12 +25,12 @@
     <div th:if="${not #lists.isEmpty(cart)}">
         <div th:each="product : ${cart}">
             <a th:href="@{/assortment/{id}(id=${product.getId()})}">
-                <i th:text="${product.getTitle()} + ' ' + ${product.getPrice()} + '€'"/>
+                <i th:text="${cart.indexOf(product)+1} +'. ' + ${product.getTitle()} + ' ' + ${product.getPrice()} + '€'"/>
             </a>
             <br>
             <form th:method="get"
                   th:action="@{/assortment/cart/deleteFromCart/{index}(index=${cart.indexOf(product)})}">
-                <input type="submit" value="Delete from Cart">
+                <input class="btn btn-primary btn-sm" type="submit" value="Delete from Cart">
             </form>
         </div>
         <br>
@@ -39,20 +39,20 @@
 
         <div sec:authorize="!isAnonymous()">
             <form method="get" action="/order/newOrder">
-                <input type="submit" value="Create an order">
+                <input class="btn btn-primary btn-sm" type="submit" value="Create an order">
             </form>
         </div>
 
         <div sec:authorize="isAnonymous()">
             <form method="get" action="/login">
-                <input type="submit" value="Create an order">
+                <input class="btn btn-primary btn-sm" type="submit" value="Create an order">
             </form>
         </div>
 
         <br>
 
         <form method="get" action="/assortment">
-            <input type="submit" value="Back to list of products">
+            <input class="btn btn-primary btn-sm" type="submit" value="Back to list of products">
         </form>
     </div>
 
@@ -61,7 +61,7 @@
         <br>
 
         <form method="get" action="/assortment">
-            <input type="submit" value="Begin shopping">
+            <input class="btn btn-primary btn-sm" type="submit" value="Begin shopping">
         </form>
     </div>
 

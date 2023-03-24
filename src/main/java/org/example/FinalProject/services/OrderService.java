@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -36,7 +37,7 @@ public class OrderService {
     public OrderEntity createNewOrder(OrderDTO orderDTO, Cart cart) {
         OrderEntity orderEntity = OrderMapper.INSTANCE.orderDTOToEntity(orderDTO);
 
-        ArrayList<ProductEntity> productEntities = new ArrayList<>();
+        List<ProductEntity> productEntities = new ArrayList<>();
         for (ProductDTO prodDto : cart) {
             productEntities.add(ProductMapper.INSTANCE.productDTOToEntity(prodDto));
         }

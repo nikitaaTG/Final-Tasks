@@ -41,18 +41,17 @@
             <input type="password" th:field="*{password}" id="password">
             <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
             <br>
-            <!--        <label for="password">Confirm password:</label>-->
-            <!--        <input type="password" th:field="*{confirmPassword}" id="confirmPassword">-->
-            <!--        <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{confirmPassword}">confirmPassword error</div>-->
-            <!--        <br>-->
-            <input type="submit" value="Registration">
+            <br>
+            <input class="btn btn-primary btn-sm" type="submit" value="Registration">
         </div>
     </form>
+    <br>
     <form method="get" action="/login">
-        <input type="submit" value="Log In">
+        <input class="btn btn-primary btn-sm" type="submit" value="Log In">
     </form>
+    <br>
     <form method="get" action="/">
-        <input type="submit" value="Back to homepage">
+        <input class="btn btn-primary btn-sm" type="submit" value="Back to homepage">
     </form>
 
 </div>

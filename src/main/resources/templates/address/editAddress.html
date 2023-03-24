@@ -31,11 +31,11 @@
         </div>
 
         <form align="left" th:method="get" th:action="@{/user/{userId}/addAddress(userId=${userId})}">
-            <input type="submit" value="Add a new client address">
+            <input class="btn btn-primary btn-sm" type="submit" value="Add a new client address">
         </form>
         <br>
         <form align="left" th:method="get" th:action="@{/user/{userId}/editUser(userId=${userId})}">
-            <input type="submit" value="Go back">
+            <input class="btn btn-primary btn-sm" type="submit" value="Go back">
         </form>
     </div>
 
@@ -50,11 +50,11 @@
         </div>
 
         <form align="left" th:method="get" th:action="@{/user/self/addAddress}">
-            <input type="submit" value="Add a new address">
+            <input class="btn btn-primary btn-sm" type="submit" value="Add a new address">
         </form>
         <br>
         <form align="left" th:method="get" th:action="@{/user/self/editUser}">
-            <input type="submit" value="Go back">
+            <input class="btn btn-primary btn-sm" type="submit" value="Go back">
         </form>
     </div>
 </div>

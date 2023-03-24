@@ -42,16 +42,16 @@
         </select>
         <br>
         <br>
-        <input type="submit" value="Save Changes">
+        <input class="btn btn-primary btn-sm" type="submit" value="Save Changes">
     </form>
     <br>
     <form th:method="delete" th:action="@{/assortment/{id}(id=${product.getId()})}">
-        <input type="submit" value="Delete this product">
+        <input class="btn btn-primary btn-sm" type="submit" value="Delete this product">
     </form>
     <br>
 
     <form th:method="get" th:action="@{/assortment/{id}(id=${product.getId()})}" th:object="${product}">
-        <input type="submit" value="Cancel the changes and exit">
+        <input class="btn btn-primary btn-sm" type="submit" value="Cancel the changes and exit">
     </form>
 </div>
 </body>

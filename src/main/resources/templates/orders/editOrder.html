@@ -46,11 +46,11 @@
             <br>
             <br>
 
-            <input type="submit" value="Save changes">
+            <input class="btn btn-primary btn-sm" type="submit" value="Save changes">
         </form>
        <br>
         <form align="left" th:method="get" th:action="@{/order/{id}(id=${order.getId()})}" th:object="${order}">
-            <input type="submit" value="Cancel the changes and exit">
+            <input class="btn btn-primary btn-sm" type="submit" value="Cancel the changes and exit">
         </form>
     </div>
 

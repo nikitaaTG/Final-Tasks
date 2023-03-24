@@ -27,34 +27,34 @@
     <h6>Products in order:</h6>
     <div th:each="product : ${products}">
         <a th:href="@{/assortment/{id}(id=${product.getId()})}">
-            <i th:text="${product.getTitle()} + ' ' + ${product.getPrice()} + '€'"/>
+            <i th:text="${products.indexOf(product)+1} + '. ' + ${product.getTitle()} + ' ' + ${product.getPrice()} + '€'"/>
         </a>
     </div>
-    <br>
-    <h5>Delivery method:</h5>
+
+    <h6>Delivery method:</h6>
     <p th:text="${order.getDeliveryMethod()}">VALUE </p>
-    <h5>Payment method:</h5>
+    <h6>Payment method:</h6>
     <p th:text="${order.getPaymentMethod()}">VALUE </p>
-    <h5>Payment status:</h5>
+    <h6>Payment status:</h6>
     <p th:text="${order.getPaymentStatus()}">VALUE </p>
-    <h5>Order status:</h5>
+    <h6>Order status:</h6>
     <p th:text="${order.getOrderStatus()}">VALUE </p>
 
 
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
         <form align="left" th:method="get" th:action="@{/order/{id}/editOrder(id=${order.getId()})}"
               th:object="${order}">
-            <input type="submit" value="Edit this Order">
+            <input class="btn btn-primary btn-sm" type="submit" value="Edit this Order">
         </form>
         <br>
         <form align="left" method="get" action="/order/all">
-            <input type="submit" value="Back to all orders">
+            <input class="btn btn-primary btn-sm" type="submit" value="Back to all orders">
         </form>
     </div>
     <div class="text-end" sec:authorize="hasAnyRole('CLIENT')">
         <br>
         <form align="left" method="get" action="/">
-            <input type="submit" value="Back to homepage">
+            <input class="btn btn-primary btn-sm" type="submit" value="Back to homepage">
         </form>
     </div>
 </div>

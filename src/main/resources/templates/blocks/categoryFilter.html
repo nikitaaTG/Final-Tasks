@@ -11,7 +11,7 @@
         <select name="categoryId" id="categoryId">
             <option th:text="${category.getName()}" th:each="category : ${categories}"  th:value="${category.getId()}"></option>
         </select>
-        <input type="submit" value="Filter">
+        <input class="btn btn-primary btn-sm" type="submit" value="Filter">
     </form>
 </div>
 </body>

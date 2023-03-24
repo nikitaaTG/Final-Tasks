@@ -36,22 +36,22 @@
 
     <div class="text-end" sec:authorize="hasAnyRole('CLIENT')">
         <form align="left" method="get" action="/user/self/editUser" th:object="${user}">
-            <input type="submit" value="Edit my Profile">
+            <input class="btn btn-primary btn-sm" type="submit" value="Edit my Profile">
         </form>
         <br>
         <form align="left" method="get" action="/order/self/all">
-            <input type="submit" value="My Orders">
+            <input class="btn btn-primary btn-sm" type="submit" value="My Orders">
         </form>
     </div>
 
 
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
         <form align="left" th:method="get" th:action="@{/user/{id}/editUser(id=${user.getId()})}" th:object="${user}">
-            <input type="submit" value="Edit this Profile">
+            <input class="btn btn-primary btn-sm" type="submit" value="Edit this Profile">
         </form>
         <br>
         <form align="left" method="get" action="/user/all">
-            <input type="submit" value="Back to all users">
+            <input class="btn btn-primary btn-sm" type="submit" value="Back to all users">
         </form>
     </div>
 </div>

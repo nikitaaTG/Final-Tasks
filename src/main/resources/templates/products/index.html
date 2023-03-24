@@ -31,7 +31,7 @@
         <i th:text="${product.getTitle()} + ' ' + ${product.getPrice()} + '€'"/>
         <br>
         <form th:action="@{/assortment/{id}(id=${product.getId()})}" th:method="get">
-            <input type="submit" value="More Information">
+            <input class="btn btn-primary btn-sm" type="submit" value="More Information">
         </form>
     </div>
     <br>
@@ -42,12 +42,12 @@
     </div>
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
         <form align="left" method="get" action="/assortment/new">
-            <input type="submit" value="Add Product">
+            <input class="btn btn-primary btn-sm" type="submit" value="Add Product">
         </form>
     </div>
     <br>
     <form method="get" action="/">
-        <input type="submit" value="Back to homepage">
+        <input class="btn btn-primary btn-sm" type="submit" value="Back to homepage">
     </form>
 </div>
 </body>
