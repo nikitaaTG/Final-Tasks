@@ -21,7 +21,9 @@
 <div th:insert="~{blocks/header :: header}"></div>
 <div class="main">
     <h1 th:text="${prodTitle}">0</h1>
-
+    <img th:src="@{/images/prod{id}.jpg(id=${product.getId()})}"
+         alt="Your ad could have been here" height="200"
+         width="200"/>
     <h4>Price:</h4>
     <p th:text="${product.getPrice()} + '€'">VALUE </p>
     <h4>Left in stock:</h4>
@@ -37,8 +39,6 @@
             <input class="btn btn-primary btn-sm" type="submit" value="Edit This Product">
         </form>
     </div>
-
-    <br>
 
     <form method="get" action="/assortment">
         <input class="btn btn-primary btn-sm" type="submit" value="Back">

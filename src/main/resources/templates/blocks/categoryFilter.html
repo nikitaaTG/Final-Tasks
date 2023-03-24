@@ -7,7 +7,7 @@
 <div align="left" th:fragment="categoryFilter">
 
     <form th:method="get" th:action="@{/assortment}">
-        <label for="categoryId">Filter by category:</label>
+        <b> <label for="categoryId">Filter by category:</label></b>
         <select name="categoryId" id="categoryId">
             <option th:text="${category.getName()}" th:each="category : ${categories}"  th:value="${category.getId()}"></option>
         </select>

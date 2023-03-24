@@ -1,6 +1,5 @@
 package org.example.FinalProject.dto;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,11 +21,11 @@ public class ProductDTO {
     private String title;
 
     @DecimalMin(value = "0.1", message = "Can not be less than 0.1")
-    @NotNull(message = "Please, specify the price")
+    @NotBlank(message = "Please, specify the price")
     private double price;
 
     @Min(value = 0, message = "Can not be less than 0")
-    @NotNull(message = "Please, specify the count")
+    @NotBlank(message = "Please, specify the count")
     private int leftInStock;
 
     private CategoryEntity category;
