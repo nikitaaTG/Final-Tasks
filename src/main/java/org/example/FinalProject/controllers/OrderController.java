@@ -137,6 +137,7 @@ public class OrderController {
     }
 
     @GetMapping("/self/{id}")
+    @PreAuthorize("isAuthenticated()")
     public String showSelfOrder(@PathVariable("id") long id, Model model) {
         OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
         AddressDTO address = AddressMapper.INSTANCE.addressEntityToDTO(order.getAddress());
@@ -178,7 +179,6 @@ public class OrderController {
         cart.removeAll(cart);
         return "/homepage/homepage";
     }
-
 
 
     public List<Integer> getPagesCount(Page<OrderDTO> orderPages) {

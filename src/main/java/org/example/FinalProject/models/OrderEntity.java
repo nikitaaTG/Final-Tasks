@@ -48,10 +48,7 @@ public class OrderEntity {
     @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id")
     private UserEntity user;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "product_in_order",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id"))
+    @ManyToMany(
+            mappedBy = "ordersWithProduct")
     private List<ProductEntity> productsInOrder;
 }
