@@ -20,7 +20,8 @@
     <h1>All categories</h1>
 
     <div th:each="category : ${categories}">
-        <a th:text="${category.getName()}"/>
+        <a th:text="${category.getName()}" th:href="@{/assortment?categoryId={id}(id=${category.getId()})}"
+           th:value="${category.getId()}"/>
     </div>
 
     <form method="get" action="/assortment/addCategory">
