@@ -8,13 +8,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Fixed:&#10;1. Connection between OrderEntity &amp; ProductEntity&#10;&#10;- Small view &amp; logic fixes -">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Display product list in cards &#10;2. Image field in product show page.&#10;&#10;- Small view &amp; logic fixes -">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/ProductDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/categoryFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/categoryFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/ProductPageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/ProductPageDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/ProductEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -502,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679657460771</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="- Added:&#10;1. Display product list in cards &#10;2. Image field in product show page.&#10;&#10;- Small view &amp; logic fixes -">
+      <created>1679678330839</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1679678330839</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -517,7 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added:&#10;1. Functional of product searching  (not correct, but work) - will be corrected&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10;1. WebSecurityConfig &amp; MyUserDetailsService for authorization&#10;&#10;- Changed:&#10;1. pom.xml dependencies&#10;2. logins endpoints moved to LoginController.java&#10;3. view of header.html (Anonymous user or not)&#10;4. annotations of access control restrictions in CategoryController&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10; 1. annotations of access control limits in AssortmentController.java &amp; &#10; UserController.java&#10; 2. access control fixes in homepage.html ,&#10;  indexView.html, &#10;  show.html&#10; - Changed:&#10; 1. Correcting the view in the files: &#10; show.html, &#10; editProduct.html, &#10; addProduct.html, &#10; homepage.html,&#10; indexView.html,&#10; show.html&#10; &#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10; 1. Logout logic:&#10; 1.1. Settitns in WebSecurityConfig.&#10; 1.2. GET method &quot;/logout&quot; in LoginController.&#10; 1.3. confirmLogout.html &#10; 1.4. link to confirmation of logout in header.html&#10; &#10;- Small fixes -" />
@@ -542,7 +551,8 @@
     <MESSAGE value="- Added:&#10;1. All orders page for clients (allUserOrder.html) &amp; method in OrderController.java + methods in OrderService.java &amp; OrderRepository.java + new pager in pager.html&#10;2. Show order page for clients( changed showOrder.html) &amp; method in OrderController.java&#10;&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="- Added:&#10;1. Blue buttons on every page&#10;&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="- Fixed:&#10;1. Connection between OrderEntity &amp; ProductEntity&#10;&#10;- Small view &amp; logic fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed:&#10;1. Connection between OrderEntity &amp; ProductEntity&#10;&#10;- Small view &amp; logic fixes -" />
+    <MESSAGE value="- Added:&#10;1. Display product list in cards &#10;2. Image field in product show page.&#10;&#10;- Small view &amp; logic fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Display product list in cards &#10;2. Image field in product show page.&#10;&#10;- Small view &amp; logic fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

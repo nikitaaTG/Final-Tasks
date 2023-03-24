@@ -36,6 +36,11 @@ public class ProductEntity {
     @NotNull(message = "Please, specify the count")
     private int leftInStock;
 
+    @Column(name = "description")
+    @NotEmpty(message = "Description should not be empty")
+    @Size(min = 2, max = 55, message = "Description must contain from 2 to 55 characters")
+    private String description;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)

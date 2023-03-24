@@ -35,6 +35,11 @@
         <div style="color:red" th:if="${#fields.hasErrors('leftInStock')}" th:errors="*{leftInStock}">City error</div>
         <br/>
 
+        <label for="description">Description:</label>
+        <input type="text" th:field="*{description}" id="description">
+        <!--        <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>-->
+        <br/>
+
         <label>Category:</label>
         <select name="category" id="category">
             <option th:text="${category.getName()}" th:each="category : ${categories}"

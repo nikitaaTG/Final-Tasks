@@ -21,11 +21,13 @@ public class ProductDTO {
     private String title;
 
     @DecimalMin(value = "0.1", message = "Can not be less than 0.1")
-    @NotBlank(message = "Please, specify the price")
     private double price;
 
+    @NotBlank(message = "Description should not be empty")
+    @Size(min = 2, max = 55, message = "Description must contain from 2 to 55 characters")
+    private String description;
+
     @Min(value = 0, message = "Can not be less than 0")
-    @NotBlank(message = "Please, specify the count")
     private int leftInStock;
 
     private CategoryEntity category;
