@@ -35,13 +35,16 @@
     <div th:insert="~{blocks/categoryFilter :: categoryFilter}"></div>
     <div class="grid">
         <div align="center" class="card" style="width: 18rem;" th:each="product : ${productPage}">
-            <img class="card-img-top" th:src="@{/images/prod{id}.jpg(id=${product.getId()})}"
-                 alt="Your ad could have been here" height="100"
-                 width="100"/>
+            <a th:href="@{/assortment/{id}(id=${product.getId()})}">
+                <img class="card-img-top" th:src="@{/images/prod{id}.jpg(id=${product.getId()})}"
+                     alt="Your ad could have been here" height="160"
+                     width="80"/>
+            </a>
             <div class="card-body">
-                <h5 class="card-title" th:text="${product.getTitle()}"></h5>
-                <p class="card-text" th:text="'Price ' + ${product.getPrice()} + '€'"></p>
-                <a th:href="@{/assortment/{id}(id=${product.getId()})}" class="btn btn-primary">More Information</a>
+                <h6 class="card-title" th:text="${product.getTitle()}"></h6>
+                <i class="card-text" th:text="'Price: ' + ${product.getPrice()} + '€ '"></i>
+                <a th:href="@{/assortment/{id}(id=${product.getId()})}" class="btn btn-primary btn-sm">More
+                    Information</a>
             </div>
         </div>
     </div>

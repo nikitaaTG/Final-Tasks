@@ -19,14 +19,19 @@
 <div class="main">
     <h1>Add a new product</h1>
     <form th:method="post" th:action="@{/assortment}" th:object="${product}">
-            <label for="title">Product Title:</label>
-            <input type="text" th:field="*{title}" id="title">
-            <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>
-            <br/>
+        <label for="title">Product Title:</label>
+        <input type="text" th:field="*{title}" id="title">
+        <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>
+        <br/>
 
-            <label for="price">Price:</label>
+        <label for="price">Price:</label>
         <input type="number" step="0.01" th:field="*{price}" id="price">
         <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price error</div>
+        <br/>
+
+        <label for="description">Description:</label>
+        <input type="text" th:field="*{description}" id="description">
+        <!--        <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>-->
         <br/>
 
         <label for="leftInStock">Left in stock:</label>
@@ -34,11 +39,6 @@
         <div style="color:red" th:if="${#fields.hasErrors('leftInStock')}" th:errors="*{leftInStock}">leftInStock
             error
         </div>
-        <br/>
-
-        <label for="description">Description:</label>
-        <input type="text" th:field="*{description}" id="description">
-        <!--        <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>-->
         <br/>
 
         <label>Category:</label>

@@ -1,10 +1,7 @@
 package org.example.FinalProject.controllers;
 
 import jakarta.validation.Valid;
-import org.example.FinalProject.dto.AddressDTO;
-import org.example.FinalProject.dto.Cart;
-import org.example.FinalProject.dto.OrderDTO;
-import org.example.FinalProject.dto.UserDTO;
+import org.example.FinalProject.dto.*;
 import org.example.FinalProject.enums.DeliveryMethod;
 import org.example.FinalProject.enums.OrderStatus;
 import org.example.FinalProject.enums.PaymentMethod;
@@ -162,7 +159,11 @@ public class OrderController {
         Set<AddressDTO> addressDTOSet = AddressMapper.INSTANCE.setDTO(activeUser.getAddressEntities());
         model.addAttribute("addresses", addressDTOSet);
         attributes.addFlashAttribute("cart", cart);
-        model.addAttribute("totalPrice", CartController.totalPrice);
+        double totalPrice = 0;
+        for (ProductDTO prod : cart) {
+            totalPrice += prod.getPrice();
+        }
+        model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("newOrder", new OrderDTO());
         return "orders/confirmNewOrderPage";
     }
