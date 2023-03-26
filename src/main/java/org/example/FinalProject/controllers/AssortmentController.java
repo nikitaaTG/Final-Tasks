@@ -158,9 +158,7 @@ public class AssortmentController {
         return "redirect:/assortment/{id}";
     }
 
-    // HOW TO LIMIT ACCESS???
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
-    //??????????????????????? - CORRECT
     @DeleteMapping("/{id}")
     public String deleteProduct(@PathVariable("id") long id) {
         productService.deleteProduct(id);

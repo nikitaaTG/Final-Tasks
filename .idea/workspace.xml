@@ -8,14 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Links to index in category in all category page&#10;&#10;- Small view &amp; logic fixes -">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="&#10;- Small view &amp; logic fixes -">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +68,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/homepage" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/products" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -82,11 +81,11 @@
       <recent name="com.webshop.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/products" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/homepage" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/orders" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/cart" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/address" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates/users" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/static" />
@@ -165,13 +164,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675187828512</updated>
-    </task>
-    <task id="LOCAL-00003" summary="second real commit:&#10;Added:&#10;1. Lombok anotations&#10;2. Connection to DB&#10;Fixed:&#10;1. .gitignore file&#10;2. enum of roles on site (renamed and moved)&#10;3. Class &quot;Client&quot; renamed in &quot;User&quot;&#10;Deleted:&#10;1. Plugin trash file">
-      <created>1676300692697</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1676300692697</updated>
     </task>
     <task id="LOCAL-00004" summary="Added:&#10;1. 8 pages of html.&#10;2. page controller&#10;3. Product POJO&#10;Fixed:&#10;1. small pom.xml fixes, &#10;2. small fixes User/Address POJO">
       <created>1676886992216</created>
@@ -509,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679697334494</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="&#10;- Small view &amp; logic fixes -">
+      <created>1679842841730</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1679842841730</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -524,7 +523,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added:&#10; 1. Logout logic:&#10; 1.1. Settitns in WebSecurityConfig.&#10; 1.2. GET method &quot;/logout&quot; in LoginController.&#10; 1.3. confirmLogout.html &#10; 1.4. link to confirmation of logout in header.html&#10; &#10;- Small fixes -" />
     <MESSAGE value="- Fixed:&#10;1. display sizes of all html" />
     <MESSAGE value="- Fixed:&#10;1. Separating controllers by destination&#10;2. Email validation bug" />
     <MESSAGE value="saving progress (why the message is not displayed when you log in - figure it out)" />
@@ -549,7 +547,8 @@
     <MESSAGE value="- Added:&#10;1. Display product list in cards &#10;2. Image field in product show page.&#10;&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="- Added:&#10;1. Description field in product entity / DTO / service / repository // add / edit / show pages.&#10;&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="- Added:&#10;1. Links to index in category in all category page&#10;&#10;- Small view &amp; logic fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Links to index in category in all category page&#10;&#10;- Small view &amp; logic fixes -" />
+    <MESSAGE value="&#10;- Small view &amp; logic fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;- Small view &amp; logic fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

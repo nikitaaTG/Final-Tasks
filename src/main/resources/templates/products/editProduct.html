@@ -38,16 +38,14 @@
         <label for="leftInStock">Left in stock:</label>
         <input type="number" th:field="*{leftInStock}" id="leftInStock">
         <div style="color:red" th:if="${#fields.hasErrors('leftInStock')}" th:errors="*{leftInStock}">City error</div>
-        <br/>
-
-        <label>Category:</label>
-        <select name="category" id="category">
-            <option th:text="${category.getName()}" th:each="category : ${categories}"
-                    th:value="${category.getId()}"></option>
-        </select>
         <br>
         <br>
         <input class="btn btn-primary btn-sm" type="submit" value="Save Changes">
+    </form>
+    <br>
+    <form align="left" th:method="get" th:action="@{/assortment/{id}/editCategory(id=${product.getId()})}"
+          th:object="${product}">
+        <input class="btn btn-primary btn-sm" type="submit" value="Edit Category of product">
     </form>
     <br>
     <form th:method="delete" th:action="@{/assortment/{id}(id=${product.getId()})}">

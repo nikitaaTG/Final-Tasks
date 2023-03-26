@@ -70,9 +70,13 @@ public class ProductService {
         String title = updatedProduct.getTitle();
         double price = updatedProduct.getPrice();
         int leftInStock = updatedProduct.getLeftInStock();
-        long categoryId = updatedProduct.getCategory().getId();
         String description = updatedProduct.getDescription();
-        productRepository.updateProduct(title, price, leftInStock, description, categoryId, id);
+        productRepository.updateProduct(title, price, leftInStock, description, id);
+    }
+
+    public void updateProductCategory(long id, ProductDTO updatedProduct) {
+        long categoryId = updatedProduct.getCategory().getId();
+        productRepository.updateProductCategory(categoryId, id);
     }
 
     public void deleteProduct(Long id) {
