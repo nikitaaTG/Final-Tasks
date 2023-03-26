@@ -1,6 +1,15 @@
 package org.example.FinalProject.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -35,7 +44,7 @@ public class AddressEntity {
 //    @Size(min = 5, max = 5, message = "Post index must contain 5 digits")
     private int postIndex;
 
-    @Column(name = "street")
+    @Column(name = "street") // FIXME: кстати имена колонок не нужны, если имя поля совпадает с именем колонки
     @NotEmpty(message = "Street is empty")
     @Size(min = 1, max = 99, message = "Name of city must contain from 2 to 55 characters")
     private String street;

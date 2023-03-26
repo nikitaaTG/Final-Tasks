@@ -1,6 +1,10 @@
 package org.example.FinalProject.controllers;
 
-import jakarta.validation.Valid;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import org.example.FinalProject.dto.ProductDTO;
 import org.example.FinalProject.mappers.CategoryMapper;
 import org.example.FinalProject.mappers.ProductMapper;
@@ -15,12 +19,16 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/assortment")
@@ -29,42 +37,46 @@ public class AssortmentController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("")
+    @GetMapping("") // FIXME: скобочки с кавычками не нужны, елси ты не указываешь путь
     public String showAllProducts(
-            @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
-                    Pageable pageable,
-            Model model,
-            @RequestParam("page") Optional<Integer> page,
-            @RequestParam("size") Optional<Integer> size,
+            @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2) Pageable pageable,
+            // FIXME: что за неиспользуемые переменные?)
+            Model model, @RequestParam("page") Optional<Integer> page, @RequestParam("size") Optional<Integer> size,
             @RequestParam("categoryId") Optional<Long> categoryId) {
         // Settings of pagination:
         int currentPage = page.orElse(1);
-        int pageSize = size.orElse(8);
+        int pageSize = size.orElse(
+                8); // FIXME: для таких цифр хорошо бы иметь константы, потому что потом нифига непонятно, почему 8, а не 9, а вдруг все сломается)
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         //  Add Model attribute for view list of category in filter
         model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
-        return categoryId.map(cat -> {
-            // Pagination of all products in category filter
+        return categoryId.map(
+                        cat -> { // FIXME: выглядит очень сложно, кажется, будто проще было бы просто ифом разделить
+                            // Pagination of all products in category filter
 
-            Page<ProductDTO> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
-            model.addAttribute("productPage", productInCategory);
-            List<Integer> pageNumbers = getPagesCount(productInCategory);
-            model.addAttribute("pageNumbers", pageNumbers);
-            model.addAttribute("categoryName", CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
-            model.addAttribute("categoryId", cat);
-            return "products/index";
-        }).orElseGet(() -> {
-            // Pagination of all products
-            Page<ProductDTO> productPage = productService.listProducts(allProductsPage);
-            model.addAttribute("productPage", productPage);
+                            Page<ProductDTO> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
+                            // FIXME: Идея говорит, что это кусок когда дублируется где-то. Не хочешь в функцию вынести?
+                            model.addAttribute("productPage", productInCategory);
+                            List<Integer> pageNumbers = getPagesCount(productInCategory);
+                            model.addAttribute("pageNumbers", pageNumbers);
+                            model.addAttribute("categoryName",
+                                    CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
+                            model.addAttribute("categoryId", cat);
+                            return "products/index";
+                        })
+                .orElseGet(
+                        () -> { // FIXME: ну кстати, да, можно спокойто оба куска вынести в функции и потом уже юзать мап
+                            // Pagination of all products
+                            Page<ProductDTO> productPage = productService.listProducts(allProductsPage);
+                            model.addAttribute("productPage", productPage);
 
-            // Counting the number of page
-            List<Integer> pageNumbers = getPagesCount(productPage);
-            model.addAttribute("pageNumbers", pageNumbers);
+                            // Counting the number of page
+                            List<Integer> pageNumbers = getPagesCount(productPage);
+                            model.addAttribute("pageNumbers", pageNumbers);
 
-            return "products/index";
-        });
+                            return "products/index";
+                        });
 }
 
     @GetMapping("/find")
@@ -77,7 +89,7 @@ public class AssortmentController {
             @RequestParam("title") String title,
             @RequestParam("categoryId") Optional<Long> categoryId) {
         // Settings of pagination:
-        int currentPage = page.orElse(1);
+        int currentPage = page.orElse(1); // FIXME: где-то я это уже видел)
         int pageSize = size.orElse(8);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
@@ -87,7 +99,8 @@ public class AssortmentController {
         return categoryId.map(cat -> {
 //            // Pagination of all products in category filter
 //
-            Page<ProductDTO> productInCategory = productService.listProductsByCategory(cat, allProductsPage);
+            Page<ProductDTO> productInCategory = productService.listProductsByCategory(cat,
+                    allProductsPage); // FIXME: и это)
             model.addAttribute("productPage", productInCategory);
             List<Integer> pageNumbers = getPagesCount(productInCategory);
             model.addAttribute("pageNumbers", pageNumbers);
@@ -173,7 +186,8 @@ public class AssortmentController {
         int totalPages = productPages.getTotalPages();
         List<Integer> result = IntStream.rangeClosed(1, totalPages)
                 .boxed()
-                .collect(Collectors.toList());
+                .collect(
+                        Collectors.toList()); // FIXME: кажется странным в приципе. будто бы на фронте можно было бы просто преедать тотал и там уже само бы решило как готовить список
         return result;
     }
 }

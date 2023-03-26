@@ -1,6 +1,5 @@
 package org.example.FinalProject.controllers;
 
-import jakarta.validation.Valid;
 import org.example.FinalProject.dto.UserDTO;
 import org.example.FinalProject.enums.RoleOnSite;
 import org.example.FinalProject.services.UserService;
@@ -14,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/user/registration")
@@ -39,7 +40,8 @@ public class RegistrationController {
     private String createNewUser(@ModelAttribute("user") @Valid UserDTO userDTO,
                                  BindingResult bindingResult) {
         userDTO.setUserDeleted(false);
-        userDTO.setRole(RoleOnSite.CLIENT);
+        userDTO.setRole(
+                RoleOnSite.CLIENT); // FIXME: кажется, эти два сета скорее относятся к бизнеслогике, чем к контроллеру
         validator.validate(userDTO, bindingResult);
         if (bindingResult.hasErrors()) {
             return "entrance/registration";

@@ -1,7 +1,8 @@
 package org.example.FinalProject.services;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.util.List;
+import java.util.Locale;
+
 import org.example.FinalProject.dto.ProductDTO;
 import org.example.FinalProject.mappers.ProductMapper;
 import org.example.FinalProject.models.CategoryEntity;
@@ -13,8 +14,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Locale;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
@@ -43,6 +44,7 @@ public class ProductService {
 
     public Page<ProductDTO> listProductsByTitle(String title, Pageable pageable) {
         if (title != null) {
+            // FIXME: а не хочешь сразу в репозитории использовать пейджабле?
             Page<ProductDTO> pageDto = (transformListToPage(productRepository.findByTitleContainingIgnoreCase(title), pageable).map(ProductMapper.INSTANCE::productEntityToDTO));
             return pageDto;
         }

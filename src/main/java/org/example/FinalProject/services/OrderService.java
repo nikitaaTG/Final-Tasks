@@ -1,6 +1,8 @@
 package org.example.FinalProject.services;
 
-import lombok.RequiredArgsConstructor;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.example.FinalProject.dto.Cart;
 import org.example.FinalProject.dto.OrderDTO;
 import org.example.FinalProject.dto.ProductDTO;
@@ -13,8 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -39,7 +40,8 @@ public class OrderService {
 
         List<ProductEntity> productEntities = new ArrayList<>();
         for (ProductDTO prodDto : cart) {
-            productEntities.add(ProductMapper.INSTANCE.productDTOToEntity(prodDto));
+            productEntities.add(ProductMapper.INSTANCE.productDTOToEntity(
+                    prodDto)); // FIXME: а еще в маппере можно создать метод, туДто, который бы принимал лист, он тоже бы автоматически сгенерировался
         }
 
         orderEntity.setProductsInOrder(productEntities);

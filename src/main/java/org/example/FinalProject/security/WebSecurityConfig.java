@@ -30,7 +30,7 @@ public class WebSecurityConfig {
                                                         .logoutUrl("/logout")
                                                         .logoutSuccessUrl("/"));
                             } catch (Exception e) {
-                                System.out.println("Logout Error. Debug it.");
+                                System.out.println("Logout Error. Debug it."); // FIXME:  лучше бы конечно в логгер
                             }
                         }
                 );

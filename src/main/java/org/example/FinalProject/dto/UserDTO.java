@@ -1,18 +1,23 @@
 package org.example.FinalProject.dto;
 
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.util.Date;
+import java.util.Set;
+
 import org.example.FinalProject.enums.RoleOnSite;
 import org.example.FinalProject.models.AddressEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
-import java.util.Set;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -41,10 +46,10 @@ public class UserDTO {
     @Email
     @NotNull(message = "E-mail is empty")
     @NotBlank(message = "E-mail is empty")
-//    @UniqueElements(message = "E-mail is not unique on this web-site")
+//    @UniqueElements(message = "E-mail is not unique on this web-site") // FIXME: удалить
     private String email;
 
-//    @NotNull(message = "Password is empty")
+    //    @NotNull(message = "Password is empty") // FIXME: удалить
     @Size(min = 8, max = 100, message = "Password should be more than 8 characters")
     private String password;
 

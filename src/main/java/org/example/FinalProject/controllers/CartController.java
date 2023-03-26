@@ -7,7 +7,12 @@ import org.example.FinalProject.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -16,8 +21,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @SessionAttributes("cart")
 public class CartController {
     @Autowired
-    ProductService productService;
+    ProductService productService; // FIXME: не делай просто пекедж прайвт без необходимости. пусть будет прайвет
 
+    // FIXME: о это ужас! срочно править. У тебя контроллет теперь имеет стейт, который шарится между разными сессиями. Т.е. оба клиента будут видеть одни и те же данные
     static double totalPrice = 0;
 
     @GetMapping("/cart")

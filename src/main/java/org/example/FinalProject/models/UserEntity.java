@@ -1,18 +1,32 @@
 package org.example.FinalProject.models;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.example.FinalProject.enums.RoleOnSite;
-import org.hibernate.validator.constraints.UniqueElements;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.Set;
 
-import static org.example.FinalProject.enums.RoleOnSite.CLIENT;
+import org.example.FinalProject.enums.RoleOnSite;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
@@ -58,7 +72,7 @@ public class UserEntity {
     @NotNull
     private RoleOnSite role;
 
-    //Don't forget to change type to boolean in the DB.
+    //Don't forget to change type to boolean in the DB. // FIXME: для таких комментариев есть FIXME и TODO, но лучше их не плодить, а сразу фиксить
     @Column(name = "deleted")
     @NotNull
     private boolean userDeleted;

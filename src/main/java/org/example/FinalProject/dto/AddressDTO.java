@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor // FIXME: я бы использовал @Data + @NoArgsConstructor
 public class AddressDTO {
 
 
@@ -24,7 +24,7 @@ public class AddressDTO {
     private String city;
 
     @NotNull(message = "Post index is empty")
-//    @Size(min = 5, max = 5, message = "Post index must contain 5 digits")
+    //    @Size(min = 5, max = 5, message = "Post index must contain 5 digits") // FIXME: не оставляй код просто закоменченным : либо удали, либо раскоменть)
     private int postIndex;
 
     @NotNull(message = "Street is empty")

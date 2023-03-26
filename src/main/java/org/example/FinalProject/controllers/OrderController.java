@@ -1,6 +1,11 @@
 package org.example.FinalProject.controllers;
 
-import jakarta.validation.Valid;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import org.example.FinalProject.dto.AddressDTO;
 import org.example.FinalProject.dto.Cart;
 import org.example.FinalProject.dto.OrderDTO;
@@ -25,14 +30,17 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/order")
@@ -57,12 +65,13 @@ public class OrderController {
             @RequestParam("size") Optional<Integer> size) {
         // Settings of pagination:
         int currentPage = page.orElse(1);
-        int pageSize = size.orElse(18);
+        int pageSize = size.orElse(18); // FIXME: опять какие-то магические цифры)
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         // Pagination of all products
 
-        Page<OrderDTO> orders = orderService.findAll(allProductsPage);
+        Page<OrderDTO> orders = orderService.findAll(
+                allProductsPage); // FIXME: кстати, рекомендую юзать для таких типов var быстрее писать код
         model.addAttribute("orders", orders);
 
         // Counting the number of page
@@ -76,6 +85,7 @@ public class OrderController {
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     public String showOrder(@PathVariable("id") long id, Model model) {
         OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
+        // FIXME: идея говорит, что дублируется где-то этот код. надо править
         AddressDTO address = AddressMapper.INSTANCE.addressEntityToDTO(order.getAddress());
         UserDTO user = UserMapper.INSTANCE.userEntityToDTO(order.getUser());
         model.addAttribute("order", order);
@@ -90,7 +100,8 @@ public class OrderController {
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     public String editOrder(Model model, @PathVariable("id") long id) {
         OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
-        model.addAttribute("order", order);
+        model.addAttribute("order",
+                order); // FIXME: кажется, что в прицнипе и для атрибут неймов можно создать константы, чтобы избежать проблем при переименовывании
         model.addAttribute("paymentStatus", PaymentStatus.values());
         model.addAttribute("orderStatus", OrderStatus.values());
         return "orders/editOrder";

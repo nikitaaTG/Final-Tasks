@@ -1,9 +1,7 @@
 package org.example.FinalProject.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.util.List;
+
 import org.example.FinalProject.enums.DeliveryMethod;
 import org.example.FinalProject.enums.OrderStatus;
 import org.example.FinalProject.enums.PaymentMethod;
@@ -12,7 +10,10 @@ import org.example.FinalProject.models.AddressEntity;
 import org.example.FinalProject.models.ProductEntity;
 import org.example.FinalProject.models.UserEntity;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -30,7 +31,7 @@ public class OrderDTO {
 
     private OrderStatus orderStatus;
 
-    private AddressEntity address;
+    private AddressEntity address; // FIXME: никаких энтити в дто, должны быть дто внутри)
 
     private UserEntity user;
 
