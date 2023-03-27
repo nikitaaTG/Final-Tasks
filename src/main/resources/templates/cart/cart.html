@@ -23,7 +23,7 @@
     <div th:if="${not #lists.isEmpty(cart)}">
         <div th:each="product : ${cart}">
             <a th:href="@{/assortment/{id}(id=${product.getId()})}">
-                <i th:text="${cart.indexOf(product)+1} +'. ' + ${product.getTitle()} + ' ' + ${product.getPrice()} + '€'"/>
+                <i th:text="${cart.indexOf(product)+1} +'. ' + ${product.getTitle()} + ' ' + ${product.getPrice()} + '€  | Left in stock: ' + ${product.getLeftInStock()}"/>
             </a>
             <br>
             <form th:method="get"

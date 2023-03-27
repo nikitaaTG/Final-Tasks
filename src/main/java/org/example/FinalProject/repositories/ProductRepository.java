@@ -31,4 +31,9 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
     @Query(value = "UPDATE webMarket2.product SET category_id = :category_id WHERE id = :id ;",
             nativeQuery = true)
     int updateProductCategory(@Param("category_id") long category_id, @Param("id") Long id);
+
+    @Modifying
+    @Query(value = "UPDATE webMarket2.product SET left_in_stock = left_in_stock-1 WHERE id = :id ;",
+            nativeQuery = true)
+    int reduceAmount(@Param("id") Long id);
 }

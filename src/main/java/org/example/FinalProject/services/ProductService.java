@@ -93,4 +93,8 @@ public class ProductService {
         final Page<ProductEntity> page = new PageImpl<>(list.subList(start, end), pageable, list.size());
         return page;
     }
+
+    public void reduceAmount(Long id) {
+        productRepository.reduceAmount(id);
+    }
 }

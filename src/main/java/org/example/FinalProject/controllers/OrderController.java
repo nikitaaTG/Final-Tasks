@@ -9,6 +9,7 @@ import org.example.FinalProject.enums.PaymentStatus;
 import org.example.FinalProject.mappers.AddressMapper;
 import org.example.FinalProject.mappers.OrderMapper;
 import org.example.FinalProject.services.OrderService;
+import org.example.FinalProject.services.ProductService;
 import org.example.FinalProject.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -39,6 +40,8 @@ public class OrderController {
     private OrderService orderService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private ProductService productService;
 
     double totalPrice = 0;
 
@@ -111,6 +114,7 @@ public class OrderController {
      **/
 
     @GetMapping("/self/all")
+    @PreAuthorize("isAuthenticated()")
     public String showAllSelfOrders(
             @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
                     Model model,
@@ -180,6 +184,12 @@ public class OrderController {
         orderDTO.setOrderStatus(OrderStatus.PENDING_PAYMENT);
         orderDTO.setUser(userService.getUserByEmail(user.getUsername()));
         orderService.createNewOrder(orderDTO, cart);
+        for (ProductDTO productInOrder : cart) {
+            int leftInStock = productInOrder.getLeftInStock();
+            if (leftInStock > 0)
+                productService.reduceAmount(productInOrder.getId());
+            else return "errors/noProduct";
+        }
         cart.removeAll(cart);
         totalPrice = 0;
         return "/homepage/homepage";

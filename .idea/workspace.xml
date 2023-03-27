@@ -10,12 +10,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="Small code cleaning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/MyErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/MyErrorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/OrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/OrderDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/ProductDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/OrderEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cart/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cart/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/errors/error.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/products" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/cart" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -82,18 +83,18 @@
       <recent name="com.webshop.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/cart" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/products" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/homepage" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/orders" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates/cart" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/address" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/errors" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/products/images" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/products" />
-      <recent name="$PROJECT_DIR$/src/main/resources/images" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.FinalProject.enums" />
@@ -165,13 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675187828512</updated>
-    </task>
-    <task id="LOCAL-00008" summary="added .gitignore">
-      <created>1677143426796</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1677143426796</updated>
     </task>
     <task id="LOCAL-00009" summary="- Added:&#10;1. Mechanism for adding categories:&#10;1.1 Category entity, repository, service&#10;1.2 HTML files of category addition pages&#10;1.3 Get/post methods in AssortmentController.&#10;2. Mechanism for displaying products from the DB.&#10;- Fixed (Changed):&#10;1. data type Id -&gt; long;&#10;2. Entities -&gt; ...Entities &#10;3. other minor changes&#10;- Deleted:&#10;1. unnecessary files (used earlier for training)">
       <created>1677246073226</created>
@@ -509,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679929925726</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Small code cleaning">
+      <created>1679941266153</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1679941266153</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -580,18 +581,8 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java</url>
-          <line>162</line>
-          <option name="timeStamp" value="196" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java</url>
-          <line>170</line>
-          <option name="timeStamp" value="197" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java</url>
-          <line>178</line>
-          <option name="timeStamp" value="198" />
+          <line>174</line>
+          <option name="timeStamp" value="203" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
