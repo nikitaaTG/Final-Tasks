@@ -27,21 +27,32 @@
             <div>
                 <label for="country">Country: </label>
                 <input type="text" th:field="*{country}" id="country">
+                <div style="color:red" th:if="${#fields.hasErrors('country')}" th:errors="*{country}">Country error
+                </div>
                 <br>
                 <label for="city">City: </label>
                 <input type="text" th:field="*{city}" id="city">
+                <div style="color:red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City error</div>
                 <br>
                 <label for="postIndex">Post index:</label>
                 <input type="number" th:field="*{postIndex}" id="postIndex">
+                <div style="color:red" th:if="${#fields.hasErrors('postIndex')}" th:errors="*{postIndex}">Post index
+                    error
+                </div>
                 <br>
                 <label for="street">Street: </label>
                 <input type="text" th:field="*{street}" id="street">
+                <div style="color:red" th:if="${#fields.hasErrors('street')}" th:errors="*{street}">Street error</div>
                 <br>
                 <label for="home">Home number:</label>
                 <input type="number" th:field="*{home}" id="home">
+                <div style="color:red" th:if="${#fields.hasErrors('home')}" th:errors="*{home}">Home error</div>
                 <br>
                 <label for="apartment">Apartment:</label>
                 <input type="number" th:field="*{apartment}" id="apartment">
+                <div style="color:red" th:if="${#fields.hasErrors('apartment')}" th:errors="*{apartment}">Apartment
+                    error
+                </div>
                 <br>
                 <input class="btn btn-primary btn-sm" type="submit" value="Add a new Address">
             </div>
@@ -55,27 +66,36 @@
     <!--CLIENT SIDE-->
     <div class="text-end" sec:authorize="hasAnyRole('CLIENT')">
         <form align="left" th:method="post" th:action="@{/user/self/addAddress}" th:object="${address}">
-            <div>
-                <label for="country1">Country: </label>
-                <input type="text" th:field="*{country}" id="country1">
-                <br>
-                <label for="city1">City: </label>
-                <input type="text" th:field="*{city}" id="city1">
-                <br>
-                <label for="postIndex1">Post index:</label>
-                <input type="number" th:field="*{postIndex}" id="postIndex1">
-                <br>
-                <label for="street1">Street: </label>
-                <input type="text" th:field="*{street}" id="street1">
-                <br>
-                <label for="home1">Home number:</label>
-                <input type="number" th:field="*{home}" id="home1">
-                <br>
-                <label for="apartment1">Apartment:</label>
-                <input type="number" th:field="*{apartment}" id="apartment1">
-                <br>
-                <input class="btn btn-primary btn-sm" type="submit" value="Add a new Address">
+            <label for="country">Country: </label>
+            <input type="text" th:field="*{country}" id="country1">
+            <div style="color:red" th:if="${#fields.hasErrors('country')}" th:errors="*{country}">Country error
             </div>
+            <br>
+            <label for="city">City: </label>
+            <input type="text" th:field="*{city}" id="city1">
+            <div style="color:red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City error</div>
+            <br>
+            <label for="postIndex">Post index:</label>
+            <input type="number" th:field="*{postIndex}" id="postIndex1">
+            <div style="color:red" th:if="${#fields.hasErrors('postIndex')}" th:errors="*{postIndex}">Post index
+                error
+            </div>
+            <br>
+            <label for="street">Street: </label>
+            <input type="text" th:field="*{street}" id="street1">
+            <div style="color:red" th:if="${#fields.hasErrors('street')}" th:errors="*{street}">Street error</div>
+            <br>
+            <label for="home">Home number:</label>
+            <input type="number" th:field="*{home}" id="home1">
+            <div style="color:red" th:if="${#fields.hasErrors('home')}" th:errors="*{home}">Home error</div>
+            <br>
+            <label for="apartment">Apartment:</label>
+            <input type="number" th:field="*{apartment}" id="apartment1">
+            <div style="color:red" th:if="${#fields.hasErrors('apartment')}" th:errors="*{apartment}">Apartment
+                error
+            </div>
+            <br>
+            <input class="btn btn-primary btn-sm" type="submit" value="Add a new Address">
         </form>
         <br>
         <form align="left" th:method="get" th:action="@{/user/self/changeAddress}">

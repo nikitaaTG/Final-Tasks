@@ -29,17 +29,19 @@ public class AssortmentController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("")
+    int currentPageNormal = 1;
+    int pageSizeNormal = 8;
+
+    @GetMapping
     public String showAllProducts(
             @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
-                    Pageable pageable,
-            Model model,
+                    Model model,
             @RequestParam("page") Optional<Integer> page,
             @RequestParam("size") Optional<Integer> size,
             @RequestParam("categoryId") Optional<Long> categoryId) {
         // Settings of pagination:
-        int currentPage = page.orElse(1);
-        int pageSize = size.orElse(8);
+        int currentPage = page.orElse(currentPageNormal);
+        int pageSize = size.orElse(pageSizeNormal);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         //  Add Model attribute for view list of category in filter
@@ -70,15 +72,14 @@ public class AssortmentController {
     @GetMapping("/find")
     public String findProductByTitle(
             @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
-                    Pageable pageable,
             Model model,
             @RequestParam("page") Optional<Integer> page,
             @RequestParam("size") Optional<Integer> size,
             @RequestParam("title") String title,
             @RequestParam("categoryId") Optional<Long> categoryId) {
         // Settings of pagination:
-        int currentPage = page.orElse(1);
-        int pageSize = size.orElse(8);
+        int currentPage = page.orElse(currentPageNormal);
+        int pageSize = size.orElse(pageSizeNormal);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         //  Add Model attribute for view list of category in filter

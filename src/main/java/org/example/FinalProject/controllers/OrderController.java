@@ -43,6 +43,9 @@ public class OrderController {
 
     double totalPrice = 0;
 
+    int currentPageNormal = 1;
+    int pageSizeNormal = 18;
+
     /**
      * ADMIN/MODERATOR SIDE:
      **/
@@ -55,8 +58,8 @@ public class OrderController {
             @RequestParam("page") Optional<Integer> page,
             @RequestParam("size") Optional<Integer> size) {
         // Settings of pagination:
-        int currentPage = page.orElse(1);
-        int pageSize = size.orElse(18);
+        int currentPage = page.orElse(currentPageNormal);
+        int pageSize = size.orElse(pageSizeNormal);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         // Pagination of all products
@@ -116,8 +119,8 @@ public class OrderController {
             @RequestParam("size") Optional<Integer> size,
             @AuthenticationPrincipal User user) {
         // Settings of pagination:
-        int currentPage = page.orElse(1);
-        int pageSize = size.orElse(18);
+        int currentPage = page.orElse(currentPageNormal);
+        int pageSize = size.orElse(pageSizeNormal);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         // Pagination of all products

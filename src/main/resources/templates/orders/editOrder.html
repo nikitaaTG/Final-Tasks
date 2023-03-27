@@ -13,18 +13,12 @@
             background-color: #eee;
         }
 
-
-
-
-
     </style>
 </head>
 <body>
 <div th:insert="~{blocks/header :: header}"></div>
 <div class="main">
     <h1 th:text="'Edit order ' + ${order.getId()}" th:object="${order}">Edit profile</h1>
-
-    <!-- ADMIN/MANAGER SIDE -->
 
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
         <form align="left" th:method="patch" th:action="@{/order/{id}(id=${order.getId()})}" th:object="${order}">

@@ -34,6 +34,9 @@ public class UserController {
         this.userService = userService;
     }
 
+    int currentPageNormal = 1;
+    int pageSizeNormal = 20;
+
 
     /**
      * ADMIN/MODERATOR SIDE:
@@ -43,13 +46,12 @@ public class UserController {
     @GetMapping("/all")
     public String showAllUsers(
             @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
-                    Pageable pageable,
             Model model,
             @RequestParam("page") Optional<Integer> page,
             @RequestParam("size") Optional<Integer> size) {
         // Settings of pagination:
-        int currentPage = page.orElse(1);
-        int pageSize = size.orElse(20);
+        int currentPage = page.orElse(currentPageNormal);
+        int pageSize = size.orElse(pageSizeNormal);
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         // Pagination of all users

@@ -19,6 +19,9 @@
 <div th:insert="~{blocks/header :: header}"></div>
 <div class="main">
     <h1 align="center">The Best WebMarket In Spain</h1>
+
+    <!-- ADMIN/MANAGER SIDE -->
+
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
         <h3 align="center">ADMINISTRATOR/MANAGER PAGE</h3>
         <br>
@@ -36,7 +39,6 @@
         </form>
     </div>
 </div>
-
 
 </body>
 <footer>

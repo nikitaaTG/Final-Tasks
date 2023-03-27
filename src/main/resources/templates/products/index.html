@@ -21,7 +21,6 @@
   box-decoration-break: clone;
 }
 
-
     </style>
 </head>
 <body>
@@ -54,11 +53,16 @@
         <div th:if="${title}!=null" th:insert="~{blocks/pager :: pagerTitleFilteredProduct}"></div>
         <div th:if="${title}==null and ${categoryId}==null" th:insert="~{blocks/pager :: pager}"></div>
     </div>
+
+    <!-- ADMIN/MANAGER SIDE -->
+
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
         <form align="left" method="get" action="/assortment/new">
             <input class="btn btn-primary btn-sm" type="submit" value="Add Product">
         </form>
     </div>
+
+    <!-- CLIENT SIDE -->
 
     <div class="text-end" sec:authorize="hasAnyRole('CLIENT')">
         <form align="left" method="get" action="/">

@@ -11,6 +11,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -46,11 +47,13 @@ public class AddressController {
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @PostMapping("/{userId}/addAddress")
-    public String addNewUserAddress(@ModelAttribute("address") @Valid AddressDTO address,
+    public String addNewUserAddress(@ModelAttribute("address") @Valid AddressDTO address, BindingResult bindingResult,
                                     @PathVariable("userId") long userId) {
 
+        if (bindingResult.hasErrors()) {
+            return "address/addAddress";
+        }
         address.setUserId(userId);
-
         addressService.saveAddress(address, userId);
         return "redirect:/user/{userId}/changeAddress";
     }
@@ -68,9 +71,12 @@ public class AddressController {
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @PatchMapping("/{userId}/changeAddress/{id}")
-    public String updateUserAddress(@ModelAttribute("product") @Valid AddressDTO addressDTO,
+    public String updateUserAddress(@ModelAttribute("product") @Valid AddressDTO addressDTO, BindingResult bindingResult,
                                     @PathVariable("userId") long userId,
                                     @PathVariable("id") long id) {
+        if (bindingResult.hasErrors()) {
+            return "address/correctAddress";
+        }
         addressService.updateAddress(id, addressDTO);
         return "redirect:/user/{userId}/changeAddress";
     }
@@ -98,12 +104,13 @@ public class AddressController {
     }
 
     @PostMapping("/self/addAddress")
-    public String addNewSelfAddress(@ModelAttribute("address") @Valid AddressDTO address,
+    public String addNewSelfAddress(@ModelAttribute("address") @Valid AddressDTO address, BindingResult bindingResult,
                                     @AuthenticationPrincipal User user) {
         long userId = userService.getUserByEmail(user.getUsername()).getId();
-
+        if (bindingResult.hasErrors()) {
+            return "address/addAddress";
+        }
         address.setUserId(userId);
-
         addressService.saveAddress(address, userId);
         return "redirect:/user/self/changeAddress";
     }
@@ -121,8 +128,11 @@ public class AddressController {
     }
 
     @PatchMapping("/self/changeAddress/{id}")
-    public String updateSelfAddress(@ModelAttribute("product") @Valid AddressDTO addressDTO,
+    public String updateSelfAddress(@ModelAttribute("product") @Valid AddressDTO addressDTO, BindingResult bindingResult,
                                     @PathVariable("id") long id) {
+        if (bindingResult.hasErrors()) {
+            return "address/correctAddress";
+        }
         addressService.updateAddress(id, addressDTO);
         return "redirect:/user/self/changeAddress";
     }

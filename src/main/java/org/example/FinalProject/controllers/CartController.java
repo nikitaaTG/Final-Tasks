@@ -16,9 +16,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @SessionAttributes("cart")
 public class CartController {
     @Autowired
-    ProductService productService;
+    private ProductService productService;
 
-    static double totalPrice = 0;
+    double totalPrice = 0;
 
     @GetMapping("/cart")
     public String showCart(

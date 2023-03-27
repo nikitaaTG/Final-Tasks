@@ -8,13 +8,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Map to information about.html&#10;- Small view &amp; logic fixes -">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/MyErrorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/error.html" afterDir="false" />
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="Small code cleaning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/AddressDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/AddressDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/dto/ProductDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/address/addAddress.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/address/addAddress.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/address/correctAddress.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/address/correctAddress.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cart/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cart/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/orders/allOrders.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/orders/allOrders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/orders/editOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/orders/editOrder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/orders/showOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/orders/showOrder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/addProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/all.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/changePassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/changePassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,13 +181,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675187828512</updated>
-    </task>
-    <task id="LOCAL-00006" summary="work progress commit">
-      <created>1677143059761</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1677143059762</updated>
     </task>
     <task id="LOCAL-00007" summary="work progress commit">
       <created>1677143212088</created>
@@ -508,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679915447208</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="- Added:&#10;1. Error handler controller &amp; page&#10;- Small view &amp; logic fixes -">
+      <created>1679924154290</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1679924154290</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -535,8 +552,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="saving progress (why the message is not displayed when you log in - figure it out)" />
-    <MESSAGE value="trying to set up a login&#10;saving progress (why the message is not displayed when you log in - figure it out)" />
     <MESSAGE value="- Added:&#10;1. Functional of password changing&#10;&#10;- Changed:&#10;1. the button and the field for changing the password are on a separate page changePassword.html&#10;2. controllers were created for the page changePassword.html&#10;&#10;- Small view fixes -" />
     <MESSAGE value="- Added:&#10;1. adding and changing address functionality:&#10;1.1. editAddress.html&#10;1.2. addAddress.html&#10;1.3. AddressDTO.java&#10;1.4. AddressMapper.java&#10;1.5. AddressRepository.java&#10;1.6. new method in AddressService.java&#10;1.7. new button in editUser.html&#10;&#10;- Small view fixes -" />
     <MESSAGE value="- Added:&#10;1. correcting address functionality:&#10;1.1. CorrectAddress.html&#10;1.2. new method in AddressRepository.java&#10;1.3. new method in AddressService.java&#10;1.4. new button in editUser.html&#10;1.5. new endpoints in AddressController.java&#10;&#10;- Small fixes -" />
@@ -560,7 +575,9 @@
     <MESSAGE value="&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="- Added:&#10;1. New  page &amp; endpoint for category changing&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="- Added:&#10;1. Map to information about.html&#10;- Small view &amp; logic fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Map to information about.html&#10;- Small view &amp; logic fixes -" />
+    <MESSAGE value="- Added:&#10;1. Error handler controller &amp; page&#10;- Small view &amp; logic fixes -" />
+    <MESSAGE value="Small code cleaning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small code cleaning" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

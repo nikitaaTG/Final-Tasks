@@ -13,9 +13,6 @@
             background-color: #eee;
         }
 
-
-
-
     </style>
 </head>
 <body>
@@ -31,8 +28,8 @@
     <p th:text="${user.getEmail()}">VALUE </p>
     <h4>Birthday:</h4>
     <p th:text="${user.getBirthDay()}">VALUE </p>
-    <!--    <h4>Role on site:</h4>-->
-    <!--    <p th:text="${user.getRole()}">VALUE </p>-->
+
+    <!-- CLIENT SIDE -->
 
     <div class="text-end" sec:authorize="hasAnyRole('CLIENT')">
         <form align="left" method="get" action="/user/self/editUser" th:object="${user}">
@@ -44,6 +41,7 @@
         </form>
     </div>
 
+    <!-- ADMIN/MANAGER SIDE -->
 
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
         <form align="left" th:method="get" th:action="@{/user/{id}/editUser(id=${user.getId()})}" th:object="${user}">

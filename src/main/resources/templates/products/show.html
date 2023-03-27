@@ -13,8 +13,6 @@
             background-color: #eee;
         }
 
-
-
     </style>
 </head>
 <body>
@@ -36,6 +34,9 @@
         <input class="btn btn-primary btn-sm" type="submit" value="Add to Cart">
     </form>
     <br>
+
+    <!-- ADMIN/MANAGER SIDE -->
+
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
         <form align="left" th:method="get" th:action="@{/assortment/{id}/editProduct(id=${product.getId()})}"
               th:object="${product}">
@@ -43,6 +44,8 @@
         </form>
     </div>
     <br>
+
+    <!-- COMMON SIDE -->
 
     <form method="get" action="/assortment">
         <input class="btn btn-primary btn-sm" type="submit" value="Back">

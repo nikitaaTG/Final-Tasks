@@ -31,7 +31,9 @@
 
         <label for="description">Description:</label>
         <input type="text" th:field="*{description}" id="description">
-        <!--        <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>-->
+                <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">
+                    Description error
+                </div>
         <br/>
 
         <label for="leftInStock">Left in stock:</label>
