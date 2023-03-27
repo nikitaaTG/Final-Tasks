@@ -46,10 +46,7 @@ public class ProductEntity {
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity category;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "product_in_order",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "order_id"))
-    private List<OrderEntity> ordersWithProduct;
+@ManyToMany(
+        mappedBy = "productsInOrder")
+private List<OrderEntity> ordersWithProduct;
 }

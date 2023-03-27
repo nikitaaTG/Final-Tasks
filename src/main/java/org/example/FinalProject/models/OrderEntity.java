@@ -48,7 +48,11 @@ public class OrderEntity {
     @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id")
     private UserEntity user;
 
-    @ManyToMany(
-            mappedBy = "ordersWithProduct")
-    private List<ProductEntity> productsInOrder;
+@ManyToMany(fetch = FetchType.LAZY)
+@JoinTable(
+        name = "product_in_order",
+        joinColumns = @JoinColumn(name = "order_id"),
+        inverseJoinColumns = @JoinColumn(name = "product_id"))
+
+private List<ProductEntity> productsInOrder;
 }

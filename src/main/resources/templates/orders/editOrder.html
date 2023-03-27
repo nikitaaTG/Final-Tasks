@@ -38,7 +38,7 @@
             </select>
             <br>
             <br>
-            <label for="orderStatus">Choose payment method:</label>
+            <label for="orderStatus">Choose order status:</label>
             <select name="orderStatus" id="orderStatus">
                 <option th:text="${orderStat}" th:each="orderStat : ${orderStatus}"
                         th:value="${orderStat}"></option>

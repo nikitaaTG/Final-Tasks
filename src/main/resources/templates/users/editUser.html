@@ -45,6 +45,7 @@
             <input type="email" th:field="*{email}" id="email">
             <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail error</div>
             <br>
+            <br>
             <input class="btn btn-primary btn-sm" type="submit" value="Save Changes">
         </form>
         <br>

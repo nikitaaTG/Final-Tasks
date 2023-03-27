@@ -41,6 +41,8 @@ public class OrderController {
     @Autowired
     private UserService userService;
 
+    double totalPrice = 0;
+
     /**
      * ADMIN/MODERATOR SIDE:
      **/
@@ -159,7 +161,6 @@ public class OrderController {
         Set<AddressDTO> addressDTOSet = AddressMapper.INSTANCE.setDTO(activeUser.getAddressEntities());
         model.addAttribute("addresses", addressDTOSet);
         attributes.addFlashAttribute("cart", cart);
-        double totalPrice = 0;
         for (ProductDTO prod : cart) {
             totalPrice += prod.getPrice();
         }
@@ -178,6 +179,7 @@ public class OrderController {
         orderDTO.setUser(UserMapper.INSTANCE.userDTOToEntity(userService.getUserByEmail(user.getUsername())));
         orderService.createNewOrder(orderDTO, cart);
         cart.removeAll(cart);
+        totalPrice = 0;
         return "/homepage/homepage";
     }
 

@@ -21,7 +21,7 @@
 <body>
 <div th:insert="~{blocks/header :: header}"></div>
 <div class="main">
-    <h1 th:text="'Information of user: ' + ${user.getName()} + ' ' + ${user.getSurname()}">0</h1>
+    <h1 th:text="'User information: ' + ${user.getName()} + ' ' + ${user.getSurname()}">0</h1>
 
     <h4>Name:</h4>
     <p th:text="${user.getName()}">VALUE </p>

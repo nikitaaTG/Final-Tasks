@@ -8,13 +8,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="&#10;- Small view &amp; logic fixes -">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. New  page &amp; endpoint for category changing&#10;- Small view &amp; logic fixes -">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AssortmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/repositories/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products/editProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/OrderEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/ProductEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/orders/editOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/orders/editOrder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,13 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675187828512</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added:&#10;1. 8 pages of html.&#10;2. page controller&#10;3. Product POJO&#10;Fixed:&#10;1. small pom.xml fixes, &#10;2. small fixes User/Address POJO">
-      <created>1676886992216</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1676886992216</updated>
     </task>
     <task id="LOCAL-00005" summary="Saving changes before switching to repositories:&#10;Added header &amp; footer">
       <created>1677060339251</created>
@@ -508,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679842841730</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="- Added:&#10;1. New  page &amp; endpoint for category changing&#10;- Small view &amp; logic fixes -">
+      <created>1679846784562</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1679846784562</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -516,14 +518,25 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Fixed:&#10;1. display sizes of all html" />
     <MESSAGE value="- Fixed:&#10;1. Separating controllers by destination&#10;2. Email validation bug" />
     <MESSAGE value="saving progress (why the message is not displayed when you log in - figure it out)" />
     <MESSAGE value="trying to set up a login&#10;saving progress (why the message is not displayed when you log in - figure it out)" />
@@ -548,7 +561,8 @@
     <MESSAGE value="- Added:&#10;1. Description field in product entity / DTO / service / repository // add / edit / show pages.&#10;&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="- Added:&#10;1. Links to index in category in all category page&#10;&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="&#10;- Small view &amp; logic fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;- Small view &amp; logic fixes -" />
+    <MESSAGE value="- Added:&#10;1. New  page &amp; endpoint for category changing&#10;- Small view &amp; logic fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. New  page &amp; endpoint for category changing&#10;- Small view &amp; logic fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
