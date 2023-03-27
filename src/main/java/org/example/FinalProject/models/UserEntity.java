@@ -1,18 +1,15 @@
 package org.example.FinalProject.models;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.FinalProject.enums.RoleOnSite;
-import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.Set;
-
-import static org.example.FinalProject.enums.RoleOnSite.CLIENT;
 
 @Entity
 @Getter
@@ -65,6 +62,6 @@ public class UserEntity {
 
     
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
-    private Set<AddressEntity> addressEntities;
+    private Set<AddressEntity> addresses;
 
 }

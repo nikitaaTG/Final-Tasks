@@ -8,7 +8,6 @@ import org.example.FinalProject.enums.PaymentMethod;
 import org.example.FinalProject.enums.PaymentStatus;
 import org.example.FinalProject.mappers.AddressMapper;
 import org.example.FinalProject.mappers.OrderMapper;
-import org.example.FinalProject.mappers.UserMapper;
 import org.example.FinalProject.services.OrderService;
 import org.example.FinalProject.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +42,8 @@ public class OrderController {
 
     double totalPrice = 0;
 
-    int currentPageNormal = 1;
-    int pageSizeNormal = 18;
+    final int currentPageNormal = 1;
+    final int pageSizeNormal = 18;
 
     /**
      * ADMIN/MODERATOR SIDE:
@@ -79,7 +78,7 @@ public class OrderController {
     public String showOrder(@PathVariable("id") long id, Model model) {
         OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
         AddressDTO address = AddressMapper.INSTANCE.addressEntityToDTO(order.getAddress());
-        UserDTO user = UserMapper.INSTANCE.userEntityToDTO(order.getUser());
+        UserDTO user = (order.getUser());
         model.addAttribute("order", order);
         model.addAttribute("address", address);
         model.addAttribute("user", user);
@@ -108,7 +107,7 @@ public class OrderController {
     }
 
     /**
-     * USER SIDE:
+     * CLIENT SIDE:
      **/
 
     @GetMapping("/self/all")
@@ -143,7 +142,7 @@ public class OrderController {
     public String showSelfOrder(@PathVariable("id") long id, Model model) {
         OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
         AddressDTO address = AddressMapper.INSTANCE.addressEntityToDTO(order.getAddress());
-        UserDTO user = UserMapper.INSTANCE.userEntityToDTO(order.getUser());
+        UserDTO user = order.getUser();
         model.addAttribute("order", order);
         model.addAttribute("address", address);
         model.addAttribute("user", user);
@@ -161,7 +160,7 @@ public class OrderController {
         model.addAttribute("activeUser", activeUser);
         model.addAttribute("deliveryMethod", DeliveryMethod.values());
         model.addAttribute("paymentMethod", PaymentMethod.values());
-        Set<AddressDTO> addressDTOSet = AddressMapper.INSTANCE.setDTO(activeUser.getAddressEntities());
+        Set<AddressDTO> addressDTOSet = activeUser.getAddresses();
         model.addAttribute("addresses", addressDTOSet);
         attributes.addFlashAttribute("cart", cart);
         for (ProductDTO prod : cart) {
@@ -179,7 +178,7 @@ public class OrderController {
                                  @AuthenticationPrincipal User user) {
         orderDTO.setPaymentStatus(PaymentStatus.PENDING);
         orderDTO.setOrderStatus(OrderStatus.PENDING_PAYMENT);
-        orderDTO.setUser(UserMapper.INSTANCE.userDTOToEntity(userService.getUserByEmail(user.getUsername())));
+        orderDTO.setUser(userService.getUserByEmail(user.getUsername()));
         orderService.createNewOrder(orderDTO, cart);
         cart.removeAll(cart);
         totalPrice = 0;

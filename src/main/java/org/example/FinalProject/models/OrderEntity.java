@@ -41,7 +41,7 @@ public class OrderEntity {
     private OrderStatus orderStatus;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "address_id", nullable = false)
+    @JoinColumn(name = "address_id", nullable = false, referencedColumnName = "id")
     private AddressEntity address;
 
     @ManyToOne(fetch = FetchType.EAGER)

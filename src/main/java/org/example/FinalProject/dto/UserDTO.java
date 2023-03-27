@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.FinalProject.enums.RoleOnSite;
-import org.example.FinalProject.models.AddressEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -52,7 +51,7 @@ public class UserDTO {
 
     private boolean userDeleted;
 
-    private Set<AddressEntity> addressEntities;
+    private Set<AddressDTO> addresses;
 
 
 }

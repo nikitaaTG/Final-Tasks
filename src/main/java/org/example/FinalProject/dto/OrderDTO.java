@@ -9,8 +9,6 @@ import org.example.FinalProject.enums.OrderStatus;
 import org.example.FinalProject.enums.PaymentMethod;
 import org.example.FinalProject.enums.PaymentStatus;
 import org.example.FinalProject.models.AddressEntity;
-import org.example.FinalProject.models.ProductEntity;
-import org.example.FinalProject.models.UserEntity;
 
 import java.util.List;
 
@@ -32,7 +30,7 @@ public class OrderDTO {
 
     private AddressEntity address;
 
-    private UserEntity user;
+    private UserDTO user;
 
-    private List<ProductEntity> productsInOrder;
+    private List<ProductDTO> productsInOrder;
 }
