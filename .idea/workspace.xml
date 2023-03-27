@@ -8,15 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. New  page &amp; endpoint for category changing&#10;- Small view &amp; logic fixes -">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Map to information about.html&#10;- Small view &amp; logic fixes -">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/MyErrorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/OrderEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/models/ProductEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/orders/editOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/orders/editOrder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/addCategory.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/editUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,11 +88,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources/templates/address" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/products/images" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/products" />
       <recent name="$PROJECT_DIR$/src/main/resources/images" />
-      <recent name="$PROJECT_DIR$/src/main/java/org/example/FinalProject/validator" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.FinalProject.enums" />
@@ -166,13 +164,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675187828512</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Saving changes before switching to repositories:&#10;Added header &amp; footer">
-      <created>1677060339251</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1677060339251</updated>
     </task>
     <task id="LOCAL-00006" summary="work progress commit">
       <created>1677143059761</created>
@@ -510,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679846784562</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="- Added:&#10;1. Map to information about.html&#10;- Small view &amp; logic fixes -">
+      <created>1679915447208</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1679915447208</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -537,7 +535,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Fixed:&#10;1. Separating controllers by destination&#10;2. Email validation bug" />
     <MESSAGE value="saving progress (why the message is not displayed when you log in - figure it out)" />
     <MESSAGE value="trying to set up a login&#10;saving progress (why the message is not displayed when you log in - figure it out)" />
     <MESSAGE value="- Added:&#10;1. Functional of password changing&#10;&#10;- Changed:&#10;1. the button and the field for changing the password are on a separate page changePassword.html&#10;2. controllers were created for the page changePassword.html&#10;&#10;- Small view fixes -" />
@@ -562,7 +559,8 @@
     <MESSAGE value="- Added:&#10;1. Links to index in category in all category page&#10;&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="- Added:&#10;1. New  page &amp; endpoint for category changing&#10;- Small view &amp; logic fixes -" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. New  page &amp; endpoint for category changing&#10;- Small view &amp; logic fixes -" />
+    <MESSAGE value="- Added:&#10;1. Map to information about.html&#10;- Small view &amp; logic fixes -" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Map to information about.html&#10;- Small view &amp; logic fixes -" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
