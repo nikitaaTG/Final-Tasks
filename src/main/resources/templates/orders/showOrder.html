@@ -29,15 +29,15 @@
             <i th:text="${products.indexOf(product)+1} + '. ' + ${product.getTitle()} + ' ' + ${product.getPrice()} + '€'"/>
         </a>
     </div>
-
-    <h6>Delivery method:</h6>
-    <p th:text="${order.getDeliveryMethod()}">VALUE </p>
-    <h6>Payment method:</h6>
-    <p th:text="${order.getPaymentMethod()}">VALUE </p>
-    <h6>Payment status:</h6>
-    <p th:text="${order.getPaymentStatus()}">VALUE </p>
-    <h6>Order status:</h6>
-    <p th:text="${order.getOrderStatus()}">VALUE </p>
+    <br>
+    <label for="delivery"><b>Delivery method: </b></label>
+    <p th:text="${order.getDeliveryMethod()}" id="delivery">VALUE </p>
+    <label for="paymentMethod"><b>Payment method: </b></label>
+    <p th:text="${order.getPaymentMethod()}" id="paymentMethod">VALUE </p>
+    <label for="paymentStatus"><b>Payment status: </b></label>
+    <p th:text="${order.getPaymentStatus()}" id="paymentStatus">VALUE </p>
+    <label for="orderStatus"><b>Order status: </b></label>
+    <p th:text="${order.getOrderStatus()}" id="orderStatus">VALUE </p>
 
     <!-- ADMIN/MANAGER SIDE -->
 

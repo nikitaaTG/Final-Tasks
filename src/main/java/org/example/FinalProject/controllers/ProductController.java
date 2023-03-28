@@ -24,7 +24,7 @@ import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/assortment")
-public class AssortmentController {
+public class ProductController {
 
     @Autowired
     private ProductService productService;

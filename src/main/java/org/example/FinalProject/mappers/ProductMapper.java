@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-@Mapper(componentModel = "spring")
+@Mapper(uses = {CategoryMapper.class})
 
 public abstract class ProductMapper {
     public static final ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);

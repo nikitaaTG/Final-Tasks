@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 import java.util.Set;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface AddressMapper {
     public static final AddressMapper INSTANCE = Mappers.getMapper(AddressMapper.class);
 

@@ -28,7 +28,7 @@
     <br>
     <form method="get"
           action="/assortment/cart">
-        <input type="submit" value="Change order">
+        <input class="btn btn-primary btn-sm" type="submit" value="Change order">
     </form>
     <br>
     <form th:method="post" th:action="@{/order/newOrder}" th:object="${order}">

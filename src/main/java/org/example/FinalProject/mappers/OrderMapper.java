@@ -5,7 +5,7 @@ import org.example.FinalProject.models.OrderEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring")
+@Mapper(uses = {ProductMapper.class, AddressMapper.class, UserMapper.class})
 public interface OrderMapper {
     public static final OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);
 

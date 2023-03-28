@@ -23,6 +23,11 @@ public class AddressController {
     @Autowired
     private AddressService addressService;
 
+    private final String USER_ID = "userId";
+    private final String ADDRESS = "address";
+    private final String ADDRESSES = "addresses";
+    private final String ADDRESS_ID = "id";
+
     /**
      * ADMIN/MODERATOR SIDE:
      **/
@@ -31,8 +36,8 @@ public class AddressController {
     @GetMapping("/{userId}/changeAddress")
     public String changeUserAddress(Model model,
                                     @PathVariable("userId") long userId) {
-        model.addAttribute("userId", userId);
-        model.addAttribute("addresses", AddressMapper.INSTANCE.listDTO(addressService.findByUserID(userId)));
+        model.addAttribute(USER_ID, userId);
+        model.addAttribute(ADDRESSES, AddressMapper.INSTANCE.listDTO(addressService.findByUserID(userId)));
         return "address/editAddress";
     }
 
@@ -40,8 +45,8 @@ public class AddressController {
     @GetMapping("/{userId}/addAddress")
     public String newUserAddress(Model model,
                                  @PathVariable("userId") long userId) {
-        model.addAttribute("userId", userId);
-        model.addAttribute("address", new AddressDTO());
+        model.addAttribute(USER_ID, userId);
+        model.addAttribute(ADDRESS, new AddressDTO());
         return "address/addAddress";
     }
 
@@ -64,8 +69,8 @@ public class AddressController {
                                   @PathVariable("id") long id) {
         AddressDTO address = AddressMapper.INSTANCE.addressEntityToDTO(addressService.getAddressById(id));
         model.addAttribute("address", address);
-        model.addAttribute("userId", userId);
-        model.addAttribute("id", id);
+        model.addAttribute(USER_ID, userId);
+        model.addAttribute(ADDRESS_ID, id);
         return "address/correctAddress";
     }
 
@@ -89,8 +94,8 @@ public class AddressController {
     public String changeSelfAddress(Model model,
                                     @AuthenticationPrincipal User user) {
         long userId = userService.getUserByEmail(user.getUsername()).getId();
-        model.addAttribute("userId", userId);
-        model.addAttribute("addresses", AddressMapper.INSTANCE.listDTO(addressService.findByUserID(userId)));
+        model.addAttribute(USER_ID, userId);
+        model.addAttribute(ADDRESSES, AddressMapper.INSTANCE.listDTO(addressService.findByUserID(userId)));
         return "address/editAddress";
     }
 
@@ -98,8 +103,8 @@ public class AddressController {
     public String newSelfAddress(Model model,
                                  @AuthenticationPrincipal User user) {
         long userId = userService.getUserByEmail(user.getUsername()).getId();
-        model.addAttribute("userId", userId);
-        model.addAttribute("address", new AddressDTO());
+        model.addAttribute(USER_ID, userId);
+        model.addAttribute(ADDRESS, new AddressDTO());
         return "address/addAddress";
     }
 
@@ -118,12 +123,12 @@ public class AddressController {
     @GetMapping("/self/changeAddress/{id}")
     public String editSelfAddress(Model model,
                                   @AuthenticationPrincipal User user,
-                                  @PathVariable("id") long id) {
-        AddressDTO address = AddressMapper.INSTANCE.addressEntityToDTO(addressService.getAddressById(id));
+                                  @PathVariable("id") long addressId) {
+        AddressDTO address = AddressMapper.INSTANCE.addressEntityToDTO(addressService.getAddressById(addressId));
         long userId = userService.getUserByEmail(user.getUsername()).getId();
-        model.addAttribute("address", address);
-        model.addAttribute("userId", userId);
-        model.addAttribute("id", id);
+        model.addAttribute(ADDRESS, address);
+        model.addAttribute(USER_ID, userId);
+        model.addAttribute(ADDRESS_ID, addressId);
         return "address/correctAddress";
     }
 

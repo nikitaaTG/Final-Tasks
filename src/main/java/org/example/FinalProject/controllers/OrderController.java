@@ -184,13 +184,14 @@ public class OrderController {
         orderDTO.setOrderStatus(OrderStatus.PENDING_PAYMENT);
         orderDTO.setUser(userService.getUserByEmail(user.getUsername()));
         orderService.createNewOrder(orderDTO, cart);
+        totalPrice = 0;
         for (ProductDTO productInOrder : cart) {
             int leftInStock = productInOrder.getLeftInStock();
             if (leftInStock > 0)
                 productService.reduceAmount(productInOrder.getId());
             else return "errors/noProduct";
         }
-        cart.removeAll(cart);
+        cart.clear();
         totalPrice = 0;
         return "/homepage/homepage";
     }

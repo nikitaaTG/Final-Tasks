@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.FinalProject.models.CategoryEntity;
 
 @Getter
 @Setter
@@ -31,5 +32,5 @@ public class ProductDTO {
     @Min(value = 0, message = "Can not be less than 0")
     private int leftInStock;
 
-    private CategoryDTO category;
+    private CategoryEntity category;
 }

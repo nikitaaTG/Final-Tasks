@@ -35,6 +35,7 @@ public class CartController {
             RedirectAttributes attributes,
             Model model) {
         ProductDTO neededProduct = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
+        if (cart.isEmpty()) totalPrice = 0;
         cart.add(neededProduct);
         totalPrice += neededProduct.getPrice();
         model.addAttribute("totalPrice", totalPrice);
