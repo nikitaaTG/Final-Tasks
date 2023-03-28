@@ -8,15 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="Small logic &amp; view fixes, code cleaning">
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="Small code cleaning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/AddressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,13 +160,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675187828512</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added:&#10;1. functionality of pagination">
-      <created>1677513355898</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1677513355898</updated>
     </task>
     <task id="LOCAL-00012" summary="Added:&#10; - Blocks of views:&#10;1.1. categoryFilter.html&#10;1.2. indexView.html&#10;2. Page of products filtered by category (indexCategory.html)&#10;3. new methods by filtration by category in ProductRepository &amp; ProductService&#10;4. Counting the number of page method&#10;&#10; - Fixed:&#10;1. Split controllers Assortment &amp; Category&#10;&#10; - Changed:&#10; 1. method index in AssortmentController.java (for filtering by category. it works if you pass the &quot;categoryId&quot; parameter manually. it doesn't display the whole list - it needs to be finished)">
       <created>1677691339432</created>
@@ -510,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680010601954</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Small code cleaning">
+      <created>1680014985028</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1680014985029</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -559,10 +553,10 @@
     <MESSAGE value="- Added:&#10;1. New  page &amp; endpoint for category changing&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="- Added:&#10;1. Map to information about.html&#10;- Small view &amp; logic fixes -" />
     <MESSAGE value="- Added:&#10;1. Error handler controller &amp; page&#10;- Small view &amp; logic fixes -" />
-    <MESSAGE value="Small code cleaning" />
     <MESSAGE value="- Added:&#10;1. Check stock balances when placing orders" />
     <MESSAGE value="Small logic &amp; view fixes, code cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small logic &amp; view fixes, code cleaning" />
+    <MESSAGE value="Small code cleaning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small code cleaning" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

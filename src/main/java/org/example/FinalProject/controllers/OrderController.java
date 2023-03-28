@@ -61,6 +61,8 @@ public class OrderController {
     private static final String PAYMENT_METHOD = "paymentMethod";
     private static final String ACTIVE_USER = "activeUser";
     private static final String CART = "cart";
+    private static final String NEW_ORDER = "newOrder";
+    private static final String TOTAL_PRICE = "totalPrice";
 
     /**
      * ADMIN/MODERATOR SIDE:
@@ -181,11 +183,12 @@ public class OrderController {
         Set<AddressDTO> addressDTOSet = activeUser.getAddresses();
         model.addAttribute(ADDRESSES, addressDTOSet);
         attributes.addFlashAttribute(CART, cart);
+        totalPrice = 0;
         for (ProductDTO prod : cart) {
             totalPrice += prod.getPrice();
         }
         model.addAttribute("totalPrice", totalPrice);
-        model.addAttribute("newOrder", new OrderDTO());
+        model.addAttribute(NEW_ORDER, new OrderDTO());
         return "orders/confirmNewOrderPage";
     }
 
