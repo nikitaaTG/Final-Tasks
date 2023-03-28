@@ -187,7 +187,7 @@ public class OrderController {
         for (ProductDTO prod : cart) {
             totalPrice += prod.getPrice();
         }
-        model.addAttribute("totalPrice", totalPrice);
+        model.addAttribute(TOTAL_PRICE, totalPrice);
         model.addAttribute(NEW_ORDER, new OrderDTO());
         return "orders/confirmNewOrderPage";
     }
