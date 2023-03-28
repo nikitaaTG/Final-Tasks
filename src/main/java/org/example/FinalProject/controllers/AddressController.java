@@ -23,10 +23,10 @@ public class AddressController {
     @Autowired
     private AddressService addressService;
 
-    private final String USER_ID = "userId";
-    private final String ADDRESS = "address";
-    private final String ADDRESSES = "addresses";
-    private final String ADDRESS_ID = "id";
+    private static final String USER_ID = "userId";
+    private static final String ADDRESS = "address";
+    private static final String ADDRESSES = "addresses";
+    private static final String ADDRESS_ID = "id";
 
     /**
      * ADMIN/MODERATOR SIDE:

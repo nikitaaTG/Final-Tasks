@@ -23,11 +23,16 @@ public class CategoryController {
     @Autowired
     private ProductService productService;
 
+    private static final String CATEGORY = "category";
+    private static final String CATEGORIES = "categories";
+    private static final String PRODUCT = "product";
+    private static final String PROD_TITLE = "prodTitle";
+
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @PostMapping("/addCategory")
     public String addCategory(String categoryName, Model model) {
         CategoryDTO category = CategoryMapper.INSTANCE.categoryEntityToDTO(productService.addCategory(categoryName));
-        model.addAttribute("category", category);
+        model.addAttribute(CATEGORY, category);
         return "/category/viewCategory";
     }
 
@@ -41,7 +46,7 @@ public class CategoryController {
     @GetMapping("/allCategories")
     public String viewAllCategories(Model model) {
         List<CategoryDTO> categories = CategoryMapper.INSTANCE.listDTO(productService.getAllCategories());
-        model.addAttribute("categories", categories);
+        model.addAttribute(CATEGORIES, categories);
         return "/category/allCategories";
     }
 
@@ -51,9 +56,9 @@ public class CategoryController {
     public String editProductCategory(Model model,
                                       @PathVariable("id") long id) {
         ProductDTO product = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
-        model.addAttribute("product", product);
-        model.addAttribute("prodTitle", product.getTitle());
-        model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
+        model.addAttribute(PRODUCT, product);
+        model.addAttribute(PROD_TITLE, product.getTitle());
+        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
         return "products/editCategory";
     }
 
@@ -61,7 +66,7 @@ public class CategoryController {
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     public String updateProductCategory(@ModelAttribute("product") @Valid ProductDTO productDTO, BindingResult bindingResult,
                                         @PathVariable("id") long id, Model model) {
-        model.addAttribute("categories", CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
+        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
         if (bindingResult.hasErrors()) {
             productService.updateProductCategory(id, productDTO);
             return "redirect:/assortment/{id}";

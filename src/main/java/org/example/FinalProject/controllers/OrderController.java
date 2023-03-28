@@ -43,10 +43,24 @@ public class OrderController {
     @Autowired
     private ProductService productService;
 
-    double totalPrice = 0;
+    private double totalPrice = 0;
 
-    final int currentPageNormal = 1;
-    final int pageSizeNormal = 18;
+    private final int currentPageNormal = 1;
+    private final int pageSizeNormal = 18;
+
+    private static final String ORDERS = "orders";
+    private static final String PAGE_NUMBERS = "pageNumbers";
+    private static final String ORDER = "order";
+    private static final String ADDRESS = "address";
+    private static final String ADDRESSES = "addresses";
+    private static final String USER = "user";
+    private static final String PRODUCTS = "products";
+    private static final String PAYMENT_STATUS = "paymentStatus";
+    private static final String ORDER_STATUS = "orderStatus";
+    private static final String DELIVERY_METHOD = "deliveryMethod";
+    private static final String PAYMENT_METHOD = "paymentMethod";
+    private static final String ACTIVE_USER = "activeUser";
+    private static final String CART = "cart";
 
     /**
      * ADMIN/MODERATOR SIDE:
@@ -67,11 +81,11 @@ public class OrderController {
         // Pagination of all products
 
         Page<OrderDTO> orders = orderService.findAll(allProductsPage);
-        model.addAttribute("orders", orders);
+        model.addAttribute(ORDERS, orders);
 
         // Counting the number of page
         List<Integer> pageNumbers = getPagesCount(orders);
-        model.addAttribute("pageNumbers", pageNumbers);
+        model.addAttribute(PAGE_NUMBERS, pageNumbers);
 
         return "orders/allOrders";
     }
@@ -82,10 +96,10 @@ public class OrderController {
         OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
         AddressDTO address = AddressMapper.INSTANCE.addressEntityToDTO(order.getAddress());
         UserDTO user = (order.getUser());
-        model.addAttribute("order", order);
-        model.addAttribute("address", address);
-        model.addAttribute("user", user);
-        model.addAttribute("products", order.getProductsInOrder());
+        model.addAttribute(ORDER, order);
+        model.addAttribute(ADDRESS, address);
+        model.addAttribute(USER, user);
+        model.addAttribute(PRODUCTS, order.getProductsInOrder());
         return "orders/showOrder";
     }
 
@@ -94,9 +108,9 @@ public class OrderController {
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     public String editOrder(Model model, @PathVariable("id") long id) {
         OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
-        model.addAttribute("order", order);
-        model.addAttribute("paymentStatus", PaymentStatus.values());
-        model.addAttribute("orderStatus", OrderStatus.values());
+        model.addAttribute(ORDER, order);
+        model.addAttribute(PAYMENT_STATUS, PaymentStatus.values());
+        model.addAttribute(ORDER_STATUS, OrderStatus.values());
         return "orders/editOrder";
     }
 
@@ -131,12 +145,12 @@ public class OrderController {
         UserDTO activeUser = userService.getUserByEmail(user.getUsername());
         long userId = activeUser.getId();
         Page<OrderDTO> userOrders = orderService.findByUserId(userId, allProductsPage);
-        model.addAttribute("activeUser", activeUser);
-        model.addAttribute("orders", userOrders);
+        model.addAttribute(ACTIVE_USER, activeUser);
+        model.addAttribute(ORDERS, userOrders);
 
         // Counting the number of page
         List<Integer> pageNumbers = getPagesCount(userOrders);
-        model.addAttribute("pageNumbers", pageNumbers);
+        model.addAttribute(PAGE_NUMBERS, pageNumbers);
 
         return "orders/allUserOrders";
     }
@@ -147,10 +161,10 @@ public class OrderController {
         OrderDTO order = OrderMapper.INSTANCE.orderEntityToDTO(orderService.getOrderById(id));
         AddressDTO address = AddressMapper.INSTANCE.addressEntityToDTO(order.getAddress());
         UserDTO user = order.getUser();
-        model.addAttribute("order", order);
-        model.addAttribute("address", address);
-        model.addAttribute("user", user);
-        model.addAttribute("products", order.getProductsInOrder());
+        model.addAttribute(ORDER, order);
+        model.addAttribute(ADDRESS, address);
+        model.addAttribute(USER, user);
+        model.addAttribute(PRODUCTS, order.getProductsInOrder());
         return "orders/showOrder";
     }
 
@@ -161,12 +175,12 @@ public class OrderController {
                                        @ModelAttribute("cart") Cart cart,
                                        @AuthenticationPrincipal User user) {
         UserDTO activeUser = userService.getUserByEmail(user.getUsername());
-        model.addAttribute("activeUser", activeUser);
-        model.addAttribute("deliveryMethod", DeliveryMethod.values());
-        model.addAttribute("paymentMethod", PaymentMethod.values());
+        model.addAttribute(ACTIVE_USER, activeUser);
+        model.addAttribute(DELIVERY_METHOD, DeliveryMethod.values());
+        model.addAttribute(PAYMENT_METHOD, PaymentMethod.values());
         Set<AddressDTO> addressDTOSet = activeUser.getAddresses();
-        model.addAttribute("addresses", addressDTOSet);
-        attributes.addFlashAttribute("cart", cart);
+        model.addAttribute(ADDRESSES, addressDTOSet);
+        attributes.addFlashAttribute(CART, cart);
         for (ProductDTO prod : cart) {
             totalPrice += prod.getPrice();
         }

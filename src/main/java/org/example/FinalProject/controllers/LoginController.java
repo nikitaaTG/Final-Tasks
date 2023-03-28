@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LoginController {
 
+    private static final String USER = "user";
+
     @PostMapping("/login")
     public String loginUser() {
         return "redirect:/";
@@ -18,7 +20,7 @@ public class LoginController {
     @PreAuthorize("!isAuthenticated()")
     @GetMapping("/login")
     public String showLoginPage(Model model) {
-        model.addAttribute("user", new UserDTO());
+        model.addAttribute(USER, new UserDTO());
         return "entrance/login";
     }
 

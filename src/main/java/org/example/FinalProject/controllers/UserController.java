@@ -34,8 +34,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    int currentPageNormal = 1;
-    int pageSizeNormal = 20;
+    private final int currentPageNormal = 1;
+    private final int pageSizeNormal = 20;
+
+    private static final String USER = "user";
+    private static final String USERS = "users";
+    private static final String PAGE_NUMBERS = "pageNumbers";
 
 
     /**
@@ -57,11 +61,11 @@ public class UserController {
         // Pagination of all users
 
         Page<UserDTO> users = userService.findAll(allProductsPage);
-        model.addAttribute("users", users);
+        model.addAttribute(USERS, users);
 
         // Counting the number of page
         List<Integer> pageNumbers = getPagesCount(users);
-        model.addAttribute("pageNumbers", pageNumbers);
+        model.addAttribute(PAGE_NUMBERS, pageNumbers);
 
         return "users/all";
     }
@@ -71,7 +75,7 @@ public class UserController {
     public String showUser(@PathVariable("id") long id,
                            Model model) {
         UserDTO userDTO = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
-        model.addAttribute("user", userDTO);
+        model.addAttribute(USER, userDTO);
 
 
         return "users/showUser";
@@ -81,7 +85,7 @@ public class UserController {
     @GetMapping("/{id}/editUser")
     public String editUser(Model model, @PathVariable("id") long id) {
         UserDTO userDTO = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
-        model.addAttribute("user", userDTO);
+        model.addAttribute(USER, userDTO);
 
         return "users/editUser";
     }
@@ -106,7 +110,7 @@ public class UserController {
                                      @PathVariable("id") long id, Model model) {
 
         if (!userService.getUserById(id).getPassword().equals(oldPassword)) {
-            model.addAttribute("user", userService.getUserById(id));
+            model.addAttribute(USER, userService.getUserById(id));
             return "users/changePassword";
         }
         userService.updatePassword(id, password);
@@ -119,7 +123,7 @@ public class UserController {
                                    @PathVariable("id") long id,
                                    @AuthenticationPrincipal User user) {
         UserDTO userDTO = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
-        model.addAttribute("user", userDTO);
+        model.addAttribute(USER, userDTO);
 
         return "users/changePassword";
     }
@@ -132,7 +136,7 @@ public class UserController {
     public String showSelf(@AuthenticationPrincipal User user,
                            Model model) {
         UserDTO activeUser = userService.getUserByEmail(user.getUsername());
-        model.addAttribute("user", activeUser);
+        model.addAttribute(USER, activeUser);
         return "users/showUser";
     }
 
@@ -140,7 +144,7 @@ public class UserController {
     public String editSelf(Model model,
                            @AuthenticationPrincipal User user) {
         UserDTO activeUser = userService.getUserByEmail(user.getUsername());
-        model.addAttribute("user", activeUser);
+        model.addAttribute(USER, activeUser);
 
         return "users/editUser";
     }
@@ -162,7 +166,7 @@ public class UserController {
     public String editSelfPassword(Model model,
                                    @AuthenticationPrincipal User user) {
         UserDTO activeUser = userService.getUserByEmail(user.getUsername());
-        model.addAttribute("user", activeUser);
+        model.addAttribute(USER, activeUser);
 
         return "users/changePassword";
     }
@@ -177,7 +181,7 @@ public class UserController {
         long id = userService.getUserByEmail(user.getUsername()).getId();
 
         if (!userService.getUserById(id).getPassword().equals(oldPassword)) {
-            model.addAttribute("user", userService.getUserById(id));
+            model.addAttribute(USER, userService.getUserById(id));
             return "users/changePassword";
         }
         userService.updatePassword(id, password);

@@ -18,7 +18,9 @@ public class CartController {
     @Autowired
     private ProductService productService;
 
-    double totalPrice = 0;
+    private double totalPrice = 0;
+    private static final String TOTAL_PRICE = "totalPrice";
+    private static final String CART = "cart";
 
     @GetMapping("/cart")
     public String showCart(
@@ -38,8 +40,8 @@ public class CartController {
         if (cart.isEmpty()) totalPrice = 0;
         cart.add(neededProduct);
         totalPrice += neededProduct.getPrice();
-        model.addAttribute("totalPrice", totalPrice);
-        attributes.addFlashAttribute("cart", cart);
+        model.addAttribute(TOTAL_PRICE, totalPrice);
+        attributes.addFlashAttribute(CART, cart);
         return "cart/cart";
     }
 
@@ -52,7 +54,7 @@ public class CartController {
         totalPrice -= cart.get(index).getPrice();
         cart.remove(index);
         attributes.addFlashAttribute("cart", cart);
-        model.addAttribute("totalPrice", totalPrice);
+        model.addAttribute(TOTAL_PRICE, totalPrice);
         return "redirect:/assortment/cart";
     }
 
