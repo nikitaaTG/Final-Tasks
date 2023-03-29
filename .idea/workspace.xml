@@ -8,12 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Confirmation of product deleting: endpoint in ProductController.java, confirmDeleting.html.&#10;2. ProductController.java was split into ProductController.java &amp; CategoryController.java &#10;&#10;-Commenting and cleaning code-">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/orderIsCreated.html" afterDir="false" />
+    <list default="true" id="d456f90b-0c94-42cb-8006-b1bc5dc0ef06" name="Changes" comment="- Added:&#10;1. Page of congratulations orderIsCreated.html&#10;&#10;-Commenting and cleaning code-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FinalProject/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/showUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage/about.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,13 +160,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675187828512</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added ProductPageDTO.java for to analyze the approach">
-      <created>1677749353794</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1677749353794</updated>
     </task>
     <task id="LOCAL-00016" summary=" - Added:&#10; 1. Functional of product changing:&#10; 1.1. update method in ProductRepository&#10; 1.2. new logic of update method in ProductService&#10; - Fixed:&#10; 1. Bugs in products adding &amp; changing">
       <created>1677777659969</created>
@@ -507,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680080187220</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="- Added:&#10;1. Page of congratulations orderIsCreated.html&#10;&#10;-Commenting and cleaning code-">
+      <created>1680088447595</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1680088447595</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added:&#10;1. New buttons on all products page (More information + buy now).&#10;&#10;- Changed:&#10;1. Updated mechanism of product searching.&#10;2. Annotations RequestMapping GET/POST -&gt; GetMapping/ PostMapping everywhere.&#10;3. Fixed buttons of pagination.&#10;4. Fixed all Query methods in all Repositories (parameters changed from &quot;?&quot; to &quot;:param&quot;.&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Changed:&#10;1. Fixed pager bugs&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Changed:&#10;1. deleted useless files indexView.html, indexByTitle.html, indexCategory.html&#10;2. functionality from the deleted pages has been moved to index.html&#10;&#10;- Small fixes -" />
     <MESSAGE value="- Added:&#10;1. Session cart functionality&#10;1.1. Cart.java class for session storage of cart&#10;1.2. CartController.java&#10;1.3. cart.html&#10;1.4. Button &quot;Add to Cart&quot; in show.html&#10;&#10;- Changed:&#10;1. Link to cart in header.html&#10;2. Deleted Button &quot;Add to Cart&quot; from index.html&#10;&#10;- Small fixes -" />
@@ -559,7 +555,8 @@
     <MESSAGE value="Small code cleaning" />
     <MESSAGE value="Small fix" />
     <MESSAGE value="- Added:&#10;1. Confirmation of product deleting: endpoint in ProductController.java, confirmDeleting.html.&#10;2. ProductController.java was split into ProductController.java &amp; CategoryController.java &#10;&#10;-Commenting and cleaning code-" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Confirmation of product deleting: endpoint in ProductController.java, confirmDeleting.html.&#10;2. ProductController.java was split into ProductController.java &amp; CategoryController.java &#10;&#10;-Commenting and cleaning code-" />
+    <MESSAGE value="- Added:&#10;1. Page of congratulations orderIsCreated.html&#10;&#10;-Commenting and cleaning code-" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added:&#10;1. Page of congratulations orderIsCreated.html&#10;&#10;-Commenting and cleaning code-" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
