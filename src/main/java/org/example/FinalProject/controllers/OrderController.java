@@ -206,6 +206,8 @@ public class OrderController {
         orderDTO.setUser(userService.getUserByEmail(user.getUsername()));
         orderService.createNewOrder(orderDTO, cart);
         totalPrice = 0;
+
+        //checking that product is in stock
         for (ProductDTO productInOrder : cart) {
             int leftInStock = productInOrder.getLeftInStock();
             if (leftInStock > 0)
@@ -214,7 +216,7 @@ public class OrderController {
         }
         cart.clear();
         totalPrice = 0;
-        return "/homepage/homepage";
+        return "/homepage/orderIsCreated";
     }
 
     /**

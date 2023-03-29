@@ -20,6 +20,15 @@
 <div class="main">
     <h1 align="center">The Best WebMarket In Spain</h1>
 
+    <!-- CLIENTS SIDE -->
+
+    <div class="text-end" sec:authorize="isAnonymous() || hasAnyRole('CLIENT')">
+        <div align="center">
+            <h3><i>We sell more than utensils - we give emotions</i></h3>
+            <img src="/images/slide1.jpg" alt="first slide" height="513" width="700">
+        </div>
+    </div>
+
     <!-- ADMIN/MANAGER SIDE -->
 
     <div class="text-end" sec:authorize="hasAnyRole('MANAGER','ADMIN')">
