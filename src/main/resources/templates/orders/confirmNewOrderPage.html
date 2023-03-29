@@ -32,7 +32,7 @@
     </form>
     <br>
     <form th:method="post" th:action="@{/order/newOrder}" th:object="${order}">
-        <h4 th:text="'Recipient: ' + ${activeUser.getName()} + ' ' + ${activeUser.getSurname()}"
+        <h4 th:text="'Customer: ' + ${activeUser.getName()} + ' ' + ${activeUser.getSurname()}"
             th:value="${activeUser.getId()}"></h4>
         <label for="deliveryMethod">Choose delivery method:</label>
         <select name="deliveryMethod" id="deliveryMethod">

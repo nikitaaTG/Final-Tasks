@@ -55,7 +55,6 @@ public class UserEntity {
     @NotNull
     private RoleOnSite role;
 
-    //Don't forget to change type to boolean in the DB.
     @Column(name = "deleted")
     @NotNull
     private boolean userDeleted;

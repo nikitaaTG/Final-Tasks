@@ -31,6 +31,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * Controller for all orders queries
+ */
+
 @Controller
 @RequestMapping("/order")
 @SessionAttributes("cart")
@@ -213,7 +217,11 @@ public class OrderController {
         return "/homepage/homepage";
     }
 
-
+    /**
+     * Method to calculate the total number of pages and add it to the list for further enumeration one by one
+     *
+     * @param orderPages
+     */
     public List<Integer> getPagesCount(Page<OrderDTO> orderPages) {
         int totalPages = orderPages.getTotalPages();
         List<Integer> result = IntStream.rangeClosed(1, totalPages)

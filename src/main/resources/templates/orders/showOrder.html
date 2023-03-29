@@ -20,7 +20,7 @@
 <div class="main">
     <h3 th:text="'Information about order: ' + ${order.getId()}"></h3>
 
-    <h5 th:text="'Recipient: ' + ${user.getName()} + ' ' + ${user.getSurname()}"></h5>
+    <h5 th:text="'Customer: ' + ${user.getName()} + ' ' + ${user.getSurname()}"></h5>
     <h5 th:text="'Address: ' + ${address.getPostIndex()}+ ', ' + ${address.getCountry()} + ', ' + ${address.getCity()} + ', ' + ${address.getStreet()} + ', ' + ${address.getHome()} + ', ' + ${address.getApartment()}"></h5>
 
     <h6>Products in order:</h6>

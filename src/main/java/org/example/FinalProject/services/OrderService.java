@@ -34,18 +34,29 @@ public class OrderService {
         return orderRepository.findById(id).orElse(null);
     }
 
+    /**
+     * Method for creating new order and adding it to DB.
+     * Here we add all products from cart to ArrayList and add it to orderEntity. After if we save orderEntity in DB.
+     *
+     * @param orderDTO
+     * @param cart
+     */
     public OrderEntity createNewOrder(OrderDTO orderDTO, Cart cart) {
         OrderEntity orderEntity = OrderMapper.INSTANCE.orderDTOToEntity(orderDTO);
-
         List<ProductEntity> productEntities = new ArrayList<>();
         for (ProductDTO prodDto : cart) {
             productEntities.add(ProductMapper.INSTANCE.productDTOToEntity(prodDto));
         }
-
         orderEntity.setProductsInOrder(productEntities);
         return orderRepository.save(orderEntity);
     }
 
+    /**
+     * Method for updating order in DB. Here we get parameters of sql-request and place them in right order.
+     *
+     * @param id
+     * @param changedOrder
+     */
     public void updateOrder(long id, OrderDTO changedOrder) {
         String paymentStatus = String.valueOf(changedOrder.getPaymentStatus());
         String orderStatus = String.valueOf(changedOrder.getOrderStatus());

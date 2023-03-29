@@ -26,7 +26,7 @@ public class ProductDTO {
     private double price;
 
     @NotBlank(message = "Description should not be empty")
-    @Size(min = 2, max = 55, message = "Description must contain from 2 to 55 characters")
+    @Size(min = 2, max = 255, message = "Description must contain from 2 to 255 characters")
     private String description;
 
     @Min(value = 0, message = "Can not be less than 0")

@@ -18,6 +18,13 @@ public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 
     Page<OrderEntity> findByUserId(double userId, Pageable pageable);
 
+    /**
+     * Method for updating order information in DB
+     *
+     * @param paymentStatus
+     * @param orderStatus
+     * @param id
+     */
     @Modifying
     @Query(value = "UPDATE webMarket2.orders SET payment_status = :paymentStatus, order_status = :orderStatus WHERE id = :id ;",
             nativeQuery = true)

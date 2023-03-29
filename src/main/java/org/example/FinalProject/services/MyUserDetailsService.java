@@ -22,16 +22,19 @@ public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-
+    /**
+     * Spring security Authentication settings.
+     *
+     * @param email
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
-    public UserDetails loadUserByUsername(String email)
-            throws UsernameNotFoundException {
-
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserEntity user = userRepository.findByEmail(email);
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
-
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(), user.getPassword(), !user.isUserDeleted(), true, true,
                 true, getAuthorities(user.getRole()));

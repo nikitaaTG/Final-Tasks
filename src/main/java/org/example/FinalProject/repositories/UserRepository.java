@@ -15,17 +15,32 @@ import java.util.Date;
 @Repository
 @Transactional
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
+
     Page<UserEntity> findAll(Pageable pageable);
 
-    @Query(value = "SELECT * FROM webMarket2.user WHERE email_address = ?;",
-            nativeQuery = true)
     UserEntity findByEmail(String email);
 
+    /**
+     * Method for updating user information in DB
+     *
+     * @param name
+     * @param surname
+     * @param birthDay
+     * @param email
+     * @param id
+     */
     @Modifying
     @Query(value = "UPDATE webMarket2.user SET name = :name, surname = :surname, date_of_birth = :birthDay, email_address = :email WHERE id = :id ;",
             nativeQuery = true)
     int updateUser(@Param("name") String name, @Param("surname") String surname, @Param("birthDay") Date birthDay, @Param("email") String email, @Param("id") Long id);
 
+
+    /**
+     * Method for updating user password in DB
+     *
+     * @param password
+     * @param id
+     */
     @Modifying
     @Query(value = "UPDATE webMarket2.user SET password = :password WHERE id = :id ;",
             nativeQuery = true)

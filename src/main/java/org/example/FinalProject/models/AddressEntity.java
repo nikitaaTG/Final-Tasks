@@ -32,7 +32,6 @@ public class AddressEntity {
 
     @Column(name = "post_index")
     @NotNull(message = "Post index is empty")
-//    @Size(min = 5, max = 5, message = "Post index must contain 5 digits")
     private int postIndex;
 
     @Column(name = "street")

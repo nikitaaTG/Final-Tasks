@@ -23,6 +23,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * Controller for all users queries
+ */
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -50,7 +54,7 @@ public class UserController {
     @GetMapping("/all")
     public String showAllUsers(
             @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
-            Model model,
+                    Model model,
             @RequestParam("page") Optional<Integer> page,
             @RequestParam("size") Optional<Integer> size) {
         // Settings of pagination:
@@ -72,11 +76,10 @@ public class UserController {
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @GetMapping("/{id}")
-    public String showUser(@PathVariable("id") long id,
-                           Model model) {
+    public String showUser(@PathVariable("id") long id, Model model) {
+
         UserDTO userDTO = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
         model.addAttribute(USER, userDTO);
-
 
         return "users/showUser";
     }
@@ -84,22 +87,36 @@ public class UserController {
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @GetMapping("/{id}/editUser")
     public String editUser(Model model, @PathVariable("id") long id) {
+
         UserDTO userDTO = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
         model.addAttribute(USER, userDTO);
 
         return "users/editUser";
     }
 
-    //??
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @PatchMapping("/{id}")
     public String updateUser(@ModelAttribute("user") @Valid UserDTO userDTO, BindingResult bindingResult,
                              @PathVariable("id") long id) {
+
         if (bindingResult.hasErrors()) {
             return "users/editUser";
         }
         userService.updateUser(id, userDTO);
+
         return "redirect:/user/{id}";
+    }
+
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
+    @GetMapping("/{id}/changePassword")
+    public String editUserPassword(Model model,
+                                   @PathVariable("id") long id,
+                                   @AuthenticationPrincipal User user) {
+
+        UserDTO userDTO = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
+        model.addAttribute(USER, userDTO);
+
+        return "users/changePassword";
     }
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
@@ -109,6 +126,7 @@ public class UserController {
                                      BindingResult bindingResult,
                                      @PathVariable("id") long id, Model model) {
 
+        //validation of old password (if user enters the wrong password, the new password will not be written)
         if (!userService.getUserById(id).getPassword().equals(oldPassword)) {
             model.addAttribute(USER, userService.getUserById(id));
             return "users/changePassword";
@@ -117,54 +135,46 @@ public class UserController {
         return "redirect:/user/{id}";
     }
 
-    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
-    @GetMapping("/{id}/changePassword")
-    public String editUserPassword(Model model,
-                                   @PathVariable("id") long id,
-                                   @AuthenticationPrincipal User user) {
-        UserDTO userDTO = UserMapper.INSTANCE.userEntityToDTO(userService.getUserById(id));
-        model.addAttribute(USER, userDTO);
-
-        return "users/changePassword";
-    }
-
     /**
      * USER SIDE:
      **/
 
     @GetMapping("/self")
-    public String showSelf(@AuthenticationPrincipal User user,
-                           Model model) {
+    public String showSelf(@AuthenticationPrincipal User user, Model model) {
+
         UserDTO activeUser = userService.getUserByEmail(user.getUsername());
         model.addAttribute(USER, activeUser);
+
         return "users/showUser";
     }
 
     @GetMapping("/self/editUser")
-    public String editSelf(Model model,
-                           @AuthenticationPrincipal User user) {
+    public String editSelf(Model model, @AuthenticationPrincipal User user) {
+
         UserDTO activeUser = userService.getUserByEmail(user.getUsername());
         model.addAttribute(USER, activeUser);
 
         return "users/editUser";
     }
 
-    //??
     @PatchMapping("/self")
     public String updateSelf(@ModelAttribute("user") @Valid UserDTO userDTO, BindingResult bindingResult,
                              @AuthenticationPrincipal User user) {
+
         if (bindingResult.hasErrors()) {
             return "users/editUser";
         }
+
         long id = userService.getUserByEmail(user.getUsername()).getId();
         userService.updateUser(id, userDTO);
+
         return "redirect:/user/self";
     }
 
 
     @GetMapping("/self/changePassword")
-    public String editSelfPassword(Model model,
-                                   @AuthenticationPrincipal User user) {
+    public String editSelfPassword(Model model, @AuthenticationPrincipal User user) {
+
         UserDTO activeUser = userService.getUserByEmail(user.getUsername());
         model.addAttribute(USER, activeUser);
 
@@ -180,6 +190,7 @@ public class UserController {
 
         long id = userService.getUserByEmail(user.getUsername()).getId();
 
+        //validation of old password (if user enters the wrong password, the new password will not be written)
         if (!userService.getUserById(id).getPassword().equals(oldPassword)) {
             model.addAttribute(USER, userService.getUserById(id));
             return "users/changePassword";
@@ -188,6 +199,11 @@ public class UserController {
         return "redirect:/user/self";
     }
 
+    /**
+     * Method to calculate the total number of pages and add it to the list for further enumeration one by one
+     *
+     * @param userPages
+     */
     public List<Integer> getPagesCount(Page<UserDTO> userPages) {
         int totalPages = userPages.getTotalPages();
         List<Integer> result = IntStream.rangeClosed(1, totalPages)

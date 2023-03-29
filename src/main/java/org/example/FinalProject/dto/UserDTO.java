@@ -40,11 +40,9 @@ public class UserDTO {
     @Email
     @NotNull(message = "E-mail is empty")
     @NotBlank(message = "E-mail is empty")
-//    @UniqueElements(message = "E-mail is not unique on this web-site")
     private String email;
 
-//    @NotNull(message = "Password is empty")
-    @Size(min = 8, max = 100, message = "Password should be more than 8 characters")
+    @Size(min = 8, max = 100, message = "Password should be longer than 8 characters")
     private String password;
 
     private RoleOnSite role;

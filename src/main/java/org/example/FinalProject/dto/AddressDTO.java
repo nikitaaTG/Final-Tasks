@@ -25,7 +25,6 @@ public class AddressDTO {
     private String city;
 
     @NotNull(message = "Post index is empty")
-//    @Size(min = 5, max = 5, message = "Post index must contain 5 digits")
     private int postIndex;
 
     @NotBlank(message = "Street is empty")

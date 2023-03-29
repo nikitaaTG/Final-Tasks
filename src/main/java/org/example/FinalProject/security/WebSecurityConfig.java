@@ -14,17 +14,22 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 public class WebSecurityConfig {
 
-//Settings of login & logout logic (logout redirect to homepage, not to login page)
+    /**
+     * Settings of login & logout logic (logout redirect to homepage, not to login page)
+     *
+     * @param http
+     * @throws Exception
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .formLogin((form) -> {
-                            try {
-                                form
-                                        .loginPage("/login")
-                                        .and()
-                                        .logout((logout) ->
-                                                logout
+                    try {
+                        form
+                                .loginPage("/login")
+                                .and()
+                                .logout((logout) ->
+                                        logout
                                                         .deleteCookies("remove")
                                                         .invalidateHttpSession(false)
                                                         .logoutUrl("/logout")

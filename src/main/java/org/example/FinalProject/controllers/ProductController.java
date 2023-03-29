@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.example.FinalProject.dto.ProductDTO;
 import org.example.FinalProject.mappers.CategoryMapper;
 import org.example.FinalProject.mappers.ProductMapper;
+import org.example.FinalProject.services.CategoryService;
 import org.example.FinalProject.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,12 +23,18 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * Controller for all products queries
+ */
+
 @Controller
 @RequestMapping("/assortment")
 public class ProductController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private CategoryService categoryService;
 
     private final int currentPageNormal = 1;
     private final int pageSizeNormal = 8;
@@ -55,7 +62,7 @@ public class ProductController {
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         //  Add Model attribute for view list of category in filter
-        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
+        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(categoryService.getAllCategories()));
         return categoryId.map(cat -> {
             // Pagination of all products in category filter
 
@@ -63,7 +70,7 @@ public class ProductController {
             model.addAttribute(PRODUCT_PAGE, productInCategory);
             List<Integer> pageNumbers = getPagesCount(productInCategory);
             model.addAttribute(PAGE_NUMBERS, pageNumbers);
-            model.addAttribute(CATEGORY_NAME, CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
+            model.addAttribute(CATEGORY_NAME, CategoryMapper.INSTANCE.categoryEntityToDTO(categoryService.getCategoryById(cat)).getName());
             model.addAttribute(CATEGORY_ID, cat);
             return "products/index";
         }).orElseGet(() -> {
@@ -82,7 +89,7 @@ public class ProductController {
     @GetMapping("/find")
     public String findProductByTitle(
             @PageableDefault(sort = "id", direction = Sort.Direction.ASC, value = 2)
-            Model model,
+                    Model model,
             @RequestParam("page") Optional<Integer> page,
             @RequestParam("size") Optional<Integer> size,
             @RequestParam("title") String title,
@@ -93,7 +100,7 @@ public class ProductController {
         Pageable allProductsPage = PageRequest.of(currentPage - 1, pageSize);
 
         //  Add Model attribute for view list of category in filter
-        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
+        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(categoryService.getAllCategories()));
         model.addAttribute(TITLE, title);
         return categoryId.map(cat -> {
 //            // Pagination of all products in category filter
@@ -102,7 +109,7 @@ public class ProductController {
             model.addAttribute(PRODUCT_PAGE, productInCategory);
             List<Integer> pageNumbers = getPagesCount(productInCategory);
             model.addAttribute(PAGE_NUMBERS, pageNumbers);
-            model.addAttribute(CATEGORY_NAME, CategoryMapper.INSTANCE.categoryEntityToDTO(productService.getCategoryById(cat)).getName());
+            model.addAttribute(CATEGORY_NAME, CategoryMapper.INSTANCE.categoryEntityToDTO(categoryService.getCategoryById(cat)).getName());
             return "products/index";
         }).orElseGet(() -> {
             // Pagination of all products
@@ -130,7 +137,7 @@ public class ProductController {
     @GetMapping("/new")
     public String newProduct(Model model) {
         model.addAttribute(PRODUCT, new ProductDTO());
-        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
+        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(categoryService.getAllCategories()));
         return "products/addProduct";
     }
 
@@ -138,7 +145,7 @@ public class ProductController {
     @PostMapping()
     public String createProduct(@ModelAttribute("product") @Valid ProductDTO product,
                                 BindingResult bindingResult, Model model) {
-        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
+        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(categoryService.getAllCategories()));
         if (bindingResult.hasErrors()) {
             return "products/addProduct";
         }
@@ -153,7 +160,7 @@ public class ProductController {
         ProductDTO product = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
         model.addAttribute(PRODUCT, product);
         model.addAttribute(PROD_TITLE, product.getTitle());
-        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
+        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(categoryService.getAllCategories()));
         return "products/editProduct";
     }
 
@@ -161,12 +168,20 @@ public class ProductController {
     @PatchMapping("/{id}")
     public String updateProduct(@ModelAttribute("product") @Valid ProductDTO productDTO, BindingResult bindingResult,
                                 @PathVariable("id") long id, Model model) {
-        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(productService.getAllCategories()));
+        model.addAttribute(CATEGORIES, CategoryMapper.INSTANCE.listDTO(categoryService.getAllCategories()));
         if (bindingResult.hasErrors()) {
             return "products/editProduct";
         }
         productService.updateProduct(id, productDTO);
         return "redirect:/assortment/{id}";
+    }
+
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
+    @GetMapping("/{id}/deleteProduct")
+    public String getConfirmDeletingPage(Model model, @PathVariable("id") long id) {
+        ProductDTO product = ProductMapper.INSTANCE.productEntityToDTO(productService.getProductById(id));
+        model.addAttribute(PRODUCT, product);
+        return "products/confirmDeleting";
     }
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
@@ -177,7 +192,11 @@ public class ProductController {
     }
 
 
-    // Counting the number of page method
+    /**
+     * Method to calculate the total number of pages and add it to the list for further enumeration one by one
+     *
+     * @param productPages
+     */
     public List<Integer> getPagesCount(Page<ProductDTO> productPages) {
         int totalPages = productPages.getTotalPages();
         List<Integer> result = IntStream.rangeClosed(1, totalPages)

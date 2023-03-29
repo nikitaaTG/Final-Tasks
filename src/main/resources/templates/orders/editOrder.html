@@ -25,14 +25,14 @@
 
             <br>
             <br>
-            <label for="paymentStatus">Choose payment status:</label>
+            <label for="paymentStatus">Edit payment status:</label>
             <select name="paymentStatus" id="paymentStatus">
                 <option th:text="${payStatus}" th:each="payStatus : ${paymentStatus}"
                         th:value="${payStatus}"></option>
             </select>
             <br>
             <br>
-            <label for="orderStatus">Choose order status:</label>
+            <label for="orderStatus">Edit order status:</label>
             <select name="orderStatus" id="orderStatus">
                 <option th:text="${orderStat}" th:each="orderStat : ${orderStatus}"
                         th:value="${orderStat}"></option>

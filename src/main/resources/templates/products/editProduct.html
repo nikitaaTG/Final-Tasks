@@ -50,7 +50,7 @@
         <input class="btn btn-primary btn-sm" type="submit" value="Edit Category of product">
     </form>
     <br>
-    <form th:method="delete" th:action="@{/assortment/{id}(id=${product.getId()})}">
+    <form th:method="get" th:action="@{/assortment/{id}/deleteProduct(id=${product.getId()})}">
         <input class="btn btn-primary btn-sm" type="submit" value="Delete this product">
     </form>
     <br>

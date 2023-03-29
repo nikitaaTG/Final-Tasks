@@ -14,7 +14,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Locale;
 
 @Service
 @RequiredArgsConstructor
@@ -24,29 +23,19 @@ public class ProductService {
 
     private final CategoryRepository categoryRepository;
 
-    public CategoryEntity addCategory(String title) {
-        if (title != null && !title.isEmpty()) {
-            String lowerCaseTitle = title.trim().toLowerCase(Locale.ROOT);
-            return categoryRepository.save(new CategoryEntity(lowerCaseTitle));
-        }
-        throw new IllegalArgumentException("Title is empty or null");
-    }
-
-    public List<CategoryEntity> getAllCategories() {
-        return categoryRepository.findAll();
-    }
-
-    public CategoryEntity getCategoryById(Long id) {
-        return categoryRepository.findById(id).orElseThrow(RuntimeException::new);
-    }
-
-
+    /**
+     * Method to get products by title.
+     * Here we get List of products from DB transform in to Page with
+     * {@linkplain   #transformListToPage(List, Pageable)}
+     *
+     * @param title
+     * @param pageable
+     */
     public Page<ProductDTO> listProductsByTitle(String title, Pageable pageable) {
         if (title != null) {
             Page<ProductDTO> pageDto = (transformListToPage(productRepository.findByTitleContainingIgnoreCase(title), pageable).map(ProductMapper.INSTANCE::productEntityToDTO));
             return pageDto;
-        }
-        else throw new IllegalArgumentException("Title is null");
+        } else throw new IllegalArgumentException("Title is null");
     }
 
     public Page<ProductDTO> listProducts(Pageable pageable) {
@@ -54,7 +43,14 @@ public class ProductService {
         return pages;
     }
 
-    public Page<ProductDTO> listProductsByCategory(Long categoryId, Pageable pageable){
+    /**
+     * Method to get products by title.
+     * Here we get List of products from DB, filtered by Category
+     *
+     * @param categoryId
+     * @param pageable
+     */
+    public Page<ProductDTO> listProductsByCategory(Long categoryId, Pageable pageable) {
         CategoryEntity category = categoryRepository.findById(categoryId).orElseThrow(RuntimeException::new);
         Page<ProductDTO> pagesInCategory = productRepository.findAllByCategory(category, pageable).map(ProductMapper.INSTANCE::productEntityToDTO);
         return pagesInCategory;
@@ -66,6 +62,12 @@ public class ProductService {
         productRepository.save(newProduct);
     }
 
+    /**
+     * Method for updating product in DB. Here we get parameters of sql-request and place them in right order.
+     *
+     * @param id
+     * @param updatedProduct
+     */
     public void updateProduct(long id, ProductDTO updatedProduct) {
         String title = updatedProduct.getTitle();
         double price = updatedProduct.getPrice();
@@ -74,6 +76,12 @@ public class ProductService {
         productRepository.updateProduct(title, price, leftInStock, description, id);
     }
 
+    /**
+     * Method for updating products category in DB. Here we get parameters of sql-request and place them in right order.
+     *
+     * @param id
+     * @param updatedProduct
+     */
     public void updateProductCategory(long id, ProductDTO updatedProduct) {
         long categoryId = updatedProduct.getCategory().getId();
         productRepository.updateProductCategory(categoryId, id);
@@ -87,6 +95,17 @@ public class ProductService {
         return productRepository.findById(id).orElse(null);
     }
 
+    public void reduceAmount(Long id) {
+        productRepository.reduceAmount(id);
+    }
+
+    /**
+     * Method for transformation Product list to Page
+     *
+     * @param list
+     * @param pageable
+     * @return
+     */
     public Page<ProductEntity> transformListToPage(List<ProductEntity> list, Pageable pageable) {
         final int start = (int) pageable.getOffset();
         final int end = Math.min((start + pageable.getPageSize()), list.size());
@@ -94,7 +113,4 @@ public class ProductService {
         return page;
     }
 
-    public void reduceAmount(Long id) {
-        productRepository.reduceAmount(id);
-    }
 }

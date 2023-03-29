@@ -25,14 +25,13 @@ public class AddressService {
         return addressRepository.findAllByUserId(id);
     }
 
-    public AddressEntity addAddress(AddressEntity addressEntity) {
-        return addressRepository.save(addressEntity);
-    }
-
-    public void deleteAddress(Long id) {
-        addressRepository.deleteById(id);
-    }
-
+    /**
+     * Method for save users address in DB. Here we set userId and UserEntity to AddressEntity and save it.
+     *
+     * @param addressDTO
+     * @param userId
+     * @return
+     */
     public AddressEntity saveAddress(AddressDTO addressDTO, long userId) {
         AddressEntity addressEntity = AddressMapper.INSTANCE.addressDTOToEntity(addressDTO);
         addressEntity.setUserId(userId);
@@ -44,6 +43,12 @@ public class AddressService {
         return addressRepository.findById(id).orElse(null);
     }
 
+    /**
+     * Method for updating address in DB. Here we get parameters of sql-request and place them in right order.
+     *
+     * @param id
+     * @param updatedAddress
+     */
     public void updateAddress(long id, AddressDTO updatedAddress) {
         String country = updatedAddress.getCountry();
         String city = updatedAddress.getCity();
@@ -51,7 +56,6 @@ public class AddressService {
         String street = updatedAddress.getStreet();
         int home = updatedAddress.getHome();
         int apartment = updatedAddress.getApartment();
-//        long userId = updatedAddress.getUserId();
         addressRepository.updateAddress(country, city, postIndex, street, home, apartment, id);
     }
 }

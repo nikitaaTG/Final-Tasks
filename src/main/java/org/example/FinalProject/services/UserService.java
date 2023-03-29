@@ -23,15 +23,20 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public Page<UserDTO> findAll(Pageable pageable){
+    public Page<UserDTO> findAll(Pageable pageable) {
         return userRepository.findAll(pageable).map(UserMapper.INSTANCE::userEntityToDTO);
     }
 
-    public UserDTO getUserByEmail (String email) {
+    public UserDTO getUserByEmail(String email) {
         return UserMapper.INSTANCE.userEntityToDTO(userRepository.findByEmail(email));
     }
 
-    public UserEntity createUser (UserDTO userDTO) {
+    /**
+     * Method for creating user in DB. Here we set default values of role and deletedFlag.
+     *
+     * @param userDTO
+     */
+    public UserEntity createUser(UserDTO userDTO) {
         userDTO.setRole(RoleOnSite.CLIENT);
         userDTO.setUserDeleted(false);
         UserEntity userEntity = UserMapper.INSTANCE.userDTOToEntity(userDTO);
@@ -42,6 +47,13 @@ public class UserService {
         return userRepository.findById(id).orElse(null);
     }
 
+
+    /**
+     * Method for updating user in DB. Here we get parameters of sql-request and place them in right order.
+     *
+     * @param id
+     * @param updatedUser
+     */
     public void updateUser(long id, UserDTO updatedUser) {
         String name = updatedUser.getName();
         String surname = updatedUser.getSurname();
@@ -50,6 +62,12 @@ public class UserService {
         userRepository.updateUser(name, surname, birthDay, email, id);
     }
 
+    /**
+     * Method for update users password in DB. Here we get parameters of sql-request and place them in right order.
+     *
+     * @param id
+     * @param password
+     */
     public void updatePassword(long id, String password) {
         userRepository.updatePassword(password, id);
     }
